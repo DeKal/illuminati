@@ -2,7 +2,9 @@
 #
 # Check https://circleci.com/docs/2.0/language-java/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
 jobs:
   build:
     docker:
@@ -40,5 +42,11 @@ jobs:
 
       # run tests!
       - run: gradle clean check
-      - run: gradle clean test
       - run: gradle jacocoTestCoverageVerification
+      - codecov/upload:
+          file: build/reports/jacoco/test/jacocoTestReport.xml
+      - store_artifacts:
+          path: build/reports/tests/test
+          destination: /
+      - store_test_results:
+          path: build/test-results
