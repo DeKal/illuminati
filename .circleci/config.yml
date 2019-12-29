@@ -39,8 +39,5 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle checkstyleMain
-      - run: gradle checkstyleTest
-      - run: gradle spotbugsMain
-      - run: gradle spotbugsTest
-      - run: gradle test
+      - run: gradle clean check
+      - run: gradle clean test

@@ -5,6 +5,7 @@ plugins {
 	id 'war'
 	id 'checkstyle'
 	id "com.github.spotbugs" version "3.0.0"
+	id 'jacoco'
 }
 
 group = 'com.dawn.'
@@ -45,6 +46,7 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	finalizedBy jacocoTestReport
 }
 
 checkstyle {
@@ -60,7 +62,6 @@ checkstyleTest {
 
 tasks.withType(Checkstyle) {
 	reports {
-		xml.enabled false
 		html.enabled true
 		html.destination rootProject.file("build/reports/checkstyle.html")
 	}
@@ -75,4 +76,16 @@ sourceSets {
 
 tasks.withType(com.github.spotbugs.SpotBugsTask) {
 	// configure automatically generated tasks
+}
+
+jacoco {
+	toolVersion = "0.8.5"
+}
+
+jacocoTestReport {
+	reports {
+		xml.enabled true
+		html.enabled true
+		html.destination file("${buildDir}/reports/jacoco/test")
+	}
 }
