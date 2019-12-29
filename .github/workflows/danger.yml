@@ -8,9 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: "Run Danger"
+    strategy:
+      matrix:
+        node-version: [12.x]
+
     steps:
       - uses: actions/checkout@v1
-      - name: Danger
-        uses: danger/kotlin@0.2.0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Danger JS Action
+        uses: danger/danger-js@9.1.8
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_GIT_ACTION }}
