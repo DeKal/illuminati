@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class IlluminatiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(IlluminatiApplication.class, args);
-	}
+  public static void main(String[] args) {
+    SpringApplication.run(IlluminatiApplication.class, args);
+  }
 
 }
