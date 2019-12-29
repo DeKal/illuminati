@@ -1,68 +1,62 @@
-import { danger, fail, markdown } from 'danger'
+"use strict";
 
-// No PR is too small to include a description of why you made a change
-if (danger.github.pr.body.length < 8) {
-  fail('Please include a description of your PR changes.')
+var _danger = require("danger");
+
+if (_danger.danger.github.pr.body.length < 8) {
+  (0, _danger.fail)('Please include a description of your PR changes.');
+} // Check that someone has been assigned to this PR
+
+
+if (_danger.danger.github.pr.assignee === null) {
+  (0, _danger.fail)('Please assign someone to merge this PR, and optionally include people who should review.');
 }
 
-// Check that someone has been assigned to this PR
-if (danger.github.pr.assignee === null) {
-  fail(
-    'Please assign someone to merge this PR, and optionally include people who should review.'
-  )
-}
+var lernaConfigs = require('./lerna.json');
 
-const lernaConfigs = require('./lerna.json')
+var labels = lernaConfigs.changelog.labels;
+var _danger$github = _danger.danger.github,
+    issue = _danger$github.issue,
+    pr = _danger$github.pr,
+    commits = _danger$github.commits; // check sentence case
 
-const { labels } = lernaConfigs.changelog
+var firstChar = pr.title[0];
 
-const { issue, pr, commits } = danger.github
-
-// check sentence case
-const firstChar = pr.title[0]
 if (firstChar.toUpperCase() !== firstChar) {
-  fail('PR name should begin with a capital letter')
-}
+  (0, _danger.fail)('PR name should begin with a capital letter');
+} // should have a specified tag to be referenced in CHANGELOG.md
 
-// should have a specified tag to be referenced in CHANGELOG.md
-const availableLabels = Object.keys(labels)
-const assignedLabels = issue.labels
-  .map(label => label.name)
-  .filter(name => availableLabels.filter(label => label.includes(name)).length)
+
+var availableLabels = Object.keys(labels);
+var assignedLabels = issue.labels.map(function (label) {
+  return label.name;
+}).filter(function (name) {
+  return availableLabels.filter(function (label) {
+    return label.includes(name);
+  }).length;
+});
 
 if (!assignedLabels.length) {
-  fail(
-    `Requires one of these labels: [\`${availableLabels.join(
-      '`, `'
-    )}\`] to be referenced in CHANGELOG.md`
-  )
+  (0, _danger.fail)("Requires one of these labels: [`".concat(availableLabels.join('`, `'), "`] to be referenced in CHANGELOG.md"));
 }
 
-const uncapitalizedCommits = commits
-  .map(commit => commit.commit.message)
-  .filter(message => message[0].toUpperCase() !== message[0])
+var uncapitalizedCommits = commits.map(function (commit) {
+  return commit.commit.message;
+}).filter(function (message) {
+  return message[0].toUpperCase() !== message[0];
+});
+
 if (uncapitalizedCommits.length) {
-  fail(
-    `Commit messages should begin with a capital letter: [\`${uncapitalizedCommits.join(
-      '`, `'
-    )}\`]`
-  )
-}
+  (0, _danger.fail)("Commit messages should begin with a capital letter: [`".concat(uncapitalizedCommits.join('`, `'), "`]"));
+} // commit message should be specific
 
-// commit message should be specific
-const badCommitMessageExamples = [
-  'Fix test',
-  'Fix eslint',
-  'Fix bugs',
-  'Fix comments',
-  'Bug fixes'
-]
-const badCommitMessages = commits
-  .map(commit => commit.commit.message)
-  .filter(message => badCommitMessageExamples.indexOf(message) !== -1)
+
+var badCommitMessageExamples = ['Fix test', 'Fix eslint', 'Fix bugs', 'Fix comments', 'Bug fixes'];
+var badCommitMessages = commits.map(function (commit) {
+  return commit.commit.message;
+}).filter(function (message) {
+  return badCommitMessageExamples.indexOf(message) !== -1;
+});
 
 if (badCommitMessages.length) {
-  markdown(
-    `Commit message should be specific. Checkout [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)`
-  )
+  (0, _danger.markdown)("Commit message should be specific. Checkout [How to Write a Git Commit Message](https://chris.beams.io/posts/git-commit/)");
 }

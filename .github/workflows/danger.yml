@@ -14,10 +14,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - name: install yarn
-        run: npm install -g yarn
-      - name: yarn install, build, and test
-        run: yarn install  --frozen-lockfile
       - name: Danger JS Action
         uses: danger/danger-js@9.1.6
         env:
