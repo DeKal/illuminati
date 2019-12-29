@@ -18,6 +18,11 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - name: npm install, build, and test
+          run: |
+            npm install -g @babel/plugin-transform-flow-strip-types --save-dev
+          env:
+            CI: true
       - name: Danger JS Action
         uses: danger/danger-js@9.1.8
         env:
