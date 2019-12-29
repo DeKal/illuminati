@@ -8,7 +8,7 @@ plugins {
 	id 'jacoco'
 }
 
-group = 'com.dawn.'
+group = 'com.dawn.jat'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
@@ -87,5 +87,25 @@ jacocoTestReport {
 		xml.enabled true
 		html.enabled true
 		html.destination file("${buildDir}/reports/jacoco/test")
+	}
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.1
+			}
+		}
+
+		rule {
+			element = 'CLASS'
+			includes = ['com.dawn.jat.*']
+			limit {
+				counter = 'LINE'
+				value = 'TOTALCOUNT'
+				minimum = 0.1
+			}
+		}
 	}
 }
