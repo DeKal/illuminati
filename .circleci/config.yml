@@ -41,6 +41,9 @@ jobs:
       # run tests!
       - run: gradle clean check
       - run: gradle jacocoTestCoverageVerification
+      - store_artifacts:
+          path: build/reports/tests/test
+          destination: /
 
 test:
   post:
