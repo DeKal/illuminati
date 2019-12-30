@@ -47,3 +47,7 @@ gradle-app.setting
 
 #Mac
 .DS_Store
+
+
+# Node module
+node_modules/
