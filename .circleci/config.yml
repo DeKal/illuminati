@@ -50,14 +50,14 @@ jobs:
           destination: /
       - store_test_results:
           path: build/test-results
-  build-danger:
+  check-danger:
     docker:
       # specify the version you desire here
       - image: circleci/node:12
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # documented atcheck https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
@@ -73,14 +73,20 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "danger/package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: yarn install
+      - run: cd danger && yarn install
 
       - save_cache:
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - danger/node_modules
+          key: v1-dependencies-{{ checksum "danger/package.json" }}
       - run: cd danger && yarn danger ci
+workflows:
+  version: 2.1
+  build_and_test:
+    jobs:
+      - build
+      - check-danger
