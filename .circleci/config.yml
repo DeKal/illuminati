@@ -50,7 +50,7 @@ jobs:
           destination: /
       - store_test_results:
           path: build/test-results
-  danger:
+  build-danger:
     docker:
       # specify the version you desire here
       - image: circleci/node:12
