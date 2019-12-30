@@ -4,7 +4,6 @@ plugins {
 	id 'java'
 	id 'war'
 	id 'checkstyle'
-	id "com.github.spotbugs" version "3.0.0"
 	id 'jacoco'
 }
 
@@ -41,7 +40,6 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.security:spring-security-test'
-	spotbugsPlugins 'com.h3xstream.findsecbugs:findsecbugs-plugin:1.7.1'
 }
 
 test {
@@ -65,17 +63,6 @@ tasks.withType(Checkstyle) {
 		html.enabled true
 		html.destination rootProject.file("build/reports/checkstyle.html")
 	}
-}
-
-sourceSets {
-	// we define `main` sourceSet here, so SpotBugs Gradle Plugin generates `spotbugsMain` task
-	main {
-		java.srcDirs = ['src/main/java']
-	}
-}
-
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
-	// configure automatically generated tasks
 }
 
 jacoco {
