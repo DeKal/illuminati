@@ -48,7 +48,7 @@ Instead of "New World Order", this project will bring new light to those are in 
 - Only release a version when git status is clean and on branch `master`.
 - Changelog is generated with Git Changelog Gradle plugin following changelog.mustache format.
 ```bash
-./script/release.sh
+./release.sh
 ```
 
 ## Continuous Integration(CI)
