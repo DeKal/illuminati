@@ -17,6 +17,7 @@ plugins {
 	id 'war'
 	id 'checkstyle'
 	id 'jacoco'
+	id "net.researchgate.release" version "2.8.1"
 }
 
 group = 'com.dawn.jat'
