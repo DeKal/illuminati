@@ -18,6 +18,7 @@ plugins {
 	id 'checkstyle'
 	id 'jacoco'
 	id "net.researchgate.release" version "2.8.1"
+	id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.64"
 }
 
 group = 'com.dawn.jat'
@@ -108,4 +109,13 @@ jacocoTestCoverageVerification {
 			}
 		}
 	}
+}
+
+
+task generateGitChangelogMinimal(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+	file = new File("CHANGELOG.md");
+}
+
+sourceSets {
+	main.java.srcDirs = ['src/main/java']
 }
