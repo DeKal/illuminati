@@ -2,6 +2,30 @@
 
 Changelog of Git Changelog Gradle plugin.
 
+## 0.0.2
+### No issue
+
+**Change directory of release script**
+
+
+[e61f3f7e843a8d7](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/e61f3f7e843a8d7) Phat Ho *2020-12-31 15:46:43*
+
+**Edit Release script**
+
+
+[4e58be58ee2d5af](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/4e58be58ee2d5af) Phat Ho *2020-12-31 15:33:36*
+
+**Add exec for script**
+
+
+[3844c3acd9d2fea](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/3844c3acd9d2fea) Phat Ho *2020-12-31 15:30:01*
+
+**Adding CHANGLOG.md and README.md**
+
+
+[e828aa36f5b0f30](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/e828aa36f5b0f30) Phat Ho *2020-12-31 15:24:01*
+
+
 ## 0.0.1
 ### No issue
 
