@@ -51,3 +51,7 @@ gradle-app.setting
 
 # Node module
 node_modules/
+
+
+# Release CHANGELOG.md cache
+.okhttpcache
