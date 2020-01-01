@@ -21,7 +21,6 @@ plugins {
 }
 
 group = 'com.dawn.jat'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -40,7 +39,7 @@ repositories {
 
 dependencies {
 //	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+//	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
