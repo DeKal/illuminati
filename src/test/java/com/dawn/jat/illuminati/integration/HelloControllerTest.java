@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.intergationtest;
+package com.dawn.jat.illuminati.integration;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
