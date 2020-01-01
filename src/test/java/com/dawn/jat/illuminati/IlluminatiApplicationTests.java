@@ -7,5 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 class IlluminatiApplicationTests {
     @Test
     void contextLoads() {
+        IlluminatiApplication.main(new String[]{""});
     }
 }
