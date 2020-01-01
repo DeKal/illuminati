@@ -52,9 +52,6 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.security:spring-security-test'
-	testCompile 'junit:junit:4.12'
-	compile 'junit:junit:4.12'
-
 }
 
 test {
