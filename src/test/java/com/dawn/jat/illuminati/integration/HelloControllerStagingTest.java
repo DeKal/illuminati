@@ -10,26 +10,26 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 
-@ActiveProfiles("default")
+@ActiveProfiles("staging")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerTest {
+public class HelloControllerStagingTest {
     @Autowired
-    protected HelloController controller;
+    private HelloController controller;
+
+    @LocalServerPort
+    private int port;
 
     @Test
     void contextLoads() throws Exception {
         assertThat(controller).isNotNull();
     }
 
-    @LocalServerPort
-    protected int port;
-
     @Autowired
-    protected TestRestTemplate restTemplate;
+    private TestRestTemplate restTemplate;
 
     @Test
     public void helloPageShouldReturnDefaultMessage() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hello",
-                String.class)).contains("Hello World!!!");
+                String.class)).contains("Hello World in Staging!!!");
     }
 }

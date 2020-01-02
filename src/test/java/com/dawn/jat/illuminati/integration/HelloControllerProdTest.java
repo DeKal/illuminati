@@ -10,11 +10,11 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 
-@ActiveProfiles("default")
+@ActiveProfiles("prod")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerTest {
+public class HelloControllerProdTest {
     @Autowired
-    protected HelloController controller;
+    private HelloController controller;
 
     @Test
     void contextLoads() throws Exception {
@@ -22,14 +22,14 @@ public class HelloControllerTest {
     }
 
     @LocalServerPort
-    protected int port;
+    private int port;
 
     @Autowired
-    protected TestRestTemplate restTemplate;
+    private TestRestTemplate restTemplate;
 
     @Test
     public void helloPageShouldReturnDefaultMessage() throws Exception {
         assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hello",
-                String.class)).contains("Hello World!!!");
+                String.class)).contains("Hello World in Prod!!!");
     }
 }
