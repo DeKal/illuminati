@@ -1,8 +1,8 @@
-package com.dawn.jat.illuminati.integration;
+package com.dawn.jat.illuminati.integration.post;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.dawn.jat.illuminati.hello.HelloController;
+import com.dawn.jat.illuminati.post.PostController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,9 +10,9 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class HelloControllerTest {
+public class PostControllerTest {
     @Autowired
-    private HelloController controller;
+    private PostController controller;
 
     @Test
     void contextLoads() throws Exception {
@@ -26,8 +26,15 @@ public class HelloControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void helloPageShouldReturnDefaultMessage() throws Exception {
-        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/hello",
-                String.class)).contains("Hello World!!!");
+    public void getPostByAvaiTitleShouldRespOK() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/post/Java",
+                String.class)).contains("OK");
+    }
+
+    public void getPostByUnavaiTitleShouldRepBadReq() throws Exception {
+        assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/post/Ruby",
+                String.class)).contains("Cannot find post");
     }
 }
+
+
