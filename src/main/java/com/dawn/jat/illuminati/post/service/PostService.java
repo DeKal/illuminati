@@ -1,8 +1,9 @@
-package com.dawn.jat.illuminati.service;
+package com.dawn.jat.illuminati.post.service;
 
-import com.dawn.jat.illuminati.entities.Post;
-import com.dawn.jat.illuminati.repo.PostRepository;
-import java.util.List;
+import com.dawn.jat.illuminati.post.entity.PostEntity;
+import com.dawn.jat.illuminati.post.repository.PostRepository;
+
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public List<Post> findByTitle(String title) {
-        return postRepository.findByTitle(title);
+    public Optional<PostEntity> findById(String id) {
+        return postRepository.findById(id);
     }
 }

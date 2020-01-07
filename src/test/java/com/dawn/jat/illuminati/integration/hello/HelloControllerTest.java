@@ -2,7 +2,7 @@ package com.dawn.jat.illuminati.integration.hello;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.dawn.jat.illuminati.hello.HelloController;
+import com.dawn.jat.illuminati.hello.controller.HelloController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
