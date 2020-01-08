@@ -27,7 +27,7 @@ public class PostController {
             return ResponseEntity.status(HttpStatus.OK)
                     .body("OK");
         }
-        return ResponseEntity.badRequest()
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body("Cannot find post");
     }
 }
