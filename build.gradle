@@ -56,11 +56,18 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
+/**
+ * Test using Junit Jupiter.
+ * After the test, executing Jacoco generating report.
+ */
 test {
 	useJUnitPlatform()
 	finalizedBy(jacocoTestReport)
 }
 
+/**
+ * Checkstyle to ensure code following proper format.
+ */
 checkstyle {
 	toolVersion '8.27'
 	configFile file("${rootDir}/config/checkstyle/checkstyle.xml")
@@ -79,6 +86,9 @@ tasks.withType(Checkstyle) {
 	}
 }
 
+/**
+ * Jacoco to generate Coverage report for Java code.
+ */
 jacoco {
 	toolVersion = "0.8.5"
 }
@@ -111,7 +121,9 @@ jacocoTestCoverageVerification {
 	}
 }
 
-
+/**
+ * Changelog setup
+ */
 task generateGitChangelogMinimal(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
 	file = new File("CHANGELOG.md");
 }
@@ -120,6 +132,11 @@ sourceSets {
 	main.java.srcDirs = ['src/main/java']
 }
 
+/**
+ * Our setup are Spring MVC + React App.
+ * So we need to exclusively build React App to Static Resource.
+ * Then we have to include React build to Spring build before War is create.
+ */
 node {
 	// Version of node to use.
 	version = '12.14.1'
