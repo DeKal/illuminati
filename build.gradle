@@ -120,6 +120,13 @@ sourceSets {
 	main.java.srcDirs = ['src/main/java']
 }
 
+node {
+	// Version of node to use.
+	version = '12.14.1'
+	// Enabled the automatic download.
+	download = true
+}
+
 task yarnInstall(type: YarnTask) {
 	workingDir = file('./cms')
 }
