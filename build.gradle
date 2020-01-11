@@ -19,6 +19,7 @@ plugins {
 	id 'jacoco'
 	id "net.researchgate.release" version "2.8.1"
 	id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.64"
+	id "com.github.node-gradle.node" version "2.0.0"
 }
 
 group = 'com.dawn.jat'
@@ -117,4 +118,41 @@ task generateGitChangelogMinimal(type: se.bjurr.gitchangelog.plugin.gradle.GitCh
 
 sourceSets {
 	main.java.srcDirs = ['src/main/java']
+}
+
+task yarnInstall(type: YarnTask) {
+	workingDir = file('./cms')
+}
+
+task buildCms(type: YarnTask) {
+	dependsOn yarnInstall
+	// add the express package only
+	args = ['build']
+	workingDir = file('./cms')
+}
+
+
+task moveCmsTemplate(type: Copy) {
+	dependsOn buildCms
+	from file("./cms/build/")
+	include "index.html"
+	into file("$buildDir/resources/main/templates/cms")
+}
+
+task moveStaticAsset(type: Copy) {
+	dependsOn buildCms
+	from file("./cms/build/")
+	include "**/*"
+	exclude "index.html"
+	into file("$buildDir/resources/main/static/")
+}
+
+bootWar {
+	dependsOn moveStaticAsset
+	dependsOn moveCmsTemplate
+}
+
+bootRun {
+	dependsOn moveStaticAsset
+	dependsOn moveCmsTemplate
 }
