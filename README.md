@@ -1,7 +1,7 @@
 [![Code Coverage](https://codecov.io/gh/DeKal/illuminati/branch/master/graph/badge.svg)](https://codecov.io/gh/DeKal/illuminati) [![CircleCI](https://circleci.com/gh/DeKal/illuminati/tree/master.svg?style=svg)](https://circleci.com/gh/DeKal/illuminati/tree/master)
 
 # illuminati
-[The Illuminati](https://knowyourmeme.com/memes/the-illuminati) is a purported secret society consisting of world governments, corporations and celebrities that play an important role in global affairs. Many believe the goal of the organization is to establish a global totalitarian government known as the "New World Order.".\
+[The Illuminati](https://knowyourmeme.com/memes/the-illuminati) is a purported secret society consisting of world governments, corporations and celebrities that play an important role in global affairs. Many believe the goal of the organization is to establish a global totalitarian government known as the "New World Order.".
 
 Instead of "New World Order", this project will bring new light to those are in confusion, to bring knowledge upon those miserable lives coding in a ruthless way. This is not a conspiracy, this is reality, this is public and accessible to those in need.
 
@@ -19,6 +19,15 @@ Instead of "New World Order", this project will bring new light to those are in 
 ```bash
 ./gradlew build --refresh-dependencies
 ```
+
+## Run/Build/Deploy Process
+Basically, we will build React App and Spring App in separate steps:
+1) All the Java code and Resources will be compiled, combined and stored in to folder `build/`
+2) NodeJs environment will be setup in `.gradle`
+3) Dependencies for React app will be installed
+4) React application is built in production mode using `yarn build` 
+5) React code build is copied into `build/resources/main`
+6) War file is packed and served
 
 ## Development
 ### Code Style
@@ -59,15 +68,15 @@ Circle.io will start 2 workflow: (Looking at .circleci/config.yml for details)
 2) Using Gradle with openjdk 8 container to validate the PR.
 
 ### Danger JS
-Ensure that PR has all the description, tag, reviewers and assignees, which helps a lot to build a good habit for team.
+- Ensure that PR has all the description, tag, reviewers and assignees, which helps a lot to build a good habit for team.
 
 ### CodeCov
-Coverage Report will be updated from *Circle CI* and a associative app will report back on Github PR.
+- Coverage Report will be updated from *Circle CI* and a associative app will report back on Github PR.
 #### CodeCov Patch
-Check if the coverage is affected by the new patch or not.
+- Check if the coverage is affected by the new patch or not.
 
 #### CodeCov Project
-Check the coverage of the whole project is changed or not.
+- Check the coverage of the whole project is changed or not.
 
 
 ## Continuous Deployment(CD)
@@ -75,10 +84,12 @@ CD is supported by Heroku Pipeline, separating into 3 stages:
 
 ``PR Apps -> Staging App -> Production App``
 
-- Every time, a PR is created, a new PR App will be deployed on Heroku
-- When PR is closed, app will be deployed on Staging
-- The end of development cycle, we release a version on Production App
+1) Every time, a PR is created, a new PR App will be deployed on Heroku
+2) When PR is closed, app will be deployed on Staging
+3) The end of development cycle, we release a version on Production App
 
+## Content management system(CMS)
+The CMS is written by ReactJs, follow instruction in `cms/` for more detail.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
