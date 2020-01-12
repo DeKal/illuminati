@@ -1,12 +1,10 @@
 build:
-  project_setup:
-    before:
-      - "cd cms"
   environment:
     node:
       version: 12.11.1
   nodes:
     analysis:
+      root_path: './cms'
       tests:
         override:
           - yarn lint
