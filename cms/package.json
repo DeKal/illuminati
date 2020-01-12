@@ -15,7 +15,6 @@
     "lint": "eslint '**/*.js'",
     "lint:css": "stylelint '**/*.js'",
     "test": "react-scripts test",
-    "test:watch": "react-scripts test --watch",
     "test:coverage": "react-scripts test --coverage"
   },
   "eslintConfig": {
