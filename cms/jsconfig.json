@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "baseUrl": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    ".git",
+    ".next"
+  ]
+}
