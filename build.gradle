@@ -101,6 +101,10 @@ jacocoTestCoverageVerification {
 		rule {
 			element = 'CLASS'
 			includes = ['com.dawn.jat.*']
+			excludes = [
+					'*.entity.*',
+					'*.repository.*'
+			]
 			limit {
 				counter = 'LINE'
 				value = 'TOTALCOUNT'
