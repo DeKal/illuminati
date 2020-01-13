@@ -40,7 +40,7 @@ repositories {
 }
 
 dependencies {
-//	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 //	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
 //	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -112,6 +112,10 @@ jacocoTestCoverageVerification {
 		rule {
 			element = 'CLASS'
 			includes = ['com.dawn.jat.*']
+			excludes = [
+					'*.entity.*',
+					'*.repository.*'
+			]
 			limit {
 				counter = 'LINE'
 				value = 'TOTALCOUNT'

@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.hello;
+package com.dawn.jat.illuminati.hello.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
