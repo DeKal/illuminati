@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.unit.hello;
+package com.dawn.jat.illuminati.hello;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

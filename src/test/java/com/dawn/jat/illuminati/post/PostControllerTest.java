@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.unit.post;
+package com.dawn.jat.illuminati.post;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
