@@ -10,7 +10,7 @@ exports[`App should render without throwing an error 1`] = `
     <img
       alt="logo"
       className="App-logo"
-      src="images/logo.svg"
+      src="/images/logo.svg"
     />
     <p>
       Edit 
