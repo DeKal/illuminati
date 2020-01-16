@@ -42,14 +42,10 @@ public class PostControllerTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity1 = new PostEntity();
-        postEntity1.setId("1");
-        postEntity1.setBrief("Guide");
-        postEntity1.setTag("Agile");
-        postEntity1.setTime("01/2020");
-        postEntity1.setTitle("How to apply Agile methodology");
-
-        postEntity2 = new PostEntity();
+        postEntity1 = new PostEntity("1", "How to apply Agile methodology",
+                "Agile", "Guide", "01/01/2020");
+        postEntity2 = new PostEntity("2", "Getting started with ReactJS",
+                "Web Developement", "Guide", "02/01/2020");
     }
 
     @Test
@@ -62,8 +58,8 @@ public class PostControllerTest {
 
     @Test
     void findPostAll_whenRecord() {
-        Mockito.when(postService.findAll()).thenReturn(Arrays.asList(postEntity1));
-        assertThat(postController.findAll().size(), is(1));
+        Mockito.when(postService.findAll()).thenReturn(Arrays.asList(postEntity1, postEntity2));
+        assertThat(postController.findAll().size(), is(2));
         Mockito.verify(postService, Mockito.times(1)).findAll();
     }
 
@@ -79,7 +75,7 @@ public class PostControllerTest {
 
     @Test
     public void whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
-        Mockito.when(postService.findById("1")).thenReturn(Optional.of(new PostEntity()));
+        Mockito.when(postService.findById("1")).thenReturn(Optional.of(postEntity1));
         ResponseEntity<String> responseEntity = postController.getPostById("1");
         assertNotNull(responseEntity);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());

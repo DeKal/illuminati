@@ -35,12 +35,8 @@ public class PostServiceTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity();
-        postEntity.setId("1");
-        postEntity.setBrief("Guide");
-        postEntity.setTag("Agile");
-        postEntity.setTime("01/2020");
-        postEntity.setTitle("How to apply Agile methodology");
+        postEntity = new PostEntity("1", "How to apply Agile methodology",
+                "Agile", "Guide", "01/01/2020");
     }
 
     @Test
@@ -60,8 +56,8 @@ public class PostServiceTest {
 
     @Test
     public void findPostById() {
-        Mockito.when(postRepository.findById("1")).thenReturn(Optional.of(new PostEntity()));
-        assertThat(postService.findById("1"), is(Optional.of(new PostEntity())));
+        Mockito.when(postRepository.findById("1")).thenReturn(Optional.of(postEntity));
+        assertThat(postService.findById("1"), is(Optional.of(postEntity)));
         Mockito.verify(postRepository, Mockito.times(1)).findById("1");
     }
 
@@ -78,5 +74,3 @@ public class PostServiceTest {
         Mockito.verify(postRepository, Mockito.times(1)).save(postEntity);
     }
 }
-
-
