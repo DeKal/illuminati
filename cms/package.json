@@ -16,7 +16,7 @@
     "lint": "eslint '**/*.js'",
     "lint:css": "stylelint '**/*.js'",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage"
+    "test:coverage": "react-scripts test --coverage --watchAll"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,7 +61,10 @@
       "/node_modules/",
       "setupTests.js",
       "serviceWorker.js",
-      "index.js"
+      "index.js",
+      "core/init/",
+      "core/state/configureStore.js",
+      "core/state/rootReducer.js"
     ],
     "coverageReporters": [
       "json",
@@ -72,9 +75,6 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "moduleNameMapper": {
-      "~/(.*)": "<rootDir>/$1"
-    },
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
