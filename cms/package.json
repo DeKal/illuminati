@@ -6,7 +6,8 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
-    "react-scripts": "3.3.0"
+    "react-scripts": "3.3.0",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -15,7 +16,7 @@
     "lint": "eslint '**/*.js'",
     "lint:css": "stylelint '**/*.js'",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage"
+    "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -60,7 +61,10 @@
       "/node_modules/",
       "setupTests.js",
       "serviceWorker.js",
-      "index.js"
+      "index.js",
+      "core/init/",
+      "core/state/configureStore.js",
+      "core/state/rootReducer.js"
     ],
     "coverageReporters": [
       "json",
@@ -71,9 +75,6 @@
     "collectCoverageFrom": [
       "src/**/*.js"
     ],
-    "moduleNameMapper": {
-      "~/(.*)": "<rootDir>/$1"
-    },
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
