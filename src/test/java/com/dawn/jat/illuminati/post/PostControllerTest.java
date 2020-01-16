@@ -1,11 +1,14 @@
 package com.dawn.jat.illuminati.post;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.dawn.jat.illuminati.post.controller.PostController;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
@@ -42,10 +45,10 @@ public class PostControllerTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity1 = new PostEntity("1", "How to apply Agile methodology",
-                "Agile", "Guide", "01/01/2020");
-        postEntity2 = new PostEntity("2", "Getting started with ReactJS",
-                "Web Developement", "Guide", "02/01/2020");
+        postEntity1 = new PostEntity("1", "How to apply Agile methodology", "Guide",
+                "01/01/2020", new String[] {"Agile"});
+        postEntity2 = new PostEntity("2", "Getting started with ReactJS", "Guide",
+                "02/01/2020", new String[]{"Web Developement", "Frontend"});
     }
 
     @Test
@@ -76,16 +79,16 @@ public class PostControllerTest {
     @Test
     public void whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         Mockito.when(postService.findById("1")).thenReturn(Optional.of(postEntity1));
-        ResponseEntity<String> responseEntity = postController.getPostById("1");
+        ResponseEntity<Object> responseEntity = postController.getAPostById("1");
         assertNotNull(responseEntity);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertNotEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
+        assertNotEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
     @Test
-    public void whenPostIdIsUnavail_thenRetrievedPostIsIncorrect() {
-        ResponseEntity<String> responseEntity = postController.getPostById("1A467");
-        assertEquals(HttpStatus.BAD_REQUEST, responseEntity.getStatusCode());
-        assertNotEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    void whenPostIdIsUnavail_thenRetrievedPostIsIncorrect() {
+        assertThrows(PostNotfoundException.class, () -> {
+            postController.getAPostById("1A467");
+        });
     }
 }

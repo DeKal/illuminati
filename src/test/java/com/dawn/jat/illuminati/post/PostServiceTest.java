@@ -35,8 +35,8 @@ public class PostServiceTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity("1", "How to apply Agile methodology",
-                "Agile", "Guide", "01/01/2020");
+        postEntity = new PostEntity("1", "How to apply Agile methodology", "Guide",
+                "01/01/2020", new String[] {"Agile"});
     }
 
     @Test

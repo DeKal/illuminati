@@ -17,10 +17,10 @@ public class PostEntity {
     @NonNull
     private String id;
     @NonNull private String title;
-    @NonNull private String tag;
     @NonNull private String brief;
     @NonNull private String time;
-    private long numbersView;
-    private long numbersComment;
-    private long numbersLike;
+    @NonNull private String[] tag;
+    private long viewNum;
+    private long commentNum;
+    private long likeNum;
 }

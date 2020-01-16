@@ -1,10 +1,13 @@
 package com.dawn.jat.illuminati.post.controller;
 
+import com.dawn.jat.illuminati.post.PostNotfoundException;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
+import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping({"/post"})
+@RequestMapping({"/api/post"})
 public class PostController {
     @Autowired
-    PostService postService;
+    private PostService postService;
+
+    @Autowired
+    private PostRepository postRepository;
 
     @GetMapping
     public List<PostEntity> findAll() {
@@ -27,15 +33,13 @@ public class PostController {
     /**
      * Gets a Post by the Id.
      */
-    @RequestMapping(value = "/{id}")
-    public ResponseEntity<String> getPostById(@PathVariable("id") String id) {
-        Optional<PostEntity> post = postService.findById(id);
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Object> getAPostById(@PathVariable("id") String id) {
+        Optional<PostEntity> postEntity = postService.findById(id);
 
-        if (post.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body("OK");
+        if (!postEntity.isPresent()) {
+            throw new PostNotfoundException();
         }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body("Cannot find post");
+        return new ResponseEntity<>(postEntity, HttpStatus.OK);
     }
 }
