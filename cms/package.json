@@ -16,7 +16,7 @@
     "lint": "eslint '**/*.js'",
     "lint:css": "stylelint '**/*.js'",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage --watchAll"
+    "test:coverage": "react-scripts test --coverage --watchAll=false"
   },
   "eslintConfig": {
     "extends": "react-app"
