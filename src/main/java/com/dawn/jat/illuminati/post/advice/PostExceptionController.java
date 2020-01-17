@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.post.controller;
+package com.dawn.jat.illuminati.post.advice;
 
 import com.dawn.jat.illuminati.post.PostNotfoundException;
 import org.springframework.http.HttpStatus;

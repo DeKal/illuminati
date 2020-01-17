@@ -20,6 +20,8 @@ public class PostEntity {
     @NonNull private String brief;
     @NonNull private String time;
     @NonNull private String[] tag;
+    @NonNull private String author;
+    private String content;
     private long viewNum;
     private long commentNum;
     private long likeNum;

@@ -2,7 +2,6 @@ package com.dawn.jat.illuminati.post.controller;
 
 import com.dawn.jat.illuminati.post.PostNotfoundException;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
-import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.List;
@@ -22,9 +21,6 @@ public class PostController {
     @Autowired
     private PostService postService;
 
-    @Autowired
-    private PostRepository postRepository;
-
     @GetMapping
     public List<PostEntity> findAll() {
         return postService.findAll();
@@ -34,7 +30,7 @@ public class PostController {
      * Gets a Post by the Id.
      */
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getAPostById(@PathVariable("id") String id) {
+    public ResponseEntity<Object> getPostById(@PathVariable("id") String id) {
         Optional<PostEntity> postEntity = postService.findById(id);
 
         if (!postEntity.isPresent()) {

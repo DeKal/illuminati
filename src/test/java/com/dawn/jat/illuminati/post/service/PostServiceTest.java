@@ -1,11 +1,10 @@
-package com.dawn.jat.illuminati.post;
+package com.dawn.jat.illuminati.post.service;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
-import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -36,7 +35,7 @@ public class PostServiceTest {
     @BeforeAll
     public static void init() {
         postEntity = new PostEntity("1", "How to apply Agile methodology", "Guide",
-                "01/01/2020", new String[] {"Agile"});
+                "01/01/2020", new String[] {"Agile"}, "Phat Ho");
     }
 
     @Test
