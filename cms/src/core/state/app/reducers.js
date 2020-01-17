@@ -1,6 +1,11 @@
 import { ADD_TODO } from 'core/const/actionType'
 
-const application = (state, action) => {
+const defaultAction = {
+  type: ADD_TODO,
+  text: 'default'
+}
+
+const application = (state = {}, action = defaultAction) => {
   switch (action.type) {
     case ADD_TODO:
       return {

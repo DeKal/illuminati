@@ -23,4 +23,11 @@ describe('application reducers', () => {
     }
     expect(application(state, action)).toEqual(state)
   })
+
+  it('should return default state when no input', () => {
+    const state = {
+      text: 'default'
+    }
+    expect(application()).toEqual(state)
+  })
 })
