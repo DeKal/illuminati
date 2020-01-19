@@ -1,7 +1,7 @@
 package com.dawn.jat.illuminati.post.controller;
 
-import com.dawn.jat.illuminati.post.PostNotfoundException;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
+import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.List;
@@ -27,14 +27,14 @@ public class PostController {
     }
 
     /**
-     * Gets a Post by the Id.
+     * Gets a Post by the slug.
      */
-    @GetMapping(value = "/{id}")
-    public ResponseEntity<Object> getPostById(@PathVariable("id") String id) {
-        Optional<PostEntity> postEntity = postService.findById(id);
+    @GetMapping(value = "/{slug}")
+    public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
+        Optional<PostEntity> postEntity = postService.findBySlug(slug);
 
         if (!postEntity.isPresent()) {
-            throw new PostNotfoundException();
+            throw new PostNotFoundException("Cannot find post");
         }
         return new ResponseEntity<>(postEntity, HttpStatus.OK);
     }

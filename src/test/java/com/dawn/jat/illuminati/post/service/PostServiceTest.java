@@ -7,6 +7,7 @@ import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -34,7 +35,8 @@ public class PostServiceTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity("1", "How to apply Agile methodology", "Guide",
+        postEntity = new PostEntity("how-to-apply-agile-methodology",
+                "How to apply Agile methodology", "Guide",
                 "01/01/2020", new String[] {"Agile"}, "Phat Ho");
     }
 
@@ -47,7 +49,9 @@ public class PostServiceTest {
 
     @Test
     public void findAllPost_whenRecord() {
-        Mockito.when(postRepository.findAll()).thenReturn(Arrays.asList(postEntity));
+        List mockPostEntities = Arrays.asList(postEntity);
+
+        Mockito.when(postRepository.findAll()).thenReturn(mockPostEntities);
         assertThat(postService.findAll().size(), is(1));
         assertThat(postService.findAll().get(0), is(postEntity));
         Mockito.verify(postRepository, Mockito.times(2)).findAll();
@@ -55,15 +59,20 @@ public class PostServiceTest {
 
     @Test
     public void findPostById() {
-        Mockito.when(postRepository.findById("1")).thenReturn(Optional.of(postEntity));
-        assertThat(postService.findById("1"), is(Optional.of(postEntity)));
-        Mockito.verify(postRepository, Mockito.times(1)).findById("1");
+        String mockSlug = postEntity.getSlug();
+        Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
+
+        Mockito.when(postRepository.findBySlug(mockSlug)).thenReturn(mockPostEntities);
+        assertThat(postService.findBySlug(mockSlug), is(mockPostEntities));
+        Mockito.verify(postRepository, Mockito.times(1)).findBySlug(mockSlug);
     }
 
     @Test
     void deletePostById() {
-        postService.deleteById("1");
-        Mockito.verify(postRepository, Mockito.times(1)).deleteById("1");
+        String mockSlug = postEntity.getSlug();
+
+        postService.deleteBySlug(mockSlug);
+        Mockito.verify(postRepository, Mockito.times(1)).deleteBySlug(mockSlug);
     }
 
     @Test
