@@ -2,6 +2,138 @@
 
 Changelog of Git Changelog Gradle plugin.
 
+## 0.0.4
+### GitHub [#51](https://github.com/DeKal/illuminati/issues/51) Remove Hello Controller 
+
+**[#51]: Remove Hello from Project**
+
+
+[68c75cf99597cb5](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/68c75cf99597cb5) Phat Ho *2020-01-17 05:01:36*
+
+
+### No issue
+
+**Add db dump, and some instruction**
+
+
+[b980bc70f1bd03e](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/b980bc70f1bd03e) Phat Ho *2020-01-19 15:15:55*
+
+**Update database**
+
+
+[7569f55bf774244](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/7569f55bf774244) thuyvy3110 *2020-01-19 13:58:37*
+
+**Fix jacocoTestCoverageVerification task**
+
+
+[492a38503a5a5b8](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/492a38503a5a5b8) Phat Ho *2020-01-19 13:27:37*
+
+**Update test cases, remove IlluminatiApplication and ServletInitializer test**
+
+
+[01c884e824d77ca](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/01c884e824d77ca) Phat Ho *2020-01-19 13:21:43*
+
+**Change get post by id to slug, add sample db json file, clean code**
+
+
+[eaadc8ad5ab3a6f](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/eaadc8ad5ab3a6f) thuyvy3110 *2020-01-19 10:22:34*
+
+**Updated code after review**
+
+ * Removed testcases for buildin func, add author, content post
+ * Removed serialVersionUID
+
+[c763e2f434e8c9a](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c763e2f434e8c9a) thuyvy3110 *2020-01-17 21:21:29*
+
+**[CMS] Hotfix error with redux when no state**
+
+
+[0d0226fce572be7](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/0d0226fce572be7) Phat Ho *2020-01-17 04:50:48*
+
+**Bump eslint-plugin-react from 7.17.0 to 7.18.0 in /cms**
+
+ * Bumps [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) from 7.17.0 to 7.18.0.
+ * - [Release notes](https://github.com/yannickcr/eslint-plugin-react/releases)
+ * - [Changelog](https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/yannickcr/eslint-plugin-react/compare/v7.17.0...v7.18.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[f86132fddc01b1d](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f86132fddc01b1d) dependabot-preview[bot] *2020-01-16 22:18:48*
+
+**Bump typescript from 3.7.4 to 3.7.5 in /cms**
+
+ * Bumps [typescript](https://github.com/Microsoft/TypeScript) from 3.7.4 to 3.7.5.
+ * - [Release notes](https://github.com/Microsoft/TypeScript/releases)
+ * - [Commits](https://github.com/Microsoft/TypeScript/compare/v3.7.4...v3.7.5)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[70b3a5bebee1aa3](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/70b3a5bebee1aa3) dependabot-preview[bot] *2020-01-16 22:18:14*
+
+**Bump spring-boot-gradle-plugin from 2.2.2.RELEASE to 2.2.3.RELEASE**
+
+ * Bumps [spring-boot-gradle-plugin](https://github.com/spring-projects/spring-boot) from 2.2.2.RELEASE to 2.2.3.RELEASE.
+ * - [Release notes](https://github.com/spring-projects/spring-boot/releases)
+ * - [Commits](https://github.com/spring-projects/spring-boot/compare/v2.2.2.RELEASE...v2.2.3.RELEASE)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[dd710fca329913d](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/dd710fca329913d) dependabot-preview[bot] *2020-01-16 22:16:24*
+
+**Bump org.springframework.boot from 2.2.2.RELEASE to 2.2.3.RELEASE**
+
+ * Bumps [org.springframework.boot](https://github.com/spring-projects/spring-boot) from 2.2.2.RELEASE to 2.2.3.RELEASE.
+ * - [Release notes](https://github.com/spring-projects/spring-boot/releases)
+ * - [Commits](https://github.com/spring-projects/spring-boot/compare/v2.2.2.RELEASE...v2.2.3.RELEASE)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[c0fc12e4a2abdea](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c0fc12e4a2abdea) dependabot-preview[bot] *2020-01-16 22:16:06*
+
+**Add get a full post + unit test**
+
+
+[147a5574e0a729b](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/147a5574e0a729b) thuyvy3110 *2020-01-16 19:28:33*
+
+**Fix test coverage with flag --watchAll=false**
+
+
+[9b22c855dd9e308](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/9b22c855dd9e308) Phat Ho *2020-01-16 16:00:19*
+
+**Adding test and edit yarn test coverage mode**
+
+
+[6baf63a6c03d03e](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/6baf63a6c03d03e) Phat Ho *2020-01-16 15:41:30*
+
+**Add redux store**
+
+
+[069a4b26ae5937d](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/069a4b26ae5937d) Phat Ho *2020-01-16 15:41:30*
+
+**Refactor code, add some new entity**
+
+
+[14636d4fddfdb89](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/14636d4fddfdb89) thuyvy3110 *2020-01-16 03:03:03*
+
+**Bump @types/jest from 24.0.25 to 24.9.0 in /cms**
+
+ * Bumps [@types/jest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/jest) from 24.0.25 to 24.9.0.
+ * - [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+ * - [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/jest)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[109b8d49196cfac](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/109b8d49196cfac) dependabot-preview[bot] *2020-01-15 22:17:17*
+
+**Bump com.github.node-gradle.node from 2.0.0 to 2.2.0**
+
+ * Bumps com.github.node-gradle.node from 2.0.0 to 2.2.0.
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[7ded503ba8ecd60](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/7ded503ba8ecd60) dependabot-preview[bot] *2020-01-14 01:20:40*
+
+**Add CHANGELOG to new Release**
+
+
+[b5c21afcb41bb84](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/b5c21afcb41bb84) Phat Ho *2020-01-13 17:30:12*
+
+
 ## 0.0.3
 ### No issue
 
