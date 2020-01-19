@@ -52,14 +52,14 @@ public class PostControllerTest {
     }
 
     @Test
-    void findPostAll_whenNoRecord() {
+    void findAll_whenNoRecord_returnEmpty() {
         Mockito.when(postService.findAll()).thenReturn(Arrays.asList());
         assertThat(postController.findAll().size(), is(0));
         Mockito.verify(postService, Mockito.times(1)).findAll();
     }
 
     @Test
-    void findPostAll_whenRecord() {
+    void findAll_whenRecord_returnTwoEntities() {
         List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
 
         Mockito.when(postService.findAll()).thenReturn(mockPostEntities);
@@ -68,7 +68,7 @@ public class PostControllerTest {
     }
 
     @Test
-    public void whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
+    public void findBySlug_whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         String mockSlug = postEntity1.getSlug();
         Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
 
@@ -80,17 +80,13 @@ public class PostControllerTest {
     }
 
     @Test
-    void whenPostIdIsUnavail_thenRetrievedPostIsIncorrect() {
-        PostController mockPostController = Mockito.mock(PostController.class);
+    void findBySlug_whenPostIdIsUnavail_thenRetrievedPostIsIncorrect() {
+        Optional<PostEntity> emptyEntities = Optional.empty();
+        Mockito.when(postService.findBySlug(""))
+                .thenReturn(emptyEntities);
 
-        PostNotFoundException mockPostException =
-                new PostNotFoundException("Cannot find mock post");
-
-        Mockito.when(mockPostController.getPostBySlug("1A467")).thenThrow(mockPostException);
-        Exception exception = assertThrows(PostNotFoundException.class, () -> {
-            mockPostController.getPostBySlug("1A467");
+        assertThrows(PostNotFoundException.class, () -> {
+            postController.getPostBySlug("");
         });
-
-        assertEquals(mockPostException.getMessage(), exception.getMessage());
     }
 }
