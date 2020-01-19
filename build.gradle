@@ -114,7 +114,9 @@ jacocoTestCoverageVerification {
 			includes = ['com.dawn.jat.*']
 			excludes = [
 					'*.entity.*',
-					'*.repository.*'
+					'*.repository.*',
+					'com.dawn.jat.illuminati.ServletInitializer',
+					'com.dawn.jat.illuminati.IlluminatiApplication'
 			]
 			limit {
 				counter = 'LINE'

@@ -19,15 +19,15 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Optional<PostEntity> findById(String id) {
-        return postRepository.findById(id);
+    public Optional<PostEntity> findBySlug(String slug) {
+        return postRepository.findBySlug(slug);
     }
 
     public PostEntity createOrUpdate(PostEntity postEntity) {
         return postRepository.save(postEntity);
     }
 
-    public void deleteById(String id) {
-        postRepository.deleteById(id);
+    public void deleteBySlug(String slug) {
+        postRepository.deleteBySlug(slug);
     }
 }

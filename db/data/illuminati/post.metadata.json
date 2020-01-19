@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"illuminati.post"}],"uuid":"377c9a1c853a40c1a6d4a0a5b8e6503d"}
