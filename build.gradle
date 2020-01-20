@@ -116,7 +116,8 @@ jacocoTestCoverageVerification {
 					'*.entity.*',
 					'*.repository.*',
 					'com.dawn.jat.illuminati.ServletInitializer',
-					'com.dawn.jat.illuminati.IlluminatiApplication'
+					'com.dawn.jat.illuminati.IlluminatiApplication',
+					'com.dawn.jat.illuminati.AppConfiguration'
 			]
 			limit {
 				counter = 'LINE'
