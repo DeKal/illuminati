@@ -2,9 +2,12 @@ package com.dawn.jat.illuminati.post.controller;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
+import com.dawn.jat.illuminati.post.exception.QueryListPostNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +40,27 @@ public class PostController {
             throw new PostNotFoundException("Cannot find post");
         }
         return new ResponseEntity<>(postEntity, HttpStatus.OK);
+    }
+
+    /**
+     * Gets list of Post Brief.
+     */
+    @GetMapping(value = "/list-post-brief")
+    public ResponseEntity<Object> getListPostBrief() {
+        List<PostEntity> allPost = postService.findAll();
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        Boolean success = true;
+
+        if (allPost.isEmpty()) {
+            success = false;
+            body.put("error", "List of Post Brief Not Found");
+            body.put("success", success);
+            throw new QueryListPostNotFoundException(body);
+        }
+
+        body.put("data", allPost);
+        body.put("success", success);
+        return new ResponseEntity<>(body, HttpStatus.OK);
     }
 }

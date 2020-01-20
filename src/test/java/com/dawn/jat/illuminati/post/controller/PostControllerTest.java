@@ -9,8 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
+import com.dawn.jat.illuminati.post.exception.QueryListPostNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -44,27 +46,11 @@ public class PostControllerTest {
     @BeforeAll
     public static void init() {
         postEntity1 = new PostEntity("how-to-apply-agile-methodology",
-                "How to apply Agile methodology","Guide",
-                "01/01/2020", new String[] {"Agile"}, "Phat Ho");
+                "How to apply Agile methodology", "Guide",
+                "01/01/2020", new String[]{"Agile"}, "Phat Ho");
         postEntity2 = new PostEntity("getting-started-with-reactjs",
-                "Getting started with ReactJS","Guide",
+                "Getting started with ReactJS", "Guide",
                 "02/01/2020", new String[]{"Web Developement", "Frontend"}, "Phat Ho");
-    }
-
-    @Test
-    void findAll_whenNoRecord_returnEmpty() {
-        Mockito.when(postService.findAll()).thenReturn(Arrays.asList());
-        assertThat(postController.findAll().size(), is(0));
-        Mockito.verify(postService, Mockito.times(1)).findAll();
-    }
-
-    @Test
-    void findAll_whenRecord_returnTwoEntities() {
-        List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
-
-        Mockito.when(postService.findAll()).thenReturn(mockPostEntities);
-        assertThat(postController.findAll().size(), is(2));
-        Mockito.verify(postService, Mockito.times(1)).findAll();
     }
 
     @Test
@@ -87,6 +73,34 @@ public class PostControllerTest {
 
         assertThrows(PostNotFoundException.class, () -> {
             postController.getPostBySlug("");
+        });
+    }
+
+    @Test
+    void findAll_whenNoRecord_returnEmpty() {
+        Mockito.when(postService.findAll()).thenReturn(Arrays.asList());
+        assertThat(postController.findAll().size(), is(0));
+        Mockito.verify(postService, Mockito.times(1)).findAll();
+    }
+
+    @Test
+    public void getListPostBrief_whenListPostIdIsAvail_thenRetrievedListPostIsCorrect() {
+        List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
+        Mockito.when(postService.findAll()).thenReturn(mockPostEntities);
+
+        ResponseEntity<Object> responseEntity = postController.getListPostBrief();
+        assertNotNull(responseEntity);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        assertNotEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+    }
+
+    @Test
+    public void getListPostBrief_whenListPostIdIsUnavail_thenRetrievedListPostIsIncorrect() {
+        Mockito.when(postService.findAll())
+                .thenReturn(new ArrayList<>());
+
+        assertThrows(QueryListPostNotFoundException.class, () -> {
+            postController.getListPostBrief();
         });
     }
 }

@@ -58,7 +58,7 @@ public class PostServiceTest {
     }
 
     @Test
-    public void findPostById() {
+    public void findPostBySlug() {
         String mockSlug = postEntity.getSlug();
         Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
 
@@ -68,7 +68,7 @@ public class PostServiceTest {
     }
 
     @Test
-    void deletePostById() {
+    void deletePostBySlug() {
         String mockSlug = postEntity.getSlug();
 
         postService.deleteBySlug(mockSlug);
