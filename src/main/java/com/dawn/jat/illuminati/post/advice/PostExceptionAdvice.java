@@ -1,9 +1,8 @@
 package com.dawn.jat.illuminati.post.advice;
 
+import com.dawn.jat.illuminati.post.exception.ErrorResponse;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
-import com.dawn.jat.illuminati.post.exception.QueryListPostNotFoundException;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -20,13 +19,13 @@ public class PostExceptionAdvice {
     }
 
     /**
-     * Throw Exception when get List Post Not Found.
+     * Throw Exception if Post Summary has No Content.
      */
-    @ExceptionHandler(QueryListPostNotFoundException.class)
-    public ResponseEntity<Map<String, Object>> exceptionListPost(
-            final QueryListPostNotFoundException exception) {
-        Map<String, Object> errorInfo = new LinkedHashMap<>();
-        errorInfo.put("errorMessage", exception.getMessageFailResp());
-        return new ResponseEntity<>(errorInfo, HttpStatus.NOT_FOUND);
+    @ExceptionHandler(PostSummaryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> exceptionPostSummary(Exception exception) {
+        ErrorResponse error = new ErrorResponse();
+        error.setErrorCode(HttpStatus.NO_CONTENT.toString());
+        error.setMessage(exception.getMessage());
+        return new ResponseEntity<>(error, HttpStatus.OK);
     }
 }

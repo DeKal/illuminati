@@ -4,7 +4,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
+import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
+import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,9 +25,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class PostServiceTest {
     private static PostEntity postEntity;
+    private static PostSummaryEntity postSummaryEntity;
 
     @Mock
     PostRepository postRepository;
+
+    @Mock
+    PostSummaryRepository postSummaryRepository;
 
     @InjectMocks
     PostService postService;
@@ -41,20 +47,20 @@ public class PostServiceTest {
     }
 
     @Test
-    public void findAllPost_whenNoRecord() {
-        Mockito.when(postRepository.findAll()).thenReturn(Arrays.asList());
-        assertThat(postService.findAll().size(), is(0));
-        Mockito.verify(postRepository, Mockito.times(1)).findAll();
+    public void findPostSummary_whenNoRecord() {
+        Mockito.when(postSummaryRepository.findAll()).thenReturn(Arrays.asList());
+        assertThat(postService.findPostSummary().size(), is(0));
+        Mockito.verify(postSummaryRepository, Mockito.times(1)).findAll();
     }
 
     @Test
-    public void findAllPost_whenRecord() {
-        List mockPostEntities = Arrays.asList(postEntity);
+    public void findPostSummary_whenRecord() {
+        List mockPostEntities = Arrays.asList(postSummaryEntity);
 
-        Mockito.when(postRepository.findAll()).thenReturn(mockPostEntities);
-        assertThat(postService.findAll().size(), is(1));
-        assertThat(postService.findAll().get(0), is(postEntity));
-        Mockito.verify(postRepository, Mockito.times(2)).findAll();
+        Mockito.when(postSummaryRepository.findAll()).thenReturn(mockPostEntities);
+        assertThat(postService.findPostSummary().size(), is(1));
+        assertThat(postService.findPostSummary().get(0), is(postSummaryEntity));
+        Mockito.verify(postSummaryRepository, Mockito.times(2)).findAll();
     }
 
     @Test
