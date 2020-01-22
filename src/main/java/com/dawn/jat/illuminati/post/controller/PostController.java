@@ -1,14 +1,13 @@
 package com.dawn.jat.illuminati.post.controller;
 
+import com.dawn.jat.illuminati.post.advice.PostSuccessRespAdvice;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 @RestController
 @RequestMapping({"/api/post"})
 public class PostController {
@@ -46,14 +44,9 @@ public class PostController {
     public ResponseEntity<Object> getAllPostSummary() {
         List<PostSummaryEntity> allPost = postService.findPostSummary();
 
-        Map<String, Object> body = new LinkedHashMap<>();
-
         if (allPost.isEmpty()) {
             throw new PostSummaryNotFoundException("Cannot find post summary");
         }
-
-        body.put("data", allPost);
-        body.put("success", true);
-        return new ResponseEntity<>(body, HttpStatus.OK);
+        return new PostSuccessRespAdvice().successGetPost(allPost);
     }
 }

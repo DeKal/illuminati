@@ -2,9 +2,11 @@ package com.dawn.jat.illuminati.post.advice;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.dawn.jat.illuminati.post.exception.ErrorResponse;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
+import com.dawn.jat.illuminati.post.response.ErrorResponse;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,18 +23,21 @@ public class PostExceptionAdviceTest {
     }
 
     @Test
-    void exception_throwException_returnHttpPostSummaryNotFound() {
-        ErrorResponse error = new ErrorResponse();
-        error.setErrorCode(HttpStatus.NO_CONTENT.toString());
-        assertEquals("204 NO_CONTENT", error.getErrorCode());
-
+    void exception_throwException_returnHttpPostSummaryNoContent() {
         PostSummaryNotFoundException postSummaryException =
                 new PostSummaryNotFoundException("Cannot find post summary");
 
-        error.setMessage(postSummaryException.getMessage());
-        assertEquals("Cannot find post summary", error.getMessage());
-
         ResponseEntity<ErrorResponse> rsp = advice.exceptionPostSummary(postSummaryException);
+        assertEquals("Cannot find post summary", postSummaryException.getMessage());
         assertEquals(HttpStatus.OK, rsp.getStatusCode());
+
+        ErrorResponse errResp = new ErrorResponse();
+        Map<String, Object> errCode = new LinkedHashMap<>();
+
+        errCode.put("code", 204);
+        errResp.setError(errCode);
+        errResp.setSuccess(false);
+        assertEquals(false, errResp.getSuccess());
+        assertEquals(errCode, errResp.getError());
     }
 }

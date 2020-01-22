@@ -1,8 +1,10 @@
 package com.dawn.jat.illuminati.post.advice;
 
-import com.dawn.jat.illuminati.post.exception.ErrorResponse;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
+import com.dawn.jat.illuminati.post.response.ErrorResponse;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -23,9 +25,12 @@ public class PostExceptionAdvice {
      */
     @ExceptionHandler(PostSummaryNotFoundException.class)
     public ResponseEntity<ErrorResponse> exceptionPostSummary(Exception exception) {
+        Map<String, Object> err = new LinkedHashMap<>();
         ErrorResponse error = new ErrorResponse();
-        error.setErrorCode(HttpStatus.NO_CONTENT.toString());
-        error.setMessage(exception.getMessage());
+        err.put("code", HttpStatus.NO_CONTENT.value());
+        err.put("message", exception.getMessage());
+        error.setError(err);
+        error.setSuccess(false);
         return new ResponseEntity<>(error, HttpStatus.OK);
     }
 }
