@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
-import com.dawn.jat.illuminati.post.exception.QueryListPostNotFoundException;
+import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.ArrayList;
@@ -77,30 +77,23 @@ public class PostControllerTest {
     }
 
     @Test
-    void findAll_whenNoRecord_returnEmpty() {
-        Mockito.when(postService.findAll()).thenReturn(Arrays.asList());
-        assertThat(postController.findAll().size(), is(0));
-        Mockito.verify(postService, Mockito.times(1)).findAll();
-    }
-
-    @Test
-    public void getListPostBrief_whenListPostIdIsAvail_thenRetrievedListPostIsCorrect() {
+    public void getPostSummary_whenPostSummaryIdIsAvail_thenRetrievedPostSummaryIsCorrect() {
         List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
-        Mockito.when(postService.findAll()).thenReturn(mockPostEntities);
+        Mockito.when(postService.findPostSummary()).thenReturn(mockPostEntities);
 
-        ResponseEntity<Object> responseEntity = postController.getListPostBrief();
+        ResponseEntity<Object> responseEntity = postController.getAllPostSummary();
         assertNotNull(responseEntity);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertNotEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
     @Test
-    public void getListPostBrief_whenListPostIdIsUnavail_thenRetrievedListPostIsIncorrect() {
-        Mockito.when(postService.findAll())
+    public void getPostSummary_whenPostSummaryIdIsUnavail_thenRetrievedPostSummaryIsIncorrect() {
+        Mockito.when(postService.findPostSummary())
                 .thenReturn(new ArrayList<>());
 
-        assertThrows(QueryListPostNotFoundException.class, () -> {
-            postController.getListPostBrief();
+        assertThrows(PostSummaryNotFoundException.class, () -> {
+            postController.getAllPostSummary();
         });
     }
 }
