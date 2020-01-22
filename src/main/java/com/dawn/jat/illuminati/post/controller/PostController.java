@@ -1,9 +1,8 @@
 package com.dawn.jat.illuminati.post.controller;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
-import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
-import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
+import com.dawn.jat.illuminati.post.exception.QueryListPostNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.LinkedHashMap;
@@ -12,7 +11,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,6 +23,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class PostController {
     @Autowired
     private PostService postService;
+
+    @GetMapping
+    public List<PostEntity> findAll() {
+        return postService.findAll();
+    }
 
     /**
      * Gets a Post by the slug.
@@ -40,21 +43,24 @@ public class PostController {
     }
 
     /**
-     * Gets list of Post Summary.
-     * @throws PostSummaryNotFoundException if Post Summary has No Content
+     * Gets list of Post Brief.
      */
-    @GetMapping(value = "/all-post/summary")
-    public ResponseEntity<Object> getAllPostSummary() {
-        List<PostSummaryEntity> allPost = postService.findPostSummary();
+    @GetMapping(value = "/list-post-brief")
+    public ResponseEntity<Object> getListPostBrief() {
+        List<PostEntity> allPost = postService.findAll();
 
         Map<String, Object> body = new LinkedHashMap<>();
+        Boolean success = true;
 
         if (allPost.isEmpty()) {
-            throw new PostSummaryNotFoundException("Cannot find post summary");
+            success = false;
+            body.put("error", "List of Post Brief Not Found");
+            body.put("success", success);
+            throw new QueryListPostNotFoundException(body);
         }
 
         body.put("data", allPost);
-        body.put("success", true);
+        body.put("success", success);
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 }
