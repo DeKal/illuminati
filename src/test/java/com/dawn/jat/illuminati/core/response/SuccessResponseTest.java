@@ -1,13 +1,14 @@
 package com.dawn.jat.illuminati.core.response;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SuccessResponseTest {
     private static PostSummaryEntity postSummaryEntity;

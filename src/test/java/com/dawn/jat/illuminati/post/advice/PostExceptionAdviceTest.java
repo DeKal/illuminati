@@ -1,5 +1,7 @@
 package com.dawn.jat.illuminati.post.advice;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import com.dawn.jat.illuminati.core.response.ErrorResponse;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
@@ -7,7 +9,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PostExceptionAdviceTest {
 
