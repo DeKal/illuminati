@@ -1,15 +1,13 @@
 package com.dawn.jat.illuminati.post.controller;
 
-import com.dawn.jat.illuminati.post.advice.PostSuccessRespAdvice;
+import com.dawn.jat.illuminati.core.response.SuccessResponse;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+
 @RestController
 @RequestMapping({"/api/post"})
 public class PostController {
@@ -47,6 +47,8 @@ public class PostController {
         if (allPost.isEmpty()) {
             throw new PostSummaryNotFoundException("Cannot find post summary");
         }
-        return new PostSuccessRespAdvice().successGetPost(allPost);
+
+        SuccessResponse resp = new SuccessResponse(allPost);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 }
