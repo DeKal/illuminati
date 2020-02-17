@@ -28,12 +28,14 @@ public class PostController {
      */
     @GetMapping(value = "/{slug}")
     public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
-        Optional<PostEntity> postEntity = postService.findBySlug(slug);
+        List<PostEntity> postEntity = postService.findBySlug(slug);
 
-        if (!postEntity.isPresent()) {
+        if (postEntity.isEmpty()) {
             throw new PostNotFoundException("Cannot find post");
         }
-        return new ResponseEntity<>(postEntity, HttpStatus.OK);
+
+        SuccessResponse resp = new SuccessResponse(postEntity);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
     /**

@@ -16,9 +16,15 @@ public class PostExceptionAdviceTest {
 
     @Test
     void exception_throwException_returnHttpPostNotFound() {
-        PostNotFoundException postException = new PostNotFoundException("");
-        ResponseEntity<Object> rsp = advice.exception(postException);
+        PostNotFoundException postException = new PostNotFoundException("Cannot find post");
+
+        ResponseEntity<ErrorResponse> rsp = advice.exception(postException);
+        assertEquals("Cannot find post", postException.getMessage());
         assertEquals(HttpStatus.NOT_FOUND, rsp.getStatusCode());
+
+        ErrorResponse errResp = new ErrorResponse(HttpStatus.NO_CONTENT, postException);
+        assertEquals(rsp.getBody().getError(), errResp.getError());
+        assertEquals(rsp.getBody().getSuccess(), errResp.getSuccess());
     }
 
     @Test
@@ -31,7 +37,6 @@ public class PostExceptionAdviceTest {
         assertEquals(HttpStatus.OK, rsp.getStatusCode());
 
         ErrorResponse errResp = new ErrorResponse(HttpStatus.NO_CONTENT, postSummaryException);
-
         assertEquals(rsp.getBody().getError(), errResp.getError());
         assertEquals(rsp.getBody().getSuccess(), errResp.getSuccess());
     }
