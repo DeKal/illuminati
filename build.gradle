@@ -27,9 +27,6 @@ sourceCompatibility = '1.8'
 
 configurations {
 	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -186,4 +183,5 @@ bootWar {
 bootRun {
 	dependsOn moveStaticAsset
 	dependsOn moveCmsTemplate
+	classpath = sourceSets.main.runtimeClasspath + configurations.developmentOnly
 }
