@@ -28,9 +28,9 @@ public class PostController {
      */
     @GetMapping(value = "/{slug}")
     public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
-        List<PostEntity> postEntity = postService.findBySlug(slug);
+        Optional<PostEntity> postEntity = postService.findBySlug(slug);
 
-        if (postEntity.isEmpty()) {
+        if (!postEntity.isPresent()) {
             throw new PostNotFoundException("Cannot find post");
         }
 

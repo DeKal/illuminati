@@ -25,7 +25,7 @@ public class PostService {
         return postSummaryRepository.findAll();
     }
 
-    public List<PostEntity> findBySlug(String slug) {
+    public Optional<PostEntity> findBySlug(String slug) {
         return postRepository.findBySlug(slug);
     }
 
