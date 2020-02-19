@@ -66,7 +66,7 @@ public class PostServiceTest {
     @Test
     public void findPostBySlug() {
         String mockSlug = postEntity.getSlug();
-        List<PostEntity> mockPostEntities = Arrays.asList(postEntity);
+        Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
 
         Mockito.when(postRepository.findBySlug(mockSlug)).thenReturn(mockPostEntities);
         assertThat(postService.findBySlug(mockSlug), is(mockPostEntities));
