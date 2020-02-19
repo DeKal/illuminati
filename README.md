@@ -115,6 +115,17 @@ For macos : https://www.youtube.com/watch?v=DX15WbKidXY
 Open a command prompt, change the working directory to C:\Program Files\MongoDB\Server\3.2\bin and start the database server, mongod.exe.
 3) At this stage, you should be ready to roll. Open another command prompt and start the database client, mongo.exe which you’ll find in the same folder as mongod.exe.
 
+## Continuous Auto-restart With Spring Boot DevTools and Gradle
+We need to open two terminals:
+
+1) At the first terminal, start Gradle build as a continuous task: 
+```bash
+gradle build --continuous
+```
+2) At the second terminal, start the Gradle bootRun task: 
+```bash
+gradle bootRun
+```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
