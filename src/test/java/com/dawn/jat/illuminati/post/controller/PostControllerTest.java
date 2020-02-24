@@ -57,6 +57,7 @@ public class PostControllerTest {
         Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
 
         Mockito.when(postService.findBySlug(mockSlug)).thenReturn(mockPostEntities);
+
         ResponseEntity<Object> responseEntity = postController.getPostBySlug(mockSlug);
         assertNotNull(responseEntity);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
@@ -64,7 +65,7 @@ public class PostControllerTest {
     }
 
     @Test
-    void findBySlug_whenPostIdIsUnavail_thenRetrievedPostIsIncorrect() {
+    void findBySlug_whenPostIdIsUnAvail_thenRetrievedPostIsIncorrect() {
         Optional<PostEntity> emptyEntities = Optional.empty();
         Mockito.when(postService.findBySlug(""))
                 .thenReturn(emptyEntities);
@@ -86,7 +87,7 @@ public class PostControllerTest {
     }
 
     @Test
-    public void getPostSummary_whenPostSummaryIdIsUnavail_thenRetrievedPostSummaryIsIncorrect() {
+    public void getPostSummary_whenPostSummaryIdIsUnAvail_thenRetrievedPostSummaryIsIncorrect() {
         Mockito.when(postService.findPostSummary())
                 .thenReturn(new ArrayList<>());
 

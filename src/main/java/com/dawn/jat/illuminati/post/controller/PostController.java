@@ -33,7 +33,9 @@ public class PostController {
         if (!postEntity.isPresent()) {
             throw new PostNotFoundException("Cannot find post");
         }
-        return new ResponseEntity<>(postEntity, HttpStatus.OK);
+
+        SuccessResponse resp = new SuccessResponse(postEntity);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
     /**

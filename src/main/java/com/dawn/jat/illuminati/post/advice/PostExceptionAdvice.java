@@ -14,8 +14,9 @@ public class PostExceptionAdvice {
      * Throw Exception when the query Slug Unavailable.
      */
     @ExceptionHandler(PostNotFoundException.class)
-    public ResponseEntity<Object> exception(PostNotFoundException exception) {
-        return new ResponseEntity<>(exception.getMessage(), HttpStatus.NOT_FOUND);
+    public ResponseEntity<ErrorResponse> exception(PostNotFoundException exception) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NO_CONTENT, exception);
+        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
     /**
