@@ -1,7 +1,6 @@
 package com.dawn.jat.illuminati.post.repository;
 
 import com.dawn.jat.illuminati.post.entity.PostEntity;
-
 import java.util.Optional;
 
 import lombok.Generated;

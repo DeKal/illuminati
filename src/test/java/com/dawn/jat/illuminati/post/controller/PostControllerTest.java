@@ -55,6 +55,7 @@ public class PostControllerTest {
     public void findBySlug_whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         String mockSlug = postEntity1.getSlug();
         Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
+
         Mockito.when(postService.findBySlug(mockSlug)).thenReturn(mockPostEntities);
 
         ResponseEntity<Object> responseEntity = postController.getPostBySlug(mockSlug);
