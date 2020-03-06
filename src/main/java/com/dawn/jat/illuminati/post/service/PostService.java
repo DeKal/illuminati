@@ -29,7 +29,7 @@ public class PostService {
         return postRepository.findBySlug(slug);
     }
 
-    public PostEntity createOrUpdate(PostEntity postEntity) {
+    public PostEntity create(PostEntity postEntity) {
         return postRepository.save(postEntity);
     }
 

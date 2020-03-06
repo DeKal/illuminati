@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 @Generated
 @Repository
-public interface PostRepository extends MongoRepository<PostEntity, String> {
+public interface PostRepository extends MongoRepository<PostEntity, String>, PostRepositoryInterfaceUseTemplate {
     @Query("{ 'slug' : ?0 }")
     Optional<PostEntity> findBySlug(String slug);
 
