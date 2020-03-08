@@ -2,6 +2,7 @@
 
 exports[`App should render without throwing an error 1`] = `
 <Fragment>
-  <NavBarContainer />
+  <withRouter(NavBarContainer) />
+  <PageSwitch />
 </Fragment>
 `;

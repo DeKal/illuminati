@@ -19,7 +19,8 @@ export const theme = createMuiTheme({
     fontCondensed: '"Open Sans Condensed", Tahoma, Verdana, Arial, sans-serif',
     fontIp: '"ip", sans-serif',
     fontTrebuchet: 'Trebuchet MS, sans-serif',
-    fontCert: 'Times, serif'
+    fontCert: 'Times, serif',
+    montSerrat: '"Montserrat", sans-serif'
   },
   fontSizes: {
     base: '14px',
@@ -33,6 +34,10 @@ export const theme = createMuiTheme({
   },
   defaultLineHeight: 1.57,
   images: {},
-  colors: {},
+  colors: {
+    background: '#ecedf0',
+    navTitle: '#fff',
+    navBg: '#0083c1'
+  },
   extra: {}
 })

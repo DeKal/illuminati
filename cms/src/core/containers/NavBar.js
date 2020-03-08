@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import NavBar from 'core/components/NavBar'
+import { withRouter } from 'react-router'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -9,22 +10,22 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     float: 'left',
-    fontFamily: '"Montserrat", sans-serif',
-    color: '#fff',
     fontWeight: 'bold',
-    fontSize: '18px',
     letterSpacing: '1px',
-    paddingLeft: '0px',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    fontSize: theme.fontSizes.XL,
+    fontFamily: theme.fonts.montSerrat,
+    color: theme.colors.navTitle
   },
   navbar: {
-    backgroundColor: '#0083c1'
+    backgroundColor: theme.colors.navBg
   },
   icon: {
-    padding: '16px'
+    padding: theme.spaces.gutter
   }
 }))
 
 const NavBarContainer = props => <NavBar classes={useStyles()} {...props} />
 
-export default NavBarContainer
+export default withRouter(NavBarContainer)

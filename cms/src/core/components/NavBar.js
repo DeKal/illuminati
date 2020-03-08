@@ -10,7 +10,7 @@ import Badge from '@material-ui/core/Badge'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
-const NavBar = ({ classes }) => {
+const NavBar = ({ classes, history }) => {
   return (
     <Container>
       <AppBar position="static" className={classes.navbar}>
@@ -23,7 +23,13 @@ const NavBar = ({ classes }) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h1" className={classes.title}>
+          <Typography
+            variant="h1"
+            className={classes.title}
+            onClick={() => {
+              history.push('/')
+            }}
+          >
             Dashboard
           </Typography>
           <div>
@@ -42,6 +48,9 @@ const NavBar = ({ classes }) => {
               aria-haspopup="true"
               color="inherit"
               className={classes.icon}
+              onClick={() => {
+                history.push('user')
+              }}
             >
               <AccountCircle />
             </IconButton>
@@ -55,7 +64,8 @@ const NavBar = ({ classes }) => {
 export default NavBar
 
 NavBar.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 const Container = styled('div')({
