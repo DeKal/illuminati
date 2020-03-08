@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { withRouter } from 'react-router'
 import { connect } from 'react-redux'
 import NavBar from 'core/components/NavBar'
-import { openDrawer, closeDrawer } from 'core/state/drawer/action'
+import { openDrawer, closeDrawer } from 'core/state/drawer/actions'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {

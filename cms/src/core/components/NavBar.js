@@ -20,12 +20,14 @@ const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            data-test-id="navbar-menu"
             onClick={() => (open ? closeDrawer() : openDrawer())}
           >
             <MenuIcon />
           </IconButton>
           <Typography
             variant="h1"
+            data-test-id="navbar-title"
             className={classes.title}
             onClick={() => {
               history.push('/')
@@ -48,6 +50,7 @@ const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
               aria-label="account of current user"
               aria-haspopup="true"
               color="inherit"
+              data-test-id="navbar-user-info"
               className={classes.icon}
               onClick={() => {
                 history.push('/user')
