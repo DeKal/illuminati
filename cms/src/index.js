@@ -11,7 +11,7 @@ import initStore from 'core/init/initStore'
 
 const Root = (
   <Provider {...initStore()}>
-    <Router>
+    <Router basename="/cms">
       <Theme>
         <App />
       </Theme>

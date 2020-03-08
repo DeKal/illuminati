@@ -50,7 +50,7 @@ const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
               color="inherit"
               className={classes.icon}
               onClick={() => {
-                history.push('user')
+                history.push('/user')
               }}
             >
               <AccountCircle />
