@@ -12,6 +12,8 @@ const drawer = (state = {}, action) => {
         ...state,
         open: false
       }
+    default:
+      return state
   }
 }
 

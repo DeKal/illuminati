@@ -25,6 +25,18 @@ describe('drawer reducers', () => {
     })
   })
 
+  it('should return state with unknown action type', function() {
+    const initState = {
+      open: false
+    }
+    const action = {
+      type: ''
+    }
+    expect(drawerReducer(initState, action)).toEqual({
+      open: false
+    })
+  })
+
   it('should throw error when calling reducer with nothing', function() {
     expect(() => {
       drawerReducer()
