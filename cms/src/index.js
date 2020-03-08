@@ -2,11 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'index.css'
 import 'typeface-roboto'
-import App from 'app/components/App'
+import App from 'core/components/App'
+import Theme from 'core/theme/ThemeWrapper'
 import * as serviceWorker from 'serviceWorker'
 import initAppProps from 'core/init/initGlobal'
 
-ReactDOM.render(<App {...initAppProps()} />, document.getElementById('root'))
+ReactDOM.render(
+  <Theme>
+    <App {...initAppProps()} />
+  </Theme>,
+  document.getElementById('root')
+)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
