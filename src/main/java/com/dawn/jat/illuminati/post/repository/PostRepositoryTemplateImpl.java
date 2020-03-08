@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Configuration
 @Repository
-public class PostRepositoryUseTemplate implements PostRepositoryInterfaceUseTemplate {
+public class PostRepositoryTemplateImpl implements PostRepositoryTemplate {
     @Autowired
     MongoTemplate mongoTemplate;
 
