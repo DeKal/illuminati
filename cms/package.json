@@ -5,12 +5,14 @@
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
+    "clsx": "^1.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
     "typeface-roboto": "^0.0.75"
   },
   "scripts": {
@@ -66,7 +68,10 @@
       "setupTests.js",
       "serviceWorker.js",
       "index.js",
-      "core/init/",
+      "\\w+/containers/\\w+",
+      "\\w+/const/\\w+",
+      "\\w+/init/\\w+",
+      "\\w+/theme/\\w+",
       "core/state/configureStore.js",
       "core/state/rootReducer.js"
     ],

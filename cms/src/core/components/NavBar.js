@@ -10,7 +10,7 @@ import Badge from '@material-ui/core/Badge'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
-const NavBar = ({ classes, history }) => {
+const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
   return (
     <Container>
       <AppBar position="static" className={classes.navbar}>
@@ -20,6 +20,7 @@ const NavBar = ({ classes, history }) => {
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
+            onClick={() => (open ? closeDrawer() : openDrawer())}
           >
             <MenuIcon />
           </IconButton>
@@ -65,7 +66,10 @@ export default NavBar
 
 NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func
 }
 
 const Container = styled('div')({

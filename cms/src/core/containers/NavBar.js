@@ -1,7 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import NavBar from 'core/components/NavBar'
 import { withRouter } from 'react-router'
+import { connect } from 'react-redux'
+import NavBar from 'core/components/NavBar'
+import { openDrawer, closeDrawer } from 'core/state/drawer/action'
 
 const useStyles = makeStyles(theme => ({
   menuButton: {
@@ -27,5 +29,15 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const NavBarContainer = props => <NavBar classes={useStyles()} {...props} />
+const NavBarWithRouter = withRouter(NavBarContainer)
 
-export default withRouter(NavBarContainer)
+const mapStateToProps = state => ({
+  open: state.drawer.open
+})
+
+const mapDispatchToProps = {
+  openDrawer,
+  closeDrawer
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarWithRouter)

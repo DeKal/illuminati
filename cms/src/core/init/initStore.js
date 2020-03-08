@@ -2,8 +2,8 @@ import configureStore from 'core/state/configureStore'
 
 export default () => {
   const initialState = {
-    application: {
-      initData: {}
+    drawer: {
+      open: false
     }
   }
 

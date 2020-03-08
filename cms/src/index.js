@@ -3,17 +3,20 @@ import ReactDOM from 'react-dom'
 import 'index.css'
 import 'typeface-roboto'
 import { BrowserRouter as Router } from 'react-router-dom'
-import App from 'core/components/App'
+import { Provider } from 'react-redux'
+import App from 'core/containers/App'
 import Theme from 'core/theme/ThemeWrapper'
 import * as serviceWorker from 'serviceWorker'
-import initAppProps from 'core/init/initGlobal'
+import initStore from 'core/init/initStore'
 
 const Root = (
-  <Router>
-    <Theme>
-      <App {...initAppProps()} />
-    </Theme>
-  </Router>
+  <Provider {...initStore()}>
+    <Router>
+      <Theme>
+        <App />
+      </Theme>
+    </Router>
+  </Provider>
 )
 
 ReactDOM.render(Root, document.getElementById('root'))
