@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'index.css'
+import 'typeface-roboto'
 import App from 'app/components/App'
 import * as serviceWorker from 'serviceWorker'
 import initAppProps from 'core/init/initGlobal'
