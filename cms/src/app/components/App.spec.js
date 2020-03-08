@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow } from 'enzyme'
-import App from 'app/App'
+import App from 'app/components/App'
 
 describe('App', () => {
   it('should render without throwing an error', function() {
