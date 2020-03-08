@@ -10,8 +10,4 @@ import org.springframework.stereotype.Repository;
 public class PostRepositoryTemplateImpl implements PostRepositoryTemplate {
     @Autowired
     MongoTemplate mongoTemplate;
-
-    @Override
-    public void updateTimeReadPost() {
-    }
 }
