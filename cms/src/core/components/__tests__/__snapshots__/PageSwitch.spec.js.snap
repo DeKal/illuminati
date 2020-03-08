@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSwitch should render PageSwitch with no error 1`] = `
+<Styled(div)>
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+    >
+      <DashBoard />
+    </Route>
+    <Route
+      path="/user"
+    >
+      <User />
+    </Route>
+  </Switch>
+</Styled(div)>
+`;

@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Drawer should render Drawer when it closes 1`] = `
+<WithStyles(ForwardRef(Drawer))
+  anchor="left"
+  className=""
+  classes={
+    Object {
+      "paper": "",
+    }
+  }
+  open={false}
+  variant="persistent"
+>
+  <div
+    className=""
+  >
+    Blogs
+  </div>
+  <WithStyles(ForwardRef(Divider)) />
+  <WithStyles(ForwardRef(List))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Inbox"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Inbox"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Starred"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Starred"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Send email"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Send email"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Drafts"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Drafts"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+  </WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(Divider)) />
+  <WithStyles(ForwardRef(List))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="All mail"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="All mail"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Trash"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Trash"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Spam"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Spam"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+  </WithStyles(ForwardRef(List))>
+</WithStyles(ForwardRef(Drawer))>
+`;
+
+exports[`Drawer should render Drawer when it opens 1`] = `
+<WithStyles(ForwardRef(Drawer))
+  anchor="left"
+  className=""
+  classes={
+    Object {
+      "paper": "",
+    }
+  }
+  open={true}
+  variant="persistent"
+>
+  <div
+    className=""
+  >
+    Blogs
+  </div>
+  <WithStyles(ForwardRef(Divider)) />
+  <WithStyles(ForwardRef(List))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Inbox"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Inbox"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Starred"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Starred"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Send email"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Send email"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Drafts"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Drafts"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+  </WithStyles(ForwardRef(List))>
+  <WithStyles(ForwardRef(Divider)) />
+  <WithStyles(ForwardRef(List))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="All mail"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="All mail"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Trash"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MailIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Trash"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      key="Spam"
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <MoveToInboxIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Spam"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+  </WithStyles(ForwardRef(List))>
+</WithStyles(ForwardRef(Drawer))>
+`;

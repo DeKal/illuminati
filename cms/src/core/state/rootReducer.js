@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import application from './app/reducers'
+import drawer from 'core/state/drawer/reducers'
 
 export default combineReducers({
-  application
+  drawer
 })

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User should render User with no error 1`] = `
+<div>
+  <h2>
+     User
+  </h2>
+</div>
+`;

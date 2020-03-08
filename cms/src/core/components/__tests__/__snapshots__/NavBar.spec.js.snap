@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should render NavBar when it closes 1`] = `
+<Styled(div)>
+  <WithStyles(ForwardRef(AppBar))
+    className=""
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(IconButton))
+        aria-label="menu"
+        className=""
+        color="inherit"
+        data-test-id="navbar-menu"
+        edge="start"
+        onClick={[Function]}
+      >
+        <MenuIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(Typography))
+        data-test-id="navbar-title"
+        onClick={[Function]}
+        variant="h1"
+      >
+        Dashboard
+      </WithStyles(ForwardRef(Typography))>
+      <div>
+        <WithStyles(ForwardRef(IconButton))
+          aria-label="show 17 new notifications"
+          className=""
+          color="inherit"
+        >
+          <WithStyles(ForwardRef(Badge))
+            badgeContent={17}
+            color="secondary"
+          >
+            <NotificationsIcon />
+          </WithStyles(ForwardRef(Badge))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          aria-haspopup="true"
+          aria-label="account of current user"
+          className=""
+          color="inherit"
+          data-test-id="navbar-user-info"
+          edge="end"
+          onClick={[Function]}
+        >
+          <AccountCircleIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </div>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</Styled(div)>
+`;
+
+exports[`NavBar should render NavBar when it opens 1`] = `
+<Styled(div)>
+  <WithStyles(ForwardRef(AppBar))
+    className=""
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(IconButton))
+        aria-label="menu"
+        className=""
+        color="inherit"
+        data-test-id="navbar-menu"
+        edge="start"
+        onClick={[Function]}
+      >
+        <MenuIcon />
+      </WithStyles(ForwardRef(IconButton))>
+      <WithStyles(ForwardRef(Typography))
+        data-test-id="navbar-title"
+        onClick={[Function]}
+        variant="h1"
+      >
+        Dashboard
+      </WithStyles(ForwardRef(Typography))>
+      <div>
+        <WithStyles(ForwardRef(IconButton))
+          aria-label="show 17 new notifications"
+          className=""
+          color="inherit"
+        >
+          <WithStyles(ForwardRef(Badge))
+            badgeContent={17}
+            color="secondary"
+          >
+            <NotificationsIcon />
+          </WithStyles(ForwardRef(Badge))>
+        </WithStyles(ForwardRef(IconButton))>
+        <WithStyles(ForwardRef(IconButton))
+          aria-haspopup="true"
+          aria-label="account of current user"
+          className=""
+          color="inherit"
+          data-test-id="navbar-user-info"
+          edge="end"
+          onClick={[Function]}
+        >
+          <AccountCircleIcon />
+        </WithStyles(ForwardRef(IconButton))>
+      </div>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</Styled(div)>
+`;

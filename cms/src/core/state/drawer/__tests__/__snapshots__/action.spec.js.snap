@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`drawer actions should return action with close drawer 1`] = `
+Object {
+  "type": "drawer/closeDrawer",
+}
+`;
+
+exports[`drawer actions should return action with open drawer 1`] = `
+Object {
+  "type": "drawer/openDrawer",
+}
+`;
