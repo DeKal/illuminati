@@ -7,14 +7,34 @@ const classes = {
   drawerPaper: '',
   drawerHeader: ''
 }
+
 describe('Drawer', () => {
   it('should render Drawer when it opens', function() {
-    const wrap = shallow(<Drawer classes={classes} open />)
+    const history = {
+      location: '/'
+    }
+    const wrap = shallow(<Drawer classes={classes} open history={history} />)
     expect(wrap).toMatchSnapshot()
   })
 
   it('should render Drawer when it closes', function() {
-    const wrap = shallow(<Drawer classes={classes} open={false} />)
+    const history = {
+      location: '/'
+    }
+    const wrap = shallow(
+      <Drawer classes={classes} open={false} history={history} />
+    )
     expect(wrap).toMatchSnapshot()
+  })
+
+  it('click on Drawer Dashboard should call history push', function() {
+    const history = {
+      location: '/profile',
+      push: jest.fn()
+    }
+    const wrap = shallow(<Drawer classes={classes} open history={history} />)
+    wrap.find('[data-test-id="drawer-item-dashboard"]').simulate('click')
+    expect(history.push.mock.calls.length).toBe(1)
+    expect(history.push.mock.calls[0][0]).toBe('/')
   })
 })

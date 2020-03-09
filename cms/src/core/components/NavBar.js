@@ -9,6 +9,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import Badge from '@material-ui/core/Badge'
 import AccountCircle from '@material-ui/icons/AccountCircle'
 import NotificationsIcon from '@material-ui/icons/Notifications'
+import { pages } from 'core/const/pages'
 
 const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
   return (
@@ -30,7 +31,7 @@ const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
             data-test-id="navbar-title"
             className={classes.title}
             onClick={() => {
-              history.push('/')
+              history.push(pages.dashboard.url)
             }}
           >
             Dashboard
@@ -53,7 +54,7 @@ const NavBar = ({ classes, history, open, openDrawer, closeDrawer }) => {
               data-test-id="navbar-user-info"
               className={classes.icon}
               onClick={() => {
-                history.push('/user')
+                history.push(pages.profile.url)
               }}
             >
               <AccountCircle />

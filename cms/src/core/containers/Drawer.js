@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import Drawer from 'core/components/Drawer'
 
 const useStyles = makeStyles(theme => ({
@@ -43,18 +44,25 @@ const useStyles = makeStyles(theme => ({
     fontFamily: theme.fonts.montSerrat,
     color: theme.colors.navTitle,
     backgroundColor: theme.colors.darkBlue,
-    fontSize: '18px',
+    fontSize: theme.fontSizes.XL,
     lineHeight: '60px',
     fontWeight: 'bold',
     letterSpacing: '2px',
     ...theme.mixins.toolbar
+  },
+  highLightListItem: {
+    borderLeft: `6px ${theme.colors.highlight} solid`
+  },
+  listItem: {
+    paddingLeft: '22px'
   }
 }))
 
 const DrawerContainer = props => <Drawer classes={useStyles()} {...props} />
+const DrawerWithRouter = withRouter(DrawerContainer)
 
 const mapStateToProps = state => ({
   open: state.drawer.open
 })
 
-export default connect(mapStateToProps)(DrawerContainer)
+export default connect(mapStateToProps)(DrawerWithRouter)

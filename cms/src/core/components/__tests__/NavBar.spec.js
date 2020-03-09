@@ -54,6 +54,6 @@ describe('NavBar', () => {
     const wrap = shallow(<NavBar classes={classes} open history={history} />)
     wrap.find('[data-test-id="navbar-user-info"]').simulate('click')
     expect(history.push.mock.calls.length).toBe(1)
-    expect(history.push.mock.calls[0][0]).toBe('/user')
+    expect(history.push.mock.calls[0][0]).toBe('/profile')
   })
 })

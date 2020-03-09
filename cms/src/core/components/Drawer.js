@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'
-import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+import { pages } from 'core/const/pages'
 
-const LeftDrawer = ({ classes, open }) => (
+const LeftDrawer = ({ classes, open, history }) => (
   <Drawer
     className={classes.drawer}
     variant="persistent"
@@ -20,28 +19,26 @@ const LeftDrawer = ({ classes, open }) => (
     }}
   >
     <div className={classes.drawerHeader}>Blogs</div>
-    <Divider />
-    <List>
-      {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>
-            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-          </ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List>
-    <Divider />
-    <List>
-      {['All mail', 'Trash', 'Spam'].map((text, index) => (
-        <ListItem button key={text}>
-          <ListItemIcon>
-            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-          </ListItemIcon>
-          <ListItemText primary={text} />
-        </ListItem>
-      ))}
-    </List>
+    <NoPaddingList>
+      {Object.keys(pages).map(key => {
+        const page = pages[key]
+        const isHighLight = history.location.pathname === page.url
+        return (
+          <ListItem
+            button
+            key={key}
+            data-test-id={`drawer-item-${key}`}
+            className={
+              isHighLight ? classes.highLightListItem : classes.listItem
+            }
+            onClick={() => history.push(page.url)}
+          >
+            <ListItemIcon>{page.icon}</ListItemIcon>
+            <ListItemText primary={page.name} />
+          </ListItem>
+        )
+      })}
+    </NoPaddingList>
   </Drawer>
 )
 
@@ -50,6 +47,13 @@ export default LeftDrawer
 LeftDrawer.propTypes = {
   classes: PropTypes.object,
   open: PropTypes.bool,
+  history: PropTypes.object,
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func
 }
+
+const NoPaddingList = withStyles({
+  padding: {
+    padding: 0
+  }
+})(List)

@@ -17,89 +17,73 @@ exports[`Drawer should render Drawer when it closes 1`] = `
   >
     Blogs
   </div>
-  <WithStyles(ForwardRef(Divider)) />
-  <WithStyles(ForwardRef(List))>
+  <WithStyles(WithStyles(ForwardRef(List)))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Inbox"
+      data-test-id="drawer-item-dashboard"
+      key="dashboard"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
+        <HomeIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Inbox"
+        primary="Dashboard"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Starred"
+      data-test-id="drawer-item-posts"
+      key="posts"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <LibraryBooksIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Starred"
+        primary="Posts"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Send email"
+      data-test-id="drawer-item-users"
+      key="users"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
+        <PeopleIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Send email"
+        primary="Users"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Drafts"
+      data-test-id="drawer-item-profile"
+      key="profile"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <AccountBoxIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Drafts"
-      />
-    </WithStyles(ForwardRef(ListItem))>
-  </WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(Divider)) />
-  <WithStyles(ForwardRef(List))>
-    <WithStyles(ForwardRef(ListItem))
-      button={true}
-      key="All mail"
-    >
-      <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
-      </WithStyles(ForwardRef(ListItemIcon))>
-      <WithStyles(ForwardRef(ListItemText))
-        primary="All mail"
+        primary="Profile"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Trash"
+      data-test-id="drawer-item-settings"
+      key="settings"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <SettingsIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Trash"
+        primary="Settings"
       />
     </WithStyles(ForwardRef(ListItem))>
-    <WithStyles(ForwardRef(ListItem))
-      button={true}
-      key="Spam"
-    >
-      <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
-      </WithStyles(ForwardRef(ListItemIcon))>
-      <WithStyles(ForwardRef(ListItemText))
-        primary="Spam"
-      />
-    </WithStyles(ForwardRef(ListItem))>
-  </WithStyles(ForwardRef(List))>
+  </WithStyles(WithStyles(ForwardRef(List)))>
 </WithStyles(ForwardRef(Drawer))>
 `;
 
@@ -120,88 +104,72 @@ exports[`Drawer should render Drawer when it opens 1`] = `
   >
     Blogs
   </div>
-  <WithStyles(ForwardRef(Divider)) />
-  <WithStyles(ForwardRef(List))>
+  <WithStyles(WithStyles(ForwardRef(List)))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Inbox"
+      data-test-id="drawer-item-dashboard"
+      key="dashboard"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
+        <HomeIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Inbox"
+        primary="Dashboard"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Starred"
+      data-test-id="drawer-item-posts"
+      key="posts"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <LibraryBooksIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Starred"
+        primary="Posts"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Send email"
+      data-test-id="drawer-item-users"
+      key="users"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
+        <PeopleIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Send email"
+        primary="Users"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Drafts"
+      data-test-id="drawer-item-profile"
+      key="profile"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <AccountBoxIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Drafts"
-      />
-    </WithStyles(ForwardRef(ListItem))>
-  </WithStyles(ForwardRef(List))>
-  <WithStyles(ForwardRef(Divider)) />
-  <WithStyles(ForwardRef(List))>
-    <WithStyles(ForwardRef(ListItem))
-      button={true}
-      key="All mail"
-    >
-      <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
-      </WithStyles(ForwardRef(ListItemIcon))>
-      <WithStyles(ForwardRef(ListItemText))
-        primary="All mail"
+        primary="Profile"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
-      key="Trash"
+      data-test-id="drawer-item-settings"
+      key="settings"
+      onClick={[Function]}
     >
       <WithStyles(ForwardRef(ListItemIcon))>
-        <MailIcon />
+        <SettingsIcon />
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
-        primary="Trash"
+        primary="Settings"
       />
     </WithStyles(ForwardRef(ListItem))>
-    <WithStyles(ForwardRef(ListItem))
-      button={true}
-      key="Spam"
-    >
-      <WithStyles(ForwardRef(ListItemIcon))>
-        <MoveToInboxIcon />
-      </WithStyles(ForwardRef(ListItemIcon))>
-      <WithStyles(ForwardRef(ListItemText))
-        primary="Spam"
-      />
-    </WithStyles(ForwardRef(ListItem))>
-  </WithStyles(ForwardRef(List))>
+  </WithStyles(WithStyles(ForwardRef(List)))>
 </WithStyles(ForwardRef(Drawer))>
 `;
