@@ -82,9 +82,9 @@ public class PostServiceTest {
     }
 
     @Test
-    void createOrUpdatePost() {
+    void createPost() {
         Mockito.when(postRepository.save(postEntity)).thenReturn(postEntity);
-        assertThat(postService.createOrUpdate(postEntity), is(postEntity));
+        assertThat(postService.create(postEntity), is(postEntity));
         Mockito.verify(postRepository, Mockito.times(1)).save(postEntity);
     }
 }
