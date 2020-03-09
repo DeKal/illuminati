@@ -54,7 +54,11 @@ const useStyles = makeStyles(theme => ({
     borderLeft: `6px ${theme.colors.highlight} solid`
   },
   listItem: {
-    paddingLeft: '22px'
+    paddingLeft: '22px',
+    '&:hover': {
+      paddingLeft: '16px',
+      borderLeft: `6px ${theme.colors.highlight} solid`
+    }
   }
 }))
 
