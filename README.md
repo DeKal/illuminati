@@ -27,7 +27,7 @@ See [CI Guide](/docs/ci.md).
 See [CD Guide](/docs/cd.md).
 
 ## Content management system(CMS)
-The CMS is written by ReactJs, follow instruction in `cms/` for more detail.
+The CMS is written by ReactJs, follow instruction in `cms/` for more detail. See [CMS Guide](/cms/README.md)
 
 ## Mongo DB Simple Guide
 See [MongoDB Simple Guide](/docs/mongo_guide.md).
