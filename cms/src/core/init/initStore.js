@@ -7,9 +7,5 @@ export default () => {
     }
   }
 
-  const store = configureStore(initialState)
-
-  return {
-    store
-  }
+  return configureStore(initialState)
 }
