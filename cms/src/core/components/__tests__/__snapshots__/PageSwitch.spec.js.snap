@@ -10,7 +10,7 @@ exports[`PageSwitch should render PageSwitch with no error 1`] = `
       <DashBoard />
     </Route>
     <Route
-      path="/user"
+      path="/profile"
     >
       <User />
     </Route>

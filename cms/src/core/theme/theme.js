@@ -38,6 +38,7 @@ export const theme = createMuiTheme({
   colors: {
     background: '#ecedf0',
     navTitle: '#fff',
+    highlight: '#1ab394',
     navBg: '#0083c1',
     darkBlue: '#006fa4'
   },
