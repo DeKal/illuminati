@@ -9,6 +9,8 @@ build:
         override:
           - yarn lint
           - yarn lint:css
+          - js-scrutinizer-run
+          - java-scrutinizer-run
           - command: 'CI=true yarn test:coverage'
             coverage:
               file: 'coverage/clover.xml'
