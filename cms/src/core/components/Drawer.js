@@ -7,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import { pages } from 'core/const/pages'
+import { isPathMatchUrl } from 'core/utils/misc'
 
 const LeftDrawer = ({ classes, open, history }) => (
   <Drawer
@@ -57,10 +58,3 @@ const NoPaddingList = withStyles({
     padding: 0
   }
 })(List)
-
-const isPathMatchUrl = (pathName, url) => {
-  if (url === '/' || pathName === '/') {
-    return pathName === url
-  }
-  return pathName.includes(url)
-}
