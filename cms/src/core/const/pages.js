@@ -32,3 +32,5 @@ export const pages = {
     url: '/settings'
   }
 }
+
+export const THEME_URL = '/settings/theme'

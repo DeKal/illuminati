@@ -22,7 +22,7 @@ const LeftDrawer = ({ classes, open, history }) => (
     <NoPaddingList>
       {Object.keys(pages).map(key => {
         const page = pages[key]
-        const isHighLight = history.location.pathname === page.url
+        const isHighLight = isPathMatchUrl(history.location.pathname, page.url)
         return (
           <ListItem
             button
@@ -57,3 +57,10 @@ const NoPaddingList = withStyles({
     padding: 0
   }
 })(List)
+
+const isPathMatchUrl = (pathName, url) => {
+  if (url === '/' || pathName === '/') {
+    return pathName === url
+  }
+  return pathName.includes(url)
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Container from 'core/components/page/Container'
-import Dashboard from 'dashboard/components/Dashboard'
+import Dashboard from 'dashboard/containers/Dashboard'
 import User from 'user/components/User'
 import { pages } from 'core/const/pages'
 

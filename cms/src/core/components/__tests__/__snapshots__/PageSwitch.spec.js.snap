@@ -7,7 +7,7 @@ exports[`PageSwitch should render PageSwitch with no error 1`] = `
       exact={true}
       path="/"
     >
-      <DashBoard />
+      <withRouter(DashBoard) />
     </Route>
     <Route
       path="/profile"

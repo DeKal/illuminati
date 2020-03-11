@@ -8,20 +8,6 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex'
   },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${theme.drawerWidth})`,
-    marginLeft: theme.drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  },
   menuButton: {
     marginRight: theme.spacing(2)
   },
@@ -45,9 +31,11 @@ const useStyles = makeStyles(theme => ({
     color: theme.colors.navTitle,
     backgroundColor: theme.colors.darkBlue,
     fontSize: theme.fontSizes.XL,
-    lineHeight: '60px',
+    lineHeight: theme.navBarHeight,
     fontWeight: 'bold',
     letterSpacing: '2px',
+    boxShadow:
+      '0px 2px 4px -1px rgba(0,0,0,0.2), 0px 4px 5px 0px rgba(0,0,0,0.14), 0px 1px 10px 0px rgba(0,0,0,0.12)',
     ...theme.mixins.toolbar
   },
   highLightListItem: {

@@ -9,7 +9,10 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    marginLeft: 0
+    marginLeft: 0,
+    [theme.breakpoints.down('sm')]: {
+      width: '100%'
+    }
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
