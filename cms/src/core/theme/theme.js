@@ -34,7 +34,7 @@ export const theme = createMuiTheme({
   },
   defaultLineHeight: 1.57,
   drawerWidth: '275px',
-  navbarHeight: '56px',
+  navbarHeight: 56,
   images: {},
   colors: {
     background: '#ecedf0',

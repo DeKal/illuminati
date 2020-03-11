@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.colors.navTitle
   },
   navbar: {
-    height: theme.navbarHeight,
+    height: `${theme.navbarHeight}px`,
     backgroundColor: theme.colors.primary
   },
   icon: {
