@@ -1,15 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import GetStarted from 'dashboard/components/GetStarted'
 
-const DashBoard = ({ history }) => (
+const DashBoard = () => (
   <div>
-    <GetStarted history={history} />
+    <GetStarted />
   </div>
 )
 
 export default DashBoard
-
-DashBoard.propTypes = {
-  history: PropTypes.object.isRequired
-}
