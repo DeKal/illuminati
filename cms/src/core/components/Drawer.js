@@ -7,6 +7,7 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import { pages } from 'core/const/pages'
+import { isPathMatchUrl } from 'core/utils/misc'
 
 const LeftDrawer = ({ classes, open, history }) => (
   <Drawer
@@ -22,7 +23,7 @@ const LeftDrawer = ({ classes, open, history }) => (
     <NoPaddingList>
       {Object.keys(pages).map(key => {
         const page = pages[key]
-        const isHighLight = history.location.pathname === page.url
+        const isHighLight = isPathMatchUrl(history.location.pathname, page.url)
         return (
           <ListItem
             button

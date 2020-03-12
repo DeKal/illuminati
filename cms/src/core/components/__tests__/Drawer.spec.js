@@ -11,7 +11,9 @@ const classes = {
 describe('Drawer', () => {
   it('should render Drawer when it opens', function() {
     const history = {
-      location: '/'
+      location: {
+        pathname: '/'
+      }
     }
     const wrap = shallow(<Drawer classes={classes} open history={history} />)
     expect(wrap).toMatchSnapshot()
@@ -19,7 +21,9 @@ describe('Drawer', () => {
 
   it('should render Drawer when it closes', function() {
     const history = {
-      location: '/'
+      location: {
+        pathname: '/'
+      }
     }
     const wrap = shallow(
       <Drawer classes={classes} open={false} history={history} />
@@ -29,7 +33,9 @@ describe('Drawer', () => {
 
   it('click on Drawer Dashboard should call history push', function() {
     const history = {
-      location: '/profile',
+      location: {
+        pathname: '/profile'
+      },
       push: jest.fn()
     }
     const wrap = shallow(<Drawer classes={classes} open history={history} />)

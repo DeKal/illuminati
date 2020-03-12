@@ -1,8 +1,9 @@
 import React from 'react'
+import GetStarted from 'dashboard/components/GetStarted'
 
 const DashBoard = () => (
   <div>
-    <h2> Dashboard</h2>
+    <GetStarted />
   </div>
 )
 

@@ -34,13 +34,17 @@ export const theme = createMuiTheme({
   },
   defaultLineHeight: 1.57,
   drawerWidth: '275px',
+  navbarHeight: 56,
   images: {},
   colors: {
     background: '#ecedf0',
     navTitle: '#fff',
+    primaryBg: '#fff',
     highlight: '#1ab394',
-    navBg: '#0083c1',
-    darkBlue: '#006fa4'
+    primary: '#0083c1',
+    darkBlue: '#006fa4',
+    grey1: '#ccd0d4',
+    secondaryText: '#72777c'
   },
   extra: {}
 })

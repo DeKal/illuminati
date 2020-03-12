@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GetStarted should render GetStarted with no error 1`] = `
+<Styled(div)>
+  <WithStyles(WithStyles(ForwardRef(Typography)))>
+    Welcome to illuminati!
+  </WithStyles(WithStyles(ForwardRef(Typography)))>
+  <WithStyles(WithStyles(ForwardRef(Typography)))>
+    We’ve assembled some things to get you started:
+  </WithStyles(WithStyles(ForwardRef(Typography)))>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={4}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={4}
+      xl={3}
+    >
+      <Styled(div)>
+        <WithStyles(WithStyles(ForwardRef(Typography)))>
+          Get Started
+        </WithStyles(WithStyles(ForwardRef(Typography)))>
+        <Styled(div)>
+          <SettingsIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <Styled(Link)
+            to="/settings"
+          >
+            Open Your Settings
+          </Styled(Link)>
+        </Styled(div)>
+        <Styled(div)>
+          <PhotoLibraryIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <Styled(Link)
+            to="/settings/theme"
+          >
+            Change your theme
+          </Styled(Link)>
+        </Styled(div)>
+      </Styled(div)>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={4}
+      xl={3}
+    >
+      <Styled(div)>
+        <WithStyles(WithStyles(ForwardRef(Typography)))>
+          Next steps
+        </WithStyles(WithStyles(ForwardRef(Typography)))>
+        <Styled(div)>
+          <PostAddIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <Styled(Link)
+            to="/posts"
+          >
+            Write your first blog post
+          </Styled(Link)>
+        </Styled(div)>
+        <Styled(div)>
+          <VisibilityIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <a
+            href="https://phatho-folio.now.sh//blogs"
+          >
+            View your site
+          </a>
+        </Styled(div)>
+      </Styled(div)>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      lg={3}
+      md={4}
+    >
+      <Styled(div)>
+        <WithStyles(WithStyles(ForwardRef(Typography)))>
+          More actions
+        </WithStyles(WithStyles(ForwardRef(Typography)))>
+        <Styled(div)>
+          <LibraryBooksIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <Styled(Link)
+            to="/posts"
+          >
+            Manage Posts
+          </Styled(Link)>
+        </Styled(div)>
+        <Styled(div)>
+          <AccountBoxIcon
+            style={
+              Object {
+                "marginRight": "5px",
+              }
+            }
+          />
+          <Styled(Link)
+            to="/profile"
+          >
+            Manage Profile
+          </Styled(Link)>
+        </Styled(div)>
+      </Styled(div)>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Styled(div)>
+`;
