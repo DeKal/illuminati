@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Container from './GetStarted/Container'
+import Container from 'core/components/Container'
 import Title from './GetStarted/Title'
 import SubTitle from './GetStarted/SubTitle'
 import Item from './GetStarted/Item'

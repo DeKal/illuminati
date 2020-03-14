@@ -14,6 +14,11 @@ exports[`PageSwitch should render PageSwitch with no error 1`] = `
     >
       <User />
     </Route>
+    <Route
+      path="/posts"
+    >
+      <Posts />
+    </Route>
   </Switch>
 </Styled(div)>
 `;
