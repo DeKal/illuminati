@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Container from 'core/components/page/Container'
 import Dashboard from 'dashboard/components/Dashboard'
 import User from 'user/components/User'
-import Posts from 'posts/components/Posts'
+import Posts from 'posts/containers/Posts'
 import { pages } from 'core/const/pages'
 
 const PageSwitch = () => (
