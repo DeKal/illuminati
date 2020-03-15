@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import Body from 'posts/components/Posts/Body'
 import { setSelectedPost } from 'posts/state/actions'
 import {
@@ -19,4 +20,5 @@ const mapDispatchToProps = {
   setSelectedPost
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Body)
+const BodyWithRouter = withRouter(Body)
+export default connect(mapStateToProps, mapDispatchToProps)(BodyWithRouter)

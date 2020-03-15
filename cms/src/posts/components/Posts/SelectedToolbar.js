@@ -16,8 +16,8 @@ const useToolbarStyles = makeStyles(theme => ({
   highlight:
     theme.palette.type === 'light'
       ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85)
+          color: theme.colors.primary,
+          backgroundColor: lighten(theme.colors.primary, 0.85)
         }
       : {
           color: theme.palette.text.primary,
@@ -48,7 +48,7 @@ const SelectedToolbar = props => {
         </Typography>
       ) : (
         <Typography className={classes.title} variant="h6" id="tableTitle">
-          Nutrition
+          All Posts
         </Typography>
       )}
 

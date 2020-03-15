@@ -6,6 +6,7 @@ import TableRow from '@material-ui/core/TableRow'
 import Checkbox from '@material-ui/core/Checkbox'
 import { stableSort, getComparator } from 'core/utils/sort'
 import { stringtifyTags } from 'core/utils/misc'
+import PostTitle from 'posts/components/Posts/PostTitle'
 
 const Body = ({
   posts,
@@ -14,7 +15,8 @@ const Body = ({
   order,
   selectedPosts,
   orderColumn,
-  setSelectedPost
+  setSelectedPost,
+  history
 }) => (
   <TableBody>
     {stableSort(posts, getComparator(order, orderColumn))
@@ -26,12 +28,12 @@ const Body = ({
         return (
           <TableRow
             hover
-            onClick={() => setSelectedPost(row.slug)}
             role="checkbox"
             aria-checked={isItemSelected}
             tabIndex={-1}
             key={row.slug}
             selected={isItemSelected}
+            onClick={() => setSelectedPost(row.slug)}
           >
             <TableCell padding="checkbox">
               <Checkbox
@@ -39,15 +41,18 @@ const Body = ({
                 inputProps={{ 'aria-labelledby': labelId }}
               />
             </TableCell>
-            <TableCell
+            <PostTitle
               component="th"
               id={labelId}
               scope="row"
               padding="none"
-              style={{ width: '50%' }}
+              onClick={e => {
+                e.stopPropagation()
+                history.push(`post/${row.slug}`)
+              }}
             >
               {row.title}
-            </TableCell>
+            </PostTitle>
             <TableCell>{row.author}</TableCell>
             <TableCell>{stringtifyTags(row.tag)}</TableCell>
             <TableCell align="right">{row.commentNum}</TableCell>
@@ -68,7 +73,10 @@ Body.propTypes = {
   order: PropTypes.string,
   orderColumn: PropTypes.string,
   selectedPosts: PropTypes.array,
-  setSelectedPost: PropTypes.func
+  setSelectedPost: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  })
 }
 
 const renderEmptyRows = (page, rowsPerPage, postLength) => {

@@ -39,7 +39,7 @@ const GetStarted = () => (
           <ItemTitle>Next steps</ItemTitle>
           <Line>
             <PostAdd style={{ marginRight: '5px' }} />
-            <BreakLink to={pages.posts.url}>
+            <BreakLink to={pages.post.url}>
               Write your first blog post
             </BreakLink>
           </Line>

@@ -4,6 +4,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks'
 import PeopleIcon from '@material-ui/icons/People'
 import AccountBoxIcon from '@material-ui/icons/AccountBox'
 import SettingsIcon from '@material-ui/icons/Settings'
+import PostAdd from '@material-ui/icons/PostAdd'
 
 export const pages = {
   dashboard: {
@@ -15,6 +16,11 @@ export const pages = {
     name: 'Posts',
     icon: <LibraryBooksIcon />,
     url: '/posts'
+  },
+  post: {
+    name: 'Write your first post',
+    icon: <PostAdd />,
+    url: '/post/'
   },
   users: {
     name: 'Users',
