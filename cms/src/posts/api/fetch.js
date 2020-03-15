@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { isSuccess, getData, getError } from 'core/api/selectors'
-const API_END_POINT = 'https://illuminati-staging.herokuapp.com/api'
+import { API_END_POINT } from 'core/api'
 
 const fetchPostSummary = async () => {
   const result = await axios.get(`${API_END_POINT}/post/all-post/summary`)
