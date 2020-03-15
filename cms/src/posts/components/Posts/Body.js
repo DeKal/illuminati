@@ -6,7 +6,8 @@ import TableRow from '@material-ui/core/TableRow'
 import Checkbox from '@material-ui/core/Checkbox'
 import { stableSort, getComparator } from 'core/utils/sort'
 import { stringtifyTags } from 'core/utils/misc'
-import PostTitle from 'posts/components/Posts/PostTitle'
+import PostTableCell from 'posts/components/Body/PostTableCell'
+import EmptyRows from 'posts/components/Body/EmptyRows'
 
 const Body = ({
   posts,
@@ -33,34 +34,37 @@ const Body = ({
             tabIndex={-1}
             key={row.slug}
             selected={isItemSelected}
-            onClick={() => setSelectedPost(row.slug)}
           >
             <TableCell padding="checkbox">
               <Checkbox
                 checked={isItemSelected}
                 inputProps={{ 'aria-labelledby': labelId }}
+                onClick={() => setSelectedPost(row.slug)}
               />
             </TableCell>
-            <PostTitle
+            <PostTableCell
               component="th"
               id={labelId}
               scope="row"
               padding="none"
-              onClick={e => {
-                e.stopPropagation()
-                history.push(`post/${row.slug}`)
-              }}
+              onClick={() => history.push(`post/${row.slug}`)}
             >
               {row.title}
-            </PostTitle>
+            </PostTableCell>
             <TableCell>{row.author}</TableCell>
-            <TableCell>{stringtifyTags(row.tag)}</TableCell>
-            <TableCell align="right">{row.commentNum}</TableCell>
             <TableCell>{row.time}</TableCell>
+            <TableCell style={{ whiteSpace: 'nowrap' }}>
+              {stringtifyTags(row.tag)}
+            </TableCell>
+            <TableCell align="right">{row.commentNum}</TableCell>
           </TableRow>
         )
       })}
-    {renderEmptyRows(page, rowsPerPage, posts.length)}
+    <EmptyRows
+      page={page}
+      rowsPerPage={rowsPerPage}
+      postsLength={posts.length}
+    />
   </TableBody>
 )
 
@@ -77,14 +81,4 @@ Body.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func
   })
-}
-
-const renderEmptyRows = (page, rowsPerPage, postLength) => {
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, postLength - page * rowsPerPage)
-  return emptyRows ? (
-    <TableRow style={{ height: 53 * emptyRows }}>
-      <TableCell colSpan={6} />
-    </TableRow>
-  ) : null
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TablePagination from '@material-ui/core/TablePagination'
+import { calcMaxRowsPerPage } from 'core/utils/misc'
 
 const Pagination = ({
   postCount,
@@ -10,7 +11,7 @@ const Pagination = ({
   changeRowsPerPage
 }) => (
   <TablePagination
-    rowsPerPageOptions={[5, 10, 25]}
+    rowsPerPageOptions={calcMaxRowsPerPage(postCount)}
     component="div"
     count={postCount}
     rowsPerPage={rowsPerPage}

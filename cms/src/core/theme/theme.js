@@ -61,6 +61,10 @@ export const theme = createMuiTheme({
       colorSecondary: {
         '&$checked': {
           color: '#0083c1'
+        },
+        '&:hover': {
+          color: '#0083c1',
+          backgroundColor: lighten('#0083c1', 0.85)
         }
       }
     }

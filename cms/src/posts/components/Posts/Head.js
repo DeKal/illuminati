@@ -6,6 +6,7 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+import { HEAD_CELLS } from 'core/const/posts'
 
 const EnhancedTableHead = ({
   order,
@@ -30,37 +31,38 @@ const EnhancedTableHead = ({
           <Checkbox
             indeterminate={numSelected > 0 && numSelected < rowCount}
             checked={rowCount > 0 && numSelected === rowCount}
-            onChange={event => {
-              if (event.target.checked) {
-                selectAllPosts()
-                return
-              }
-              clearSelected()
-            }}
-            inputProps={{ 'aria-label': 'select all desserts' }}
+            onChange={event =>
+              event.target.checked ? selectAllPosts() : clearSelected()
+            }
+            inputProps={{ 'aria-label': 'select all posts' }}
           />
         </TableCell>
-        {headCells.map(headCell => (
-          <TableCell
-            key={headCell.id}
-            align={headCell.numeric ? 'right' : 'left'}
-            padding={headCell.disablePadding ? 'none' : 'default'}
-            sortDirection={orderColumn === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderColumn === headCell.id}
-              direction={orderColumn === headCell.id ? order : 'asc'}
-              onClick={createSortHandler(headCell.id)}
+        {HEAD_CELLS.map(headCell => {
+          const isOrderColumn = orderColumn === headCell.id
+          return (
+            <TableCell
+              key={headCell.id}
+              align={headCell.numeric ? 'right' : 'left'}
+              padding={headCell.disablePadding ? 'none' : 'default'}
+              sortDirection={isOrderColumn ? order : false}
             >
-              {headCell.label}
-              {orderColumn === headCell.id ? (
-                <VisuallyHiddenSpan>
-                  {order === 'desc' ? 'sorted descending' : 'sorted ascending'}
-                </VisuallyHiddenSpan>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
+              <TableSortLabel
+                active={isOrderColumn}
+                direction={isOrderColumn ? order : 'asc'}
+                onClick={createSortHandler(headCell.id)}
+              >
+                {headCell.label}
+                {isOrderColumn ? (
+                  <VisuallyHiddenSpan>
+                    {order === 'desc'
+                      ? 'sorted descending'
+                      : 'sorted ascending'}
+                  </VisuallyHiddenSpan>
+                ) : null}
+              </TableSortLabel>
+            </TableCell>
+          )
+        })}
       </TableRow>
     </TableHead>
   )
@@ -78,19 +80,6 @@ EnhancedTableHead.propTypes = {
 }
 
 export default EnhancedTableHead
-
-const headCells = [
-  {
-    id: 'title',
-    numeric: false,
-    disablePadding: true,
-    label: 'Title'
-  },
-  { id: 'author', numeric: false, disablePadding: false, label: 'Author' },
-  { id: 'tag', numeric: false, disablePadding: false, label: 'Tags' },
-  { id: 'commentNum', numeric: true, disablePadding: false, label: 'Comments' },
-  { id: 'date', numeric: false, disablePadding: false, label: 'Date' }
-]
 
 const VisuallyHiddenSpan = styled('span')({
   border: 0,

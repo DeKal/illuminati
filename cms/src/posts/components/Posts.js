@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import TableContainer from '@material-ui/core/TableContainer'
-import SelectedToolbar from './Posts/SelectedToolbar'
 import Container from 'core/components/Container'
 import Head from 'posts/containers/Head'
 import Pagination from 'posts/containers/Pagination'
 import Body from 'posts/containers/Body'
-import Paper from './Posts/Paper'
-import Table from './Posts/Table'
+import SelectedToolbar from 'posts/containers/SelectedToolbar'
+import Paper from 'posts/components/Posts/Paper'
+import Table from 'posts/components/Posts/Table'
 
 const Posts = ({ posts, selectedPosts, fetchPostSummary }) => {
   useEffect(() => {
@@ -24,6 +24,7 @@ const Posts = ({ posts, selectedPosts, fetchPostSummary }) => {
             aria-labelledby="tableTitle"
             size={'medium'}
             aria-label="enhanced table"
+            style={{ marginBottom: '15px', overflow: 'auto' }}
           >
             <Head numSelected={numSelected} rowCount={rowCount} />
             <Body posts={posts} selectedPosts={selectedPosts} />
