@@ -81,15 +81,15 @@ export default EnhancedTableHead
 
 const headCells = [
   {
-    id: 'name',
+    id: 'title',
     numeric: false,
     disablePadding: true,
-    label: 'Dessert (100g serving)'
+    label: 'Title'
   },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' }
+  { id: 'author', numeric: false, disablePadding: false, label: 'Author' },
+  { id: 'tag', numeric: false, disablePadding: false, label: 'Tags' },
+  { id: 'commentNum', numeric: true, disablePadding: false, label: 'Comments' },
+  { id: 'date', numeric: false, disablePadding: false, label: 'Date' }
 ]
 
 const VisuallyHiddenSpan = styled('span')({

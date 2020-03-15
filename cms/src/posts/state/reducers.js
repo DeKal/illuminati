@@ -34,13 +34,13 @@ const posts = (state = {}, action) => {
         orderColumn: action.payload
       }
     case SET_SELECTED_POST: {
-      const name = action.payload
+      const slug = action.payload
       const { selectedPosts } = state
-      const selectedIndex = state.selectedPosts.indexOf(name)
+      const selectedIndex = state.selectedPosts.indexOf(slug)
       let newSelected = []
 
       if (selectedIndex === -1) {
-        newSelected = newSelected.concat(selectedPosts, name)
+        newSelected = newSelected.concat(selectedPosts, slug)
       } else if (selectedIndex === 0) {
         newSelected = newSelected.concat(selectedPosts.slice(1))
       } else if (selectedIndex === selectedPosts.length - 1) {
@@ -58,7 +58,7 @@ const posts = (state = {}, action) => {
     }
     case SELECT_ALL_POSTS: {
       const { posts } = state
-      const newSelecteds = posts.map(n => n.name)
+      const newSelecteds = posts.map(n => n.slug)
       return {
         ...state,
         selectedPosts: newSelecteds
@@ -73,7 +73,7 @@ const posts = (state = {}, action) => {
     case toSuccess(FETCH_POSTS): {
       return {
         ...state,
-        test: action.payload
+        posts: action.payload
       }
     }
     case toError(FETCH_POSTS): {

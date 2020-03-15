@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import Checkbox from '@material-ui/core/Checkbox'
 import { stableSort, getComparator } from 'core/utils/sort'
+import { stringtifyTags } from 'core/utils/misc'
 
 const Body = ({
   posts,
@@ -19,17 +20,17 @@ const Body = ({
     {stableSort(posts, getComparator(order, orderColumn))
       .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
       .map((row, index) => {
-        const isItemSelected = selectedPosts.indexOf(row.name) !== -1
+        const isItemSelected = selectedPosts.indexOf(row.slug) !== -1
         const labelId = `enhanced-table-checkbox-${index}`
 
         return (
           <TableRow
             hover
-            onClick={() => setSelectedPost(row.name)}
+            onClick={() => setSelectedPost(row.slug)}
             role="checkbox"
             aria-checked={isItemSelected}
             tabIndex={-1}
-            key={row.name}
+            key={row.slug}
             selected={isItemSelected}
           >
             <TableCell padding="checkbox">
@@ -38,13 +39,19 @@ const Body = ({
                 inputProps={{ 'aria-labelledby': labelId }}
               />
             </TableCell>
-            <TableCell component="th" id={labelId} scope="row" padding="none">
-              {row.name}
+            <TableCell
+              component="th"
+              id={labelId}
+              scope="row"
+              padding="none"
+              style={{ width: '50%' }}
+            >
+              {row.title}
             </TableCell>
-            <TableCell align="right">{row.calories}</TableCell>
-            <TableCell align="right">{row.fat}</TableCell>
-            <TableCell align="right">{row.carbs}</TableCell>
-            <TableCell align="right">{row.protein}</TableCell>
+            <TableCell>{row.author}</TableCell>
+            <TableCell>{stringtifyTags(row.tag)}</TableCell>
+            <TableCell align="right">{row.commentNum}</TableCell>
+            <TableCell>{row.time}</TableCell>
           </TableRow>
         )
       })}
