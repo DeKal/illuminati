@@ -1,4 +1,4 @@
-import { OPEN_DRAWER, CLOSE_DRAWER } from 'core/const/actionType'
+import { OPEN_DRAWER, CLOSE_DRAWER } from 'core/state/actionType'
 
 const drawer = (state = {}, action) => {
   switch (action.type) {

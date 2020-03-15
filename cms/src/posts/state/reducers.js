@@ -5,8 +5,10 @@ import {
   SET_ORDER_COLUMN,
   SET_SELECTED_POST,
   SELECT_ALL_POSTS,
-  CLEAR_SELECTED
-} from 'core/const/actionType'
+  CLEAR_SELECTED,
+  FETCH_POSTS
+} from 'core/state/actionType'
+import { toSuccess, toError } from 'core/state/utils'
 
 const posts = (state = {}, action) => {
   switch (action.type) {
@@ -66,6 +68,18 @@ const posts = (state = {}, action) => {
       return {
         ...state,
         selectedPosts: []
+      }
+    }
+    case toSuccess(FETCH_POSTS): {
+      return {
+        ...state,
+        test: action.payload
+      }
+    }
+    case toError(FETCH_POSTS): {
+      return {
+        ...state,
+        posts: []
       }
     }
     default:

@@ -3,7 +3,7 @@ import Table from '@material-ui/core/Table'
 
 const CustomTable = withStyles(theme => ({
   root: {
-    minWidth: 750
+    minWidth: theme.postsTableWidth
   }
 }))(Table)
 

@@ -6,8 +6,10 @@ import {
   SET_ORDER_COLUMN,
   SET_SELECTED_POST,
   SELECT_ALL_POSTS,
-  CLEAR_SELECTED
-} from 'core/const/actionType'
+  CLEAR_SELECTED,
+  FETCH_POSTS
+} from 'core/state/actionType'
+import { toRequest } from 'core/state/utils'
 
 export const changePage = createAction(CHANGE_PAGE)
 
@@ -22,3 +24,5 @@ export const setSelectedPost = createAction(SET_SELECTED_POST)
 export const selectAllPosts = createAction(SELECT_ALL_POSTS)
 
 export const clearSelected = createAction(CLEAR_SELECTED)
+
+export const fetchPostSummary = createAction(toRequest(FETCH_POSTS))

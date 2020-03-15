@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import TableContainer from '@material-ui/core/TableContainer'
 import SelectedToolbar from './Posts/SelectedToolbar'
@@ -9,7 +9,10 @@ import Body from 'posts/containers/Body'
 import Paper from './Posts/Paper'
 import Table from './Posts/Table'
 
-const Posts = ({ posts, selectedPosts }) => {
+const Posts = ({ posts, selectedPosts, fetchPostSummary }) => {
+  useEffect(() => {
+    fetchPostSummary()
+  }, [fetchPostSummary])
   const numSelected = selectedPosts.length
   const rowCount = posts.length
   return (
@@ -36,5 +39,6 @@ export default Posts
 
 Posts.propTypes = {
   posts: PropTypes.array,
-  selectedPosts: PropTypes.array
+  selectedPosts: PropTypes.array,
+  fetchPostSummary: PropTypes.func
 }

@@ -35,6 +35,7 @@ export const theme = createMuiTheme({
   defaultLineHeight: 1.57,
   drawerWidth: '275px',
   navbarHeight: 56,
+  postsTableWidth: 750,
   images: {},
   colors: {
     background: '#ecedf0',
