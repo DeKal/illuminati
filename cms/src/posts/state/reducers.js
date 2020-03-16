@@ -45,7 +45,7 @@ const posts = (state = {}, action) => {
         newSelected = newSelected.concat(selectedPosts.slice(1))
       } else if (selectedIndex === selectedPosts.length - 1) {
         newSelected = newSelected.concat(selectedPosts.slice(0, -1))
-      } else if (selectedIndex > 0) {
+      } else {
         newSelected = newSelected.concat(
           selectedPosts.slice(0, selectedIndex),
           selectedPosts.slice(selectedIndex + 1)

@@ -37,6 +37,7 @@ const Body = ({
           >
             <TableCell padding="checkbox">
               <Checkbox
+                data-test-id={`body-checkbox-${index}`}
                 checked={isItemSelected}
                 inputProps={{ 'aria-labelledby': labelId }}
                 onClick={() => setSelectedPost(row.slug)}
@@ -47,6 +48,7 @@ const Body = ({
               id={labelId}
               scope="row"
               padding="none"
+              data-test-id={`body-title-${index}`}
               onClick={() => history.push(`post/${row.slug}`)}
             >
               {row.title}

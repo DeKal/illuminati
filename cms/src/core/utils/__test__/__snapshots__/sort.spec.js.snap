@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sort  stableSort  should sort asc by ColA with no error 1`] = `
+Array [
+  Object {
+    "colA": "a",
+  },
+  Object {
+    "colA": "b",
+  },
+  Object {
+    "colA": "c",
+  },
+]
+`;
+
+exports[`Sort  stableSort  should sort desc by ColA with no error 1`] = `
+Array [
+  Object {
+    "colA": "c",
+  },
+  Object {
+    "colA": "b",
+  },
+  Object {
+    "colA": "a",
+  },
+  Object {
+    "colA": "a",
+  },
+]
+`;

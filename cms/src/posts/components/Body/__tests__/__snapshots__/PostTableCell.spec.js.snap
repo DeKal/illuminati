@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostTableCell should render with no error 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <WithStyles(WithStyles(ForwardRef(TableCell)))>
+    <WithStyles(ForwardRef(TableCell))
+      classes={
+        Object {
+          "root": "WithStyles(ForwardRef(TableCell))-root-1",
+        }
+      }
+    >
+      <ForwardRef(TableCell)
+        classes={
+          Object {
+            "alignCenter": "MuiTableCell-alignCenter",
+            "alignJustify": "MuiTableCell-alignJustify",
+            "alignLeft": "MuiTableCell-alignLeft",
+            "alignRight": "MuiTableCell-alignRight",
+            "body": "MuiTableCell-body",
+            "footer": "MuiTableCell-footer",
+            "head": "MuiTableCell-head",
+            "paddingCheckbox": "MuiTableCell-paddingCheckbox",
+            "paddingNone": "MuiTableCell-paddingNone",
+            "root": "MuiTableCell-root WithStyles(ForwardRef(TableCell))-root-1",
+            "sizeSmall": "MuiTableCell-sizeSmall",
+            "stickyHeader": "MuiTableCell-stickyHeader",
+          }
+        }
+      >
+        <td
+          aria-sort={null}
+          className="MuiTableCell-root WithStyles(ForwardRef(TableCell))-root-1"
+        />
+      </ForwardRef(TableCell)>
+    </WithStyles(ForwardRef(TableCell))>
+  </WithStyles(WithStyles(ForwardRef(TableCell)))>
+</div>
+`;

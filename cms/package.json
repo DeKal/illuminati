@@ -68,15 +68,17 @@
     },
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "setupTests.js",
-      "serviceWorker.js",
-      "index.js",
       "\\w+/containers/\\w+",
       "\\w+/const/\\w+",
       "\\w+/init/\\w+",
       "\\w+/theme/\\w+",
+      "\\w+/sagas.js",
+      "setupTests.js",
+      "serviceWorker.js",
+      "index.js",
       "core/state/configureStore.js",
-      "core/state/rootReducer.js"
+      "core/state/rootReducer.js",
+      "core/state/rootSagas.js"
     ],
     "coverageReporters": [
       "json",

@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Posts Reducer  CHANGE_PAGE should work corectly 1`] = `
+Object {
+  "page": 1,
+}
+`;
+
+exports[`Posts Reducer  CHANGE_ROW_PER_PAGE should work corectly 1`] = `
+Object {
+  "page": 0,
+  "rowsPerPage": 10,
+}
+`;
+
+exports[`Posts Reducer  CLEAR_SELECTED should work corectly 1`] = `
+Object {
+  "selectedPosts": Array [],
+}
+`;
+
+exports[`Posts Reducer  FETCH_POSTS error 1`] = `
+Object {
+  "posts": Array [],
+}
+`;
+
+exports[`Posts Reducer  FETCH_POSTS success 1`] = `
+Object {
+  "posts": "success payload",
+}
+`;
+
+exports[`Posts Reducer  SELECT_ALL_POSTS should work corectly 1`] = `
+Object {
+  "posts": Array [
+    Object {
+      "slug": "a",
+    },
+    Object {
+      "slug": "b",
+    },
+  ],
+  "selectedPosts": Array [
+    "a",
+    "b",
+  ],
+}
+`;
+
+exports[`Posts Reducer  SET_ORDER should work corectly 1`] = `
+Object {
+  "order": "asc",
+}
+`;
+
+exports[`Posts Reducer  SET_ORDER_COLUMN should work corectly 1`] = `
+Object {
+  "orderColumn": "author",
+}
+`;
+
+exports[`Posts Reducer  SET_SELECTED_POST add new selected post 1`] = `
+Object {
+  "selectedPosts": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+  ],
+}
+`;
+
+exports[`Posts Reducer  SET_SELECTED_POST remove a selected post at the beginning 1`] = `
+Object {
+  "selectedPosts": Array [
+    "b",
+    "c",
+    "d",
+  ],
+}
+`;
+
+exports[`Posts Reducer  SET_SELECTED_POST remove a selected post at the end 1`] = `
+Object {
+  "selectedPosts": Array [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;
+
+exports[`Posts Reducer  SET_SELECTED_POST remove a selected post at the middle 1`] = `
+Object {
+  "selectedPosts": Array [
+    "a",
+    "c",
+    "d",
+  ],
+}
+`;
+
+exports[`Posts Reducer  default should work corectly 1`] = `Object {}`;

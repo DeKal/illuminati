@@ -14,31 +14,34 @@ const SelectedToolbar = ({ classes, numSelected }) => (
     })}
   >
     {numSelected ? (
-      <Typography className={classes.title} color="inherit" variant="subtitle1">
-        {numSelected} selected
-      </Typography>
+      <React.Fragment>
+        <Typography
+          className={classes.title}
+          color="inherit"
+          variant="subtitle1"
+        >
+          {numSelected} selected
+        </Typography>
+        <Tooltip title="Delete">
+          <IconButton aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
+      </React.Fragment>
     ) : (
       <Typography className={classes.title} variant="h6">
         All Posts
       </Typography>
     )}
-
-    {numSelected ? (
-      <Tooltip title="Delete">
-        <IconButton aria-label="delete">
-          <DeleteIcon />
-        </IconButton>
-      </Tooltip>
-    ) : null}
   </Toolbar>
 )
 
 SelectedToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
   classes: PropTypes.shape({
-    root: PropTypes.object,
-    title: PropTypes.object,
-    highlight: PropTypes.object
+    root: PropTypes.string,
+    title: PropTypes.string,
+    highlight: PropTypes.string
   })
 }
 

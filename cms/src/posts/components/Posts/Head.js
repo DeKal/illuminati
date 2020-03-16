@@ -49,6 +49,7 @@ const EnhancedTableHead = ({
               <TableSortLabel
                 active={isOrderColumn}
                 direction={isOrderColumn ? order : 'asc'}
+                data-test-id={`head-sort-${headCell.id}`}
                 onClick={createSortHandler(headCell.id)}
               >
                 {headCell.label}

@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Posts from 'posts/components/Posts'
 
@@ -13,4 +15,15 @@ const mapDispatchToProps = {
   fetchPostSummary
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Posts)
+const PostsWithHook = props => {
+  const { fetchPostSummary } = props
+  useEffect(() => {
+    fetchPostSummary()
+  }, [fetchPostSummary])
+  return <Posts {...props} />
+}
+PostsWithHook.propTypes = {
+  fetchPostSummary: PropTypes.func
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostsWithHook)
