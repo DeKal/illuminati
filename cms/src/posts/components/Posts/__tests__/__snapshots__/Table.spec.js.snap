@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paper should render with no error 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <WithStyles(WithStyles(ForwardRef(Table)))>
+    <WithStyles(ForwardRef(Table))
+      classes={
+        Object {
+          "root": "WithStyles(ForwardRef(Table))-root-1",
+        }
+      }
+    >
+      <ForwardRef(Table)
+        classes={
+          Object {
+            "root": "MuiTable-root WithStyles(ForwardRef(Table))-root-1",
+            "stickyHeader": "MuiTable-stickyHeader",
+          }
+        }
+      >
+        <table
+          className="MuiTable-root WithStyles(ForwardRef(Table))-root-1"
+        />
+      </ForwardRef(Table)>
+    </WithStyles(ForwardRef(Table))>
+  </WithStyles(WithStyles(ForwardRef(Table)))>
+</div>
+`;

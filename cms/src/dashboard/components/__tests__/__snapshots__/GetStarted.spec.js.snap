@@ -69,7 +69,7 @@ exports[`GetStarted should render GetStarted with no error 1`] = `
             }
           />
           <Styled(Link)
-            to="/posts"
+            to="/post/"
           >
             Write your first blog post
           </Styled(Link)>

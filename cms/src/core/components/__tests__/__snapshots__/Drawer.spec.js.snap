@@ -46,6 +46,19 @@ exports[`Drawer should render Drawer when it closes 1`] = `
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))
       button={true}
+      data-test-id="drawer-item-post"
+      key="post"
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <PostAddIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Write your first post"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
       data-test-id="drawer-item-users"
       key="users"
       onClick={[Function]}
@@ -129,6 +142,19 @@ exports[`Drawer should render Drawer when it opens 1`] = `
       </WithStyles(ForwardRef(ListItemIcon))>
       <WithStyles(ForwardRef(ListItemText))
         primary="Posts"
+      />
+    </WithStyles(ForwardRef(ListItem))>
+    <WithStyles(ForwardRef(ListItem))
+      button={true}
+      data-test-id="drawer-item-post"
+      key="post"
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(ListItemIcon))>
+        <PostAddIcon />
+      </WithStyles(ForwardRef(ListItemIcon))>
+      <WithStyles(ForwardRef(ListItemText))
+        primary="Write your first post"
       />
     </WithStyles(ForwardRef(ListItem))>
     <WithStyles(ForwardRef(ListItem))

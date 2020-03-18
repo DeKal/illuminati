@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmptyRows should render EmptyRows when postLength < rows per page 1`] = `
+<WithStyles(ForwardRef(TableRow))
+  style={
+    Object {
+      "height": 265,
+    }
+  }
+>
+  <WithStyles(ForwardRef(TableCell))
+    colSpan={6}
+  />
+</WithStyles(ForwardRef(TableRow))>
+`;
+
+exports[`EmptyRows should render EmptyRows when postLength > rows per page 1`] = `""`;

@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
-import Container from './GetStarted/Container'
+import Container from 'core/components/Container'
 import Title from './GetStarted/Title'
 import SubTitle from './GetStarted/SubTitle'
 import Item from './GetStarted/Item'
@@ -39,7 +39,7 @@ const GetStarted = () => (
           <ItemTitle>Next steps</ItemTitle>
           <Line>
             <PostAdd style={{ marginRight: '5px' }} />
-            <BreakLink to={pages.posts.url}>
+            <BreakLink to={pages.post.url}>
               Write your first blog post
             </BreakLink>
           </Line>

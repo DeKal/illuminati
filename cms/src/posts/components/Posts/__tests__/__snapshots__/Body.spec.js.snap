@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Body should render with no error 1`] = `
+<WithStyles(ForwardRef(TableBody))>
+  <WithStyles(ForwardRef(TableRow))
+    aria-checked={false}
+    hover={true}
+    key="get-startted-with-spring"
+    role="checkbox"
+    selected={false}
+    tabIndex={-1}
+  >
+    <WithStyles(ForwardRef(TableCell))
+      padding="checkbox"
+    >
+      <WithStyles(ForwardRef(Checkbox))
+        checked={false}
+        data-test-id="body-checkbox-0"
+        inputProps={
+          Object {
+            "aria-labelledby": "enhanced-table-checkbox-0",
+          }
+        }
+        onClick={[Function]}
+      />
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(WithStyles(ForwardRef(TableCell)))
+      component="th"
+      data-test-id="body-title-0"
+      id="enhanced-table-checkbox-0"
+      onClick={[Function]}
+      padding="none"
+      scope="row"
+    >
+      Get Startted With Spring MVC
+    </WithStyles(WithStyles(ForwardRef(TableCell)))>
+    <WithStyles(ForwardRef(TableCell))>
+      Phat Ho
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))>
+      06/01/2020
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))
+      style={
+        Object {
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      Java Spring, Course
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))
+      align="right"
+    >
+      0
+    </WithStyles(ForwardRef(TableCell))>
+  </WithStyles(ForwardRef(TableRow))>
+  <WithStyles(ForwardRef(TableRow))
+    aria-checked={false}
+    hover={true}
+    key="getting-started-with-java"
+    role="checkbox"
+    selected={false}
+    tabIndex={-1}
+  >
+    <WithStyles(ForwardRef(TableCell))
+      padding="checkbox"
+    >
+      <WithStyles(ForwardRef(Checkbox))
+        checked={false}
+        data-test-id="body-checkbox-1"
+        inputProps={
+          Object {
+            "aria-labelledby": "enhanced-table-checkbox-1",
+          }
+        }
+        onClick={[Function]}
+      />
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(WithStyles(ForwardRef(TableCell)))
+      component="th"
+      data-test-id="body-title-1"
+      id="enhanced-table-checkbox-1"
+      onClick={[Function]}
+      padding="none"
+      scope="row"
+    >
+      Getting Started With Java
+    </WithStyles(WithStyles(ForwardRef(TableCell)))>
+    <WithStyles(ForwardRef(TableCell))>
+      Phat Ho
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))>
+      06/01/2020
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))
+      style={
+        Object {
+          "whiteSpace": "nowrap",
+        }
+      }
+    >
+      Web Development, Jav...
+    </WithStyles(ForwardRef(TableCell))>
+    <WithStyles(ForwardRef(TableCell))
+      align="right"
+    >
+      0
+    </WithStyles(ForwardRef(TableCell))>
+  </WithStyles(ForwardRef(TableRow))>
+  <EmptyRows
+    page={0}
+    postsLength={2}
+    rowsPerPage={5}
+  />
+</WithStyles(ForwardRef(TableBody))>
+`;

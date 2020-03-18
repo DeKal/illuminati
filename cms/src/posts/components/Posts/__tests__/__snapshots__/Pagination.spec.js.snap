@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination should render with no error 1`] = `
+<WithStyles(ForwardRef(TablePagination))
+  component="div"
+  count={20}
+  onChangePage={[Function]}
+  onChangeRowsPerPage={[Function]}
+  page={0}
+  rowsPerPage={5}
+  rowsPerPageOptions={
+    Array [
+      5,
+      10,
+      25,
+    ]
+  }
+/>
+`;

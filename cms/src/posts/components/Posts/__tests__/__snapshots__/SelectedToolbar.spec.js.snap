@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectedToolbar should render with 1 item selected 1`] = `
+<WithStyles(ForwardRef(Toolbar))
+  className="root highlight"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="title"
+    color="inherit"
+    variant="subtitle1"
+  >
+    1
+     selected
+  </WithStyles(ForwardRef(Typography))>
+  <WithStyles(ForwardRef(Tooltip))
+    title="Delete"
+  >
+    <WithStyles(ForwardRef(IconButton))
+      aria-label="delete"
+    >
+      <DeleteIcon />
+    </WithStyles(ForwardRef(IconButton))>
+  </WithStyles(ForwardRef(Tooltip))>
+</WithStyles(ForwardRef(Toolbar))>
+`;
+
+exports[`SelectedToolbar should render with no item selected 1`] = `
+<WithStyles(ForwardRef(Toolbar))
+  className="root"
+>
+  <WithStyles(ForwardRef(Typography))
+    className="title"
+    variant="h6"
+  >
+    All Posts
+  </WithStyles(ForwardRef(Typography))>
+</WithStyles(ForwardRef(Toolbar))>
+`;

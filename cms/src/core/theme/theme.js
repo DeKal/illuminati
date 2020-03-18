@@ -1,4 +1,5 @@
 import { createMuiTheme } from '@material-ui/core/styles'
+import { lighten } from '@material-ui/core/styles'
 
 export const theme = createMuiTheme({
   font:
@@ -35,6 +36,7 @@ export const theme = createMuiTheme({
   defaultLineHeight: 1.57,
   drawerWidth: '275px',
   navbarHeight: 56,
+  postsTableWidth: 750,
   images: {},
   colors: {
     background: '#ecedf0',
@@ -46,5 +48,25 @@ export const theme = createMuiTheme({
     grey1: '#ccd0d4',
     secondaryText: '#72777c'
   },
-  extra: {}
+  extra: {},
+  overrides: {
+    MuiTableRow: {
+      root: {
+        '&$selected, &$selected:hover': {
+          backgroundColor: lighten('#0083c1', 0.85)
+        }
+      }
+    },
+    MuiCheckbox: {
+      colorSecondary: {
+        '&$checked': {
+          color: '#0083c1'
+        },
+        '&:hover': {
+          color: '#0083c1',
+          backgroundColor: lighten('#0083c1', 0.85)
+        }
+      }
+    }
+  }
 })

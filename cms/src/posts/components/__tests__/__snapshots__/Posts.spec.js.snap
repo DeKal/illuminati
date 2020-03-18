@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Posts should render Posts with no error 1`] = `
+<Styled(div)>
+  <WithStyles(WithStyles(ForwardRef(Paper)))>
+    <SelectedToolbarContainer
+      numSelected={0}
+    />
+    <WithStyles(ForwardRef(TableContainer))>
+      <WithStyles(WithStyles(ForwardRef(Table)))
+        aria-label="enhanced table"
+        aria-labelledby="tableTitle"
+        size="medium"
+        style={
+          Object {
+            "marginBottom": "15px",
+            "overflow": "auto",
+          }
+        }
+      >
+        <Connect(EnhancedTableHead)
+          numSelected={0}
+          rowCount={2}
+        />
+        <Connect(withRouter(Body))
+          posts={
+            Array [
+              Object {
+                "author": "Phat Ho",
+                "commentNum": 0,
+                "slug": "getting-started-with-java",
+                "tag": Array [
+                  "Web Development",
+                  "Java",
+                ],
+                "time": "06/01/2020",
+                "title": "Getting Started With Java",
+              },
+              Object {
+                "author": "Phat Ho",
+                "commentNum": 0,
+                "slug": "get-startted-with-spring",
+                "tag": Array [
+                  "Java Spring",
+                  "Course",
+                ],
+                "time": "06/01/2020",
+                "title": "Get Startted With Spring MVC",
+              },
+            ]
+          }
+          selectedPosts={Array []}
+        />
+      </WithStyles(WithStyles(ForwardRef(Table)))>
+    </WithStyles(ForwardRef(TableContainer))>
+    <Connect(Pagination)
+      postCount={2}
+    />
+  </WithStyles(WithStyles(ForwardRef(Paper)))>
+</Styled(div)>
+`;
