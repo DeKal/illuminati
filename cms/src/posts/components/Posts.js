@@ -8,10 +8,14 @@ import Body from 'posts/containers/Body'
 import SelectedToolbar from 'posts/containers/SelectedToolbar'
 import Paper from 'posts/components/Posts/Paper'
 import Table from 'posts/components/Posts/Table'
+import Loading from 'core/components/Loading'
 
 const Posts = ({ posts, selectedPosts }) => {
   const numSelected = selectedPosts.length
   const rowCount = posts.length
+  if (rowCount === 0) {
+    return <Loading />
+  }
   return (
     <Container>
       <Paper>
