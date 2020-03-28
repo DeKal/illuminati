@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -54,7 +55,7 @@ public class PostControllerTest {
     @Test
     public void findBySlug_whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         String mockSlug = postEntity1.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
+        PostEntity mockPostEntities = postEntity1;
 
         Mockito.when(postService.findBySlug(mockSlug)).thenReturn(mockPostEntities);
 
@@ -66,9 +67,9 @@ public class PostControllerTest {
 
     @Test
     void findBySlug_whenPostIdIsUnAvail_thenRetrievedPostIsIncorrect() {
-        Optional<PostEntity> emptyEntities = Optional.empty();
+//        PostEntity emptyEntities = null;
         Mockito.when(postService.findBySlug(""))
-                .thenReturn(emptyEntities);
+                .thenReturn(null);
 
         assertThrows(PostNotFoundException.class, () -> {
             postController.getPostBySlug("");

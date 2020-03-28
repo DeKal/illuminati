@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+import org.bson.types.ObjectId;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -66,7 +67,7 @@ public class PostServiceTest {
     @Test
     public void findPostBySlug() {
         String mockSlug = postEntity.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
+        PostEntity mockPostEntities = postEntity;
 
         Mockito.when(postRepository.findBySlug(mockSlug)).thenReturn(mockPostEntities);
         assertThat(postService.findBySlug(mockSlug), is(mockPostEntities));
