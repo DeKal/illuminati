@@ -19,6 +19,11 @@ exports[`PageSwitch should render PageSwitch with no error 1`] = `
     >
       <Connect(PostsWithHook) />
     </Route>
+    <Route
+      path="/post/"
+    >
+      <Post />
+    </Route>
   </Switch>
 </Styled(div)>
 `;

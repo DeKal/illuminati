@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Container from 'core/components/Container'
-import Paper from 'posts/components/Posts/Paper'
+import Paper from 'core/components/Paper'
 
 const Post = () => {
   return (
