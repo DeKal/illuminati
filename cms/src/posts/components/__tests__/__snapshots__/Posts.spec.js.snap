@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Posts should render Loading 1`] = `<Loading />`;
+
 exports[`Posts should render Posts with no error 1`] = `
 <Styled(div)>
   <WithStyles(WithStyles(ForwardRef(Paper)))>

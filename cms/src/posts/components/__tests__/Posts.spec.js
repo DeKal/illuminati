@@ -26,4 +26,9 @@ describe('Posts', () => {
     const wrap = shallow(<Posts posts={posts} selectedPosts={[]} />)
     expect(wrap).toMatchSnapshot()
   })
+
+  it('should render Loading', function() {
+    const wrap = shallow(<Posts posts={[]} selectedPosts={[]} />)
+    expect(wrap).toMatchSnapshot()
+  })
 })
