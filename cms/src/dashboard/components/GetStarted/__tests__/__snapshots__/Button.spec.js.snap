@@ -91,7 +91,7 @@ exports[`GetStarted Button should render Button with no error 1`] = `
                 className="MuiButton-label"
               />
               <NoSsr>
-                <WithStyles(undefined)
+                <WithStyles(memo)
                   center={false}
                 >
                   <ForwardRef(TouchRipple)
@@ -118,7 +118,7 @@ exports[`GetStarted Button should render Button with no error 1`] = `
                       />
                     </span>
                   </ForwardRef(TouchRipple)>
-                </WithStyles(undefined)>
+                </WithStyles(memo)>
               </NoSsr>
             </button>
           </ForwardRef(ButtonBase)>
