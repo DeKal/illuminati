@@ -1,8 +1,10 @@
 package com.dawn.jat.illuminati.post.controller;
 
 import com.dawn.jat.illuminati.core.response.SuccessResponse;
+import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
@@ -11,10 +13,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -51,6 +50,20 @@ public class PostController {
         }
 
         SuccessResponse resp = new SuccessResponse(allPost);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
+    }
+
+    /**
+     * Save an edited Post in to database.
+     * @throws PostCannotBeSavedException if post cannot be saved
+     */
+    @PostMapping(value = "/save")
+    public ResponseEntity<Object> savePost(@RequestBody PostDto post) {
+        PostEntity savedPost = postService.save(post);
+        if (savedPost == null) {
+            throw new PostCannotBeSavedException("Failed to save Post");
+        }
+        SuccessResponse resp = new SuccessResponse(savedPost);
         return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 }

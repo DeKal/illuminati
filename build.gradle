@@ -112,6 +112,7 @@ jacocoTestCoverageVerification {
 			excludes = [
 					'*.entity.*',
 					'*.repository.*',
+					'*.dto.*',
 					'com.dawn.jat.illuminati.ServletInitializer',
 					'com.dawn.jat.illuminati.IlluminatiApplication',
 					'com.dawn.jat.illuminati.AppConfiguration'
