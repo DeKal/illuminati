@@ -4,7 +4,7 @@ import Container from 'core/components/page/Container'
 import Dashboard from 'dashboard/components/Dashboard'
 import User from 'user/components/User'
 import Posts from 'posts/containers/Posts'
-import Post from 'post/components/Post'
+import Post from 'post/containers/Post'
 import { pages } from 'core/const/pages'
 
 const PageSwitch = () => (
@@ -16,10 +16,10 @@ const PageSwitch = () => (
       <Route path={pages.profile.url}>
         <User />
       </Route>
-      <Route path={pages.posts.url}>
+      <Route exact path={pages.posts.url}>
         <Posts />
       </Route>
-      <Route path={pages.post.url}>
+      <Route path={`${pages.post.url}:slug`}>
         <Post />
       </Route>
     </Switch>

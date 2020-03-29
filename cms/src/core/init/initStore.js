@@ -12,6 +12,23 @@ export default () => {
       orderColumn: 'title',
       selectedPosts: [],
       posts: []
+    },
+    post: {
+      content: {
+        slug: '',
+        title: '',
+        brief: '',
+        time: '',
+        tag: {},
+        author: '',
+        content: '',
+        viewNum: 0,
+        commentNum: 0,
+        likeNum: 0
+      },
+      editedContent: {
+        tag: {}
+      }
     }
   }
 

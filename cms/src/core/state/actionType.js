@@ -1,5 +1,3 @@
-export const ADD_TODO = 'ADD_TODO'
-
 export const OPEN_DRAWER = 'drawer/openDrawer'
 export const CLOSE_DRAWER = 'drawer/closeDrawer'
 
@@ -11,3 +9,13 @@ export const SET_SELECTED_POST = 'posts/setSelectedPost'
 export const SELECT_ALL_POSTS = 'posts/selectAllPosts'
 export const CLEAR_SELECTED = 'posts/clearSelected'
 export const FETCH_POSTS = 'posts/fetchPosts'
+
+export const FETCH_POST = 'post/fetchPost'
+export const EDIT_POST_TITLE = 'post/editPostTitle'
+export const EDIT_POST_SLUG = 'post/editPostSlug'
+export const EDIT_POST_BRIEF = 'post/editPostBrief'
+export const EDIT_POST_AUTHOR = 'post/editPostAuthor'
+export const EDIT_POST_TIME = 'post/editPostTime'
+export const EDIT_POST_TAGS = 'post/editPostTags'
+export const EDIT_POST_CONTENT = 'post/editPostContent'
+export const SAVE_EDITED_CONTENT = 'post/saveEditedContent'
