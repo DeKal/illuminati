@@ -33,8 +33,10 @@ public class PostService {
         return postRepository.findBySlug(slug);
     }
 
-    public PostEntity create(PostEntity postEntity) {
-        return postRepository.save(postEntity);
+    public PostEntity create(PostDto postDto) {
+        PostEntity post = new PostEntity();
+        post = Converter.convertPostDtoToEntity(postDto, post);
+        return postRepository.savePost(post);
     }
 
     private PostEntity findById(String id) {
@@ -47,14 +49,7 @@ public class PostService {
 
     public PostEntity save(PostDto postDto) {
         PostEntity savedPost = findById(postDto.getId());
-        savedPost.setSlug(postDto.getSlug());
-        savedPost.setAuthor(postDto.getAuthor());
-        savedPost.setBrief(postDto.getBrief());
-        savedPost.setTitle(postDto.getTitle());
-        savedPost.setTime(postDto.getTime());
-        savedPost.setContent(postDto.getContent());
-        Map<String, Boolean> tagMap = postDto.getTag();
-        savedPost.setTag(Converter.convertMapKeysToArray(tagMap));
+        savedPost = Converter.convertPostDtoToEntity(postDto, savedPost);
         return postRepository.savePost(savedPost);
     }
 

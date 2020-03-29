@@ -54,6 +54,16 @@ public class PostController {
     }
 
     /**
+     * Create a Post in to database.
+     */
+    @PostMapping(value = "/create")
+    public ResponseEntity<Object> createPost(@RequestBody PostDto post) {
+        PostEntity savedPost = postService.create(post);
+        SuccessResponse resp = new SuccessResponse(savedPost);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
+    }
+
+    /**
      * Save an edited Post in to database.
      * @throws PostCannotBeSavedException if post cannot be saved
      */

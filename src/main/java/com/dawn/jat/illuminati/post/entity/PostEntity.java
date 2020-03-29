@@ -1,15 +1,13 @@
 package com.dawn.jat.illuminati.post.entity;
 
-import lombok.Data;
-import lombok.Generated;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
 @Generated
+@NoArgsConstructor
 @RequiredArgsConstructor
 @Data
 @Document(collection = "post")
