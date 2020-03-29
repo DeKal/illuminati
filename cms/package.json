@@ -28,7 +28,8 @@
     "lint": "eslint '**/*.js'",
     "lint:css": "stylelint '**/*.js'",
     "test": "react-scripts test",
-    "test:coverage": "react-scripts test --coverage --watchAll=false"
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
+    "analyze": "react-scripts build && source-map-explorer 'build/static/js/*.js' --gzip"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,6 +60,7 @@
     "eslint-plugin-react": "^7.19.0",
     "prettier": "^1.19.1",
     "stylelint": "^13.3.3",
+    "source-map-explorer": "^2.4.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^25.4.0",

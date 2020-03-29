@@ -2,9 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 
+import PostEditor from 'core/async-components/PostEditor'
+import Loading from 'core/components/Loading'
 import Container from 'core/components/Container'
 import Paper from 'core/components/Paper'
 import Grid from 'post/components/Grid'
+import PostButton from 'post/components/Button'
 
 import Title from 'post/containers/Title'
 import Slug from 'post/containers/Slug'
@@ -12,9 +15,6 @@ import Author from 'post/containers/Author'
 import Time from 'post/containers/Time'
 import Brief from 'post/containers/Brief'
 import Tags from 'post/containers/Tags'
-import Content from 'post/containers/Content'
-import PostButton from 'post/components/Button'
-import Loading from 'core/components/Loading'
 
 const Post = ({ loading, saveEditedContent }) => {
   if (loading) {
@@ -37,7 +37,7 @@ const Post = ({ loading, saveEditedContent }) => {
               <Brief />
             </Grid>
             <Grid item>
-              <Content />
+              <PostEditor />
             </Grid>
           </Grid>
           <Grid container item direction="column" xs={6} sm={4} spacing={3}>

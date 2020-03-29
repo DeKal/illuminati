@@ -1,10 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Container from 'core/components/page/Container'
-import Dashboard from 'dashboard/components/Dashboard'
-import User from 'user/components/User'
-import Posts from 'posts/containers/Posts'
-import Post from 'post/containers/Post'
+import Dashboard from 'core/async-components/Dashboard'
+import User from 'core/async-components/User'
+import Posts from 'core/async-components/Posts'
+import Post from 'core/async-components/Post'
 import { pages } from 'core/const/pages'
 
 const PageSwitch = () => (
