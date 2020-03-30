@@ -8,8 +8,6 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-
-
 public class SuccessResponseTest {
     private static PostSummaryEntity postSummaryEntity;
 

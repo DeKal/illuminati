@@ -5,16 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,6 +35,7 @@ import org.springframework.http.ResponseEntity;
 public class PostControllerTest {
     private static PostEntity postEntity1;
     private static PostEntity postEntity2;
+    private static PostDto postDto;
 
     @Mock
     private PostService postService;
@@ -44,11 +49,29 @@ public class PostControllerTest {
     @BeforeAll
     public static void init() {
         postEntity1 = new PostEntity("how-to-apply-agile-methodology",
-                "How to apply Agile methodology", "Guide",
-                "01/01/2020", new String[]{"Agile"}, "Phat Ho");
+                "How to apply Agile methodology",
+                "Guide",
+                "01/01/2020",
+                new ArrayList<>(Arrays.asList("Agile")),
+                "Phat Ho");
+
         postEntity2 = new PostEntity("getting-started-with-reactjs",
-                "Getting started with ReactJS", "Guide",
-                "02/01/2020", new String[]{"Web Developement", "Frontend"}, "Phat Ho");
+                "Getting started with ReactJS",
+                "Guide",
+                "02/01/2020",
+                new ArrayList<>(Arrays.asList("Web Development", "Frontend")),
+                "Phat Ho");
+
+        HashMap tags = new HashMap();
+        tags.put("Agile", Boolean.TRUE);
+        postDto = new PostDto("5e80afe11de7a40da7f97052",
+                "how-to-apply-agile-methodology",
+                "How to apply Agile methodology",
+                "Guide",
+                "01/01/2020",
+                "Phat Ho",
+                null,
+                tags);
     }
 
     @Test
@@ -93,6 +116,34 @@ public class PostControllerTest {
 
         assertThrows(PostSummaryNotFoundException.class, () -> {
             postController.getAllPostSummary();
+        });
+    }
+
+    @Test
+    public void create_whenPostSuccessfullyCreate_sendSuccessResponseWithPost() {
+        Mockito.when(postService.create(postDto))
+                .thenReturn(postEntity1);
+
+        ResponseEntity<Object> responseEntity = postController.createPost(postDto);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    }
+
+    @Test
+    public void savePost_whenPostSuccessfullySaved_sendSuccessResponseWithPost() {
+        Mockito.when(postService.save(postDto))
+                .thenReturn(postEntity1);
+
+        ResponseEntity<Object> responseEntity = postController.savePost(postDto);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+    }
+
+    @Test
+    public void savePost_whenPostFailedToSave_throwPostCannotBeSavedException() {
+        Mockito.when(postService.save(postDto))
+                .thenReturn(null);
+
+        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
+            postController.savePost(postDto);
         });
     }
 }

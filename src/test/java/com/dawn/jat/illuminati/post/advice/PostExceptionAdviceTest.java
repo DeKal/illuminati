@@ -3,6 +3,7 @@ package com.dawn.jat.illuminati.post.advice;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.dawn.jat.illuminati.core.response.ErrorResponse;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import java.util.HashMap;
@@ -44,6 +45,39 @@ public class PostExceptionAdviceTest {
         Map<String, Object> error = new HashMap<String, Object>();
         error.put("code", 204);
         error.put("message", "Cannot find post summary");
+
+        assertEquals(error, rsp.getBody().getError());
+        assertEquals(false, rsp.getBody().getSuccess());
+    }
+
+    @Test
+    void exception_throwException_returnPostCannotBeSavedException() {
+        PostCannotBeSavedException postException =
+                new PostCannotBeSavedException("Post cannot be save");
+
+        ResponseEntity<ErrorResponse> rsp = advice.exception(postException);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, rsp.getStatusCode());
+        assertEquals(500, rsp.getStatusCodeValue());
+
+        Map<String, Object> error = new HashMap<String, Object>();
+        error.put("code", 500);
+        error.put("message", "Post cannot be save");
+
+        assertEquals(error, rsp.getBody().getError());
+        assertEquals(false, rsp.getBody().getSuccess());
+    }
+
+    @Test
+    void exception_throwException_returnException() {
+        Exception exception = new Exception("Some common exception");
+
+        ResponseEntity<ErrorResponse> rsp = advice.exception(exception);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, rsp.getStatusCode());
+        assertEquals(500, rsp.getStatusCodeValue());
+
+        Map<String, Object> error = new HashMap<String, Object>();
+        error.put("code", 500);
+        error.put("message", "Some common exception");
 
         assertEquals(error, rsp.getBody().getError());
         assertEquals(false, rsp.getBody().getSuccess());
