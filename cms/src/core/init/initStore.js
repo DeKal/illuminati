@@ -15,6 +15,7 @@ export default () => {
     },
     post: {
       content: {
+        id: '',
         slug: '',
         title: '',
         brief: '',

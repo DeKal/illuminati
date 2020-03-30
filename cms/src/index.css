@@ -7,3 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #ecedf0;
 }
+
+.ck-editor {
+  max-width: 99% !important;
+}
+
+.ck-editor__editable {
+  min-height: 150px !important;
+}
