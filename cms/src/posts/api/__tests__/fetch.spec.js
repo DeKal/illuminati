@@ -66,7 +66,13 @@ describe('fetchPostSummary ', () => {
       }
     })
 
-    const data = await fetchPostSummary()
-    expect(data).toMatchSnapshot()
+    try {
+      await fetchPostSummary()
+    } catch (e) {
+      expect(e).toEqual({
+        code: 204,
+        message: 'Cannot find post'
+      })
+    }
   })
 })

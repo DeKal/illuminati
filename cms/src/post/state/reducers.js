@@ -40,7 +40,22 @@ const post = (state = {}, action) => {
       return {
         ...state,
         loading: false,
-        content: {}
+        content: {
+          id: '',
+          slug: '',
+          title: '',
+          brief: '',
+          time: '',
+          tag: {},
+          author: '',
+          content: '',
+          viewNum: 0,
+          commentNum: 0,
+          likeNum: 0
+        },
+        editedContent: {
+          tag: {}
+        }
       }
     }
     case EDIT_POST_TITLE: {

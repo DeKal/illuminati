@@ -2,8 +2,6 @@
 
 exports[`fetchPostSummary  fetchPostSummary with empty request 1`] = `Array []`;
 
-exports[`fetchPostSummary  fetchPostSummary with error request 1`] = `Array []`;
-
 exports[`fetchPostSummary  fetchPostSummary with mock request 1`] = `
 Array [
   Object {
