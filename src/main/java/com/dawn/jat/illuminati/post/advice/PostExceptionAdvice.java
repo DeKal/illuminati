@@ -11,6 +11,16 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class PostExceptionAdvice {
+
+    /**
+     * Handle any common exceptions.
+     */
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> exception(Exception exception) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     /**
      * Throw Exception when the query Slug Unavailable.
      */
@@ -21,20 +31,20 @@ public class PostExceptionAdvice {
     }
 
     /**
-     * Throw Exception if Post Summary has No Content.
-     */
-    @ExceptionHandler(PostSummaryNotFoundException.class)
-    public ResponseEntity<ErrorResponse> exceptionPostSummary(Exception exception) {
-        ErrorResponse error = new ErrorResponse(HttpStatus.NO_CONTENT, exception);
-        return new ResponseEntity<>(error, HttpStatus.OK);
-    }
-
-    /**
      * Throw Exception if Post cannot be saved.
      */
     @ExceptionHandler(PostCannotBeSavedException.class)
     public ResponseEntity<ErrorResponse> exception(PostCannotBeSavedException exception) {
         ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception);
         return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    /**
+     * Throw Exception if Post Summary has No Content.
+     */
+    @ExceptionHandler(PostSummaryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> exceptionPostSummary(Exception exception) {
+        ErrorResponse error = new ErrorResponse(HttpStatus.NO_CONTENT, exception);
+        return new ResponseEntity<>(error, HttpStatus.OK);
     }
 }

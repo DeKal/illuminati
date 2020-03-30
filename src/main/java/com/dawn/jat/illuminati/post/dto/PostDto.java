@@ -1,11 +1,10 @@
 package com.dawn.jat.illuminati.post.dto;
 
+import java.util.Map;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Generated;
 import lombok.RequiredArgsConstructor;
-
-import java.util.Map;
 
 @Generated
 @AllArgsConstructor

@@ -20,6 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class PostService {
     @Autowired
+    private Converter converter;
+
+    @Autowired
     private PostRepository postRepository;
 
     @Autowired
@@ -33,9 +36,14 @@ public class PostService {
         return postRepository.findBySlug(slug);
     }
 
+    /**
+     * Create new Entity from postDTO receive from client.
+     * @param postDto PostDto
+     * @return PostEntity
+     */
     public PostEntity create(PostDto postDto) {
         PostEntity post = new PostEntity();
-        post = Converter.convertPostDtoToEntity(postDto, post);
+        post = converter.convertPostDtoToEntity(postDto, post);
         return postRepository.savePost(post);
     }
 
@@ -47,9 +55,14 @@ public class PostService {
         return postObj.get();
     }
 
+    /**
+     * Save a post info to an existing post.
+     * @param postDto PostDto
+     * @return PostEntity
+     */
     public PostEntity save(PostDto postDto) {
         PostEntity savedPost = findById(postDto.getId());
-        savedPost = Converter.convertPostDtoToEntity(postDto, savedPost);
+        savedPost = converter.convertPostDtoToEntity(postDto, savedPost);
         return postRepository.savePost(savedPost);
     }
 

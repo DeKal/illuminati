@@ -1,8 +1,11 @@
 package com.dawn.jat.illuminati.post.service;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 
+import com.dawn.jat.illuminati.core.convert.Converter;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
@@ -10,7 +13,11 @@ import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -22,7 +29,6 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.swing.text.html.Option;
 
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
@@ -36,6 +42,9 @@ public class PostServiceTest {
 
     @Mock
     PostSummaryRepository postSummaryRepository;
+
+    @Mock
+    Converter converter;
 
     @InjectMocks
     PostService postService;
@@ -99,15 +108,18 @@ public class PostServiceTest {
         Mockito.verify(postRepository, Mockito.times(1)).deleteBySlug(mockSlug);
     }
 
-//    @Test
-//    void createPost() {
-//        Mockito.when(postRepository.savePost(postEntity)).thenReturn(postEntity);
-//        assertThat(postService.create(postDto), is(postEntity));
-//        Mockito.verify(postRepository, Mockito.times(1)).save(postEntity);
-//    }
+    @Test
+    void create() {
+        Mockito.when(converter.convertPostDtoToEntity(eq(postDto), any(PostEntity.class)))
+                .thenReturn(postEntity);
+        Mockito.when(postRepository.savePost(any(PostEntity.class)))
+                .thenReturn(postEntity);
+        assertThat(postService.create(postDto), is(postEntity));
+        Mockito.verify(postRepository, Mockito.times(1)).savePost(postEntity);
+    }
 
     @Test
-    void savePost_WithDTO_SuccessfullySaveDTO() {
+    void savePost_WithDto_SuccessfullySaveDto() {
 
         PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
@@ -118,6 +130,8 @@ public class PostServiceTest {
         expectedPost.setContent("new content");
         Mockito.when(postRepository.findById(postDto.getId()))
                 .thenReturn(Optional.of(postEntity));
+        Mockito.when(postRepository.findById(postDto.getId()))
+                .thenReturn(Optional.of(postEntity));
 
         postService.save(postDto);
 
@@ -126,7 +140,7 @@ public class PostServiceTest {
     }
 
     @Test
-    void savePost_WithDTO_ThrowPostNotFoundException() {
+    void savePost_WithDto_ThrowPostNotFoundException() {
         PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
                 "How to apply Agile methodology new",

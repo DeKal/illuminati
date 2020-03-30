@@ -12,7 +12,11 @@ import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -113,6 +117,15 @@ public class PostControllerTest {
         assertThrows(PostSummaryNotFoundException.class, () -> {
             postController.getAllPostSummary();
         });
+    }
+
+    @Test
+    public void create_whenPostSuccessfullyCreate_sendSuccessResponseWithPost() {
+        Mockito.when(postService.create(postDto))
+                .thenReturn(postEntity1);
+
+        ResponseEntity<Object> responseEntity = postController.createPost(postDto);
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
     @Test

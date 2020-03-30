@@ -66,4 +66,20 @@ public class PostExceptionAdviceTest {
         assertEquals(error, rsp.getBody().getError());
         assertEquals(false, rsp.getBody().getSuccess());
     }
+
+    @Test
+    void exception_throwException_returnException() {
+        Exception exception = new Exception("Some common exception");
+
+        ResponseEntity<ErrorResponse> rsp = advice.exception(exception);
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, rsp.getStatusCode());
+        assertEquals(500, rsp.getStatusCodeValue());
+
+        Map<String, Object> error = new HashMap<String, Object>();
+        error.put("code", 500);
+        error.put("message", "Some common exception");
+
+        assertEquals(error, rsp.getBody().getError());
+        assertEquals(false, rsp.getBody().getSuccess());
+    }
 }
