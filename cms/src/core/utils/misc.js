@@ -1,7 +1,7 @@
 import { POSTS_PER_PAGE } from 'core/const/posts'
 
-export const isPathMatchUrl = (pathName, url) => {
-  if (url === '/' || pathName === '/') {
+export const isPathMatchUrl = (pathName, url, isExact = false) => {
+  if (url === '/' || pathName === '/' || isExact) {
     return pathName === url
   }
   return pathName.includes(url)

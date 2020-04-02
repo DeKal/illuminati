@@ -18,9 +18,43 @@ export const pages = {
     url: '/posts'
   },
   post: {
+    name: 'Post',
+    icon: <PostAdd />,
+    url: '/post'
+  },
+  users: {
+    name: 'Users',
+    icon: <PeopleIcon />,
+    url: '/users'
+  },
+  profile: {
+    name: 'Profile',
+    icon: <AccountBoxIcon />,
+    url: '/profile'
+  },
+  settings: {
+    name: 'Settings',
+    icon: <SettingsIcon />,
+    url: '/settings'
+  }
+}
+
+export const drawerPages = {
+  dashboard: {
+    name: 'Dashboard',
+    icon: <HomeIcon />,
+    url: '/'
+  },
+  posts: {
+    name: 'Posts',
+    icon: <LibraryBooksIcon />,
+    url: '/posts'
+  },
+  post: {
     name: 'Write your first post',
     icon: <PostAdd />,
-    url: '/post/'
+    url: '/post/new',
+    exact: true
   },
   users: {
     name: 'Users',

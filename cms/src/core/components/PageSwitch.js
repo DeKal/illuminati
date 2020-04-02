@@ -19,7 +19,7 @@ const PageSwitch = () => (
       <Route exact path={pages.posts.url}>
         <Posts />
       </Route>
-      <Route path={`${pages.post.url}:slug`}>
+      <Route path={`${pages.post.url}/:slug`}>
         <Post />
       </Route>
     </Switch>

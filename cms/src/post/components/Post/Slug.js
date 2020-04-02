@@ -5,7 +5,6 @@ import TextField from 'post/components/TextField'
 const Slug = ({ isEdited, slug, editPostSlug }) => (
   <TextField
     label="Slug"
-    required
     variant="outlined"
     value={slug}
     fullWidth

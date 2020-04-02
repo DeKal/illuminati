@@ -1,4 +1,4 @@
-import { isPathMatchUrl, stringtifyTags, calcMaxRowsPerPage } from '../misc'
+import { stringtifyTags, calcMaxRowsPerPage, isPathMatchUrl } from '../misc'
 
 describe('Misc ', () => {
   describe('isPathMatchUrl ', () => {

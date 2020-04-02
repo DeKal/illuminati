@@ -7,7 +7,9 @@ import {
   EDIT_POST_TIME,
   EDIT_POST_TAGS,
   EDIT_POST_CONTENT,
-  SAVE_EDITED_CONTENT
+  SAVE_EDITED_CONTENT,
+  CREATE_NEW_POST,
+  INIT_POST
 } from 'core/state/actionType'
 import { toSuccess, toError, toRequest } from 'core/state/utils'
 import { arrayToAttributes } from 'core/utils/misc'
@@ -131,6 +133,48 @@ const post = (state = {}, action) => {
     }
     case toError(SAVE_EDITED_CONTENT): {
       return state
+    }
+    case toSuccess(CREATE_NEW_POST): {
+      return {
+        ...state,
+        content: {
+          ...state.editedContent
+        }
+      }
+    }
+    case toError(CREATE_NEW_POST): {
+      return state
+    }
+    case INIT_POST: {
+      return {
+        ...state,
+        content: {
+          id: '',
+          slug: '',
+          title: '',
+          brief: '',
+          time: Date.now(),
+          tag: {},
+          author: '',
+          content: '',
+          viewNum: 0,
+          commentNum: 0,
+          likeNum: 0
+        },
+        editedContent: {
+          id: '',
+          slug: '',
+          title: '',
+          brief: '',
+          time: Date.now(),
+          tag: {},
+          author: '',
+          content: '',
+          viewNum: 0,
+          commentNum: 0,
+          likeNum: 0
+        }
+      }
     }
     default:
       return state

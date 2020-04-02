@@ -16,7 +16,7 @@ import Time from 'post/containers/Time'
 import Brief from 'post/containers/Brief'
 import Tags from 'post/containers/Tags'
 
-const Post = ({ loading, saveEditedContent }) => {
+const Post = ({ loading, newPost, saveEditedContent, createPost }) => {
   if (loading) {
     return <Loading />
   }
@@ -25,7 +25,11 @@ const Post = ({ loading, saveEditedContent }) => {
       <Paper>
         <Grid container style={{ padding: '16px' }} spacing={3}>
           <Grid item sm={11}>
-            <Typography variant="h6">Editing Post</Typography>
+            {newPost ? (
+              <Typography variant="h6">New Post</Typography>
+            ) : (
+              <Typography variant="h6">Editing Post</Typography>
+            )}
           </Grid>
         </Grid>
         <Grid container>
@@ -40,7 +44,7 @@ const Post = ({ loading, saveEditedContent }) => {
               <PostEditor />
             </Grid>
           </Grid>
-          <Grid container item direction="column" xs={6} sm={4} spacing={3}>
+          <Grid container item direction="column" xs={6} sm={4}>
             <Grid item>
               <Slug />
             </Grid>
@@ -58,7 +62,7 @@ const Post = ({ loading, saveEditedContent }) => {
                 variant="contained"
                 size="large"
                 color="primary"
-                onClick={saveEditedContent}
+                onClick={() => (newPost ? createPost() : saveEditedContent())}
               >
                 Save
               </PostButton>
@@ -71,8 +75,10 @@ const Post = ({ loading, saveEditedContent }) => {
 }
 
 Post.propTypes = {
+  newPost: PropTypes.bool,
   loading: PropTypes.bool,
-  saveEditedContent: PropTypes.func
+  saveEditedContent: PropTypes.func,
+  createPost: PropTypes.func
 }
 
 export default Post

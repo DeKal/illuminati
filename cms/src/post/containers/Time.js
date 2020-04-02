@@ -7,15 +7,15 @@ import Time from 'post/components/Post/Time'
 const mapStateToProps = state => {
   const editedTime = getEditedTime(state)
   const time = getPostTime(state)
-  let displayTime = editedTime || ''
-  if (displayTime) {
+  let displayTime = editedTime
+  if (typeof editedTime !== 'number') {
     displayTime = parse(displayTime, 'dd/MM/yyyy', new Date())
   } else {
     displayTime = Date.now()
   }
   return {
     time: displayTime,
-    isEdited: editedTime && editedTime !== time
+    isEdited: editedTime.length > 0 && editedTime !== time
   }
 }
 

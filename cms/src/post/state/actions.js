@@ -8,7 +8,9 @@ import {
   EDIT_POST_TIME,
   EDIT_POST_TAGS,
   EDIT_POST_CONTENT,
-  SAVE_EDITED_CONTENT
+  SAVE_EDITED_CONTENT,
+  CREATE_NEW_POST,
+  INIT_POST
 } from 'core/state/actionType'
 import { toRequest } from 'core/state/utils'
 
@@ -21,3 +23,5 @@ export const editPostTime = createAction(EDIT_POST_TIME)
 export const editPostTags = createAction(EDIT_POST_TAGS)
 export const editPostContent = createAction(EDIT_POST_CONTENT)
 export const saveEditedContent = createAction(toRequest(SAVE_EDITED_CONTENT))
+export const createPost = createAction(toRequest(CREATE_NEW_POST))
+export const initPost = createAction(INIT_POST)

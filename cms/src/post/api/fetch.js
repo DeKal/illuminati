@@ -8,4 +8,8 @@ const savingPost = async postData => {
   return await post('post/save', postData)
 }
 
-export { fetchPostFromSlug, savingPost }
+const createPost = async postData => {
+  return await post('post/create', postData)
+}
+
+export { fetchPostFromSlug, savingPost, createPost }

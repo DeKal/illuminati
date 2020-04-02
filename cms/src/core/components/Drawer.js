@@ -6,7 +6,7 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
-import { pages } from 'core/const/pages'
+import { drawerPages } from 'core/const/pages'
 import { isPathMatchUrl } from 'core/utils/misc'
 
 const LeftDrawer = ({ classes, open, history }) => (
@@ -20,28 +20,42 @@ const LeftDrawer = ({ classes, open, history }) => (
     }}
   >
     <div className={classes.drawerHeader}>Blogs</div>
-    <NoPaddingList>
-      {Object.keys(pages).map(key => {
-        const page = pages[key]
-        const isHighLight = isPathMatchUrl(history.location.pathname, page.url)
-        return (
-          <ListItem
-            button
-            key={key}
-            data-test-id={`drawer-item-${key}`}
-            className={
-              isHighLight ? classes.highLightListItem : classes.listItem
-            }
-            onClick={() => history.push(page.url)}
-          >
-            <ListItemIcon>{page.icon}</ListItemIcon>
-            <ListItemText primary={page.name} />
-          </ListItem>
-        )
-      })}
-    </NoPaddingList>
+    <NoPaddingList>{renderDrawerItems(classes, history)}</NoPaddingList>
   </Drawer>
 )
+
+const renderDrawerItems = (classes, history) => {
+  const matchedPath = getMatchingPath(history.location.pathname)
+  return Object.keys(drawerPages).map(key => {
+    const page = drawerPages[key]
+    const isHighLight = matchedPath === page.url
+    return (
+      <ListItem
+        button
+        key={key}
+        data-test-id={`drawer-item-${key}`}
+        className={isHighLight ? classes.highLightListItem : classes.listItem}
+        onClick={() => history.push(page.url)}
+      >
+        <ListItemIcon>{page.icon}</ListItemIcon>
+        <ListItemText primary={page.name} />
+      </ListItem>
+    )
+  })
+}
+
+export const getMatchingPath = pathName => {
+  let matchingPath = null
+  Object.keys(drawerPages).map(key => {
+    const page = drawerPages[key]
+    const isHighLight = isPathMatchUrl(pathName, page.url, page.exact)
+    if (isHighLight && !matchingPath) {
+      matchingPath = page.url
+    }
+    return null
+  })
+  return matchingPath
+}
 
 export default LeftDrawer
 

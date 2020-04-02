@@ -5,7 +5,6 @@ import TextField from 'post/components/TextField'
 const Author = ({ isEdited, author, editPostAuthor }) => (
   <TextField
     label="Author"
-    required
     variant="outlined"
     value={author}
     fullWidth

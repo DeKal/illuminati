@@ -19,7 +19,7 @@ export default () => {
         slug: '',
         title: '',
         brief: '',
-        time: '',
+        time: Date.now(),
         tag: {},
         author: '',
         content: '',
@@ -28,7 +28,17 @@ export default () => {
         likeNum: 0
       },
       editedContent: {
-        tag: {}
+        id: '',
+        slug: '',
+        title: '',
+        brief: '',
+        time: Date.now(),
+        tag: {},
+        author: '',
+        content: '',
+        viewNum: 0,
+        commentNum: 0,
+        likeNum: 0
       }
     }
   }
