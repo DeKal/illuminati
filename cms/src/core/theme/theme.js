@@ -47,7 +47,8 @@ export const theme = createMuiTheme({
     primary: '#0083c1',
     darkBlue: '#006fa4',
     grey1: '#ccd0d4',
-    secondaryText: '#72777c'
+    secondaryText: '#72777c',
+    dark: '#2c3e50'
   },
   extra: {},
   overrides: {

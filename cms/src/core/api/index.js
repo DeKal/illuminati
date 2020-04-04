@@ -9,7 +9,8 @@ export const get = async target => {
   if (isSuccess(response)) {
     return getData(response)
   }
-  throw getError(response)
+  const error = getError(response)
+  throw error
 }
 
 export const post = async (target, data) => {

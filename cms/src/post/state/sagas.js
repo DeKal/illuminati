@@ -13,7 +13,7 @@ function* fetchPost({ payload: slug }) {
     const post = yield call(fetchPostFromSlug, slug)
     yield put({ type: toSuccess(FETCH_POST), payload: post })
   } catch (e) {
-    yield put({ type: toError(FETCH_POST), message: e.message })
+    yield put({ type: toError(FETCH_POST), error: e })
   }
 }
 
@@ -23,7 +23,7 @@ function* savePost() {
     yield call(savingPost, getSavingContent(state))
     yield put({ type: toSuccess(SAVE_EDITED_CONTENT), payload: '' })
   } catch (e) {
-    yield put({ type: toError(SAVE_EDITED_CONTENT), message: e.message })
+    yield put({ type: toError(SAVE_EDITED_CONTENT), error: e })
   }
 }
 
@@ -33,7 +33,7 @@ function* createPostAction() {
     yield call(createPost, getSavingContent(state))
     yield put({ type: toSuccess(CREATE_NEW_POST), payload: '' })
   } catch (e) {
-    yield put({ type: toError(CREATE_NEW_POST), message: e.message })
+    yield put({ type: toError(CREATE_NEW_POST), error: e })
   }
 }
 

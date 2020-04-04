@@ -18,6 +18,12 @@ import format from 'date-fns/format'
 
 const post = (state = {}, action) => {
   switch (action.type) {
+    case toRequest(FETCH_POST): {
+      return {
+        ...state,
+        loading: true
+      }
+    }
     case toSuccess(FETCH_POST): {
       return {
         ...state,
@@ -32,33 +38,8 @@ const post = (state = {}, action) => {
         }
       }
     }
-    case toRequest(FETCH_POST): {
-      return {
-        ...state,
-        loading: true
-      }
-    }
     case toError(FETCH_POST): {
-      return {
-        ...state,
-        loading: false,
-        content: {
-          id: '',
-          slug: '',
-          title: '',
-          brief: '',
-          time: '',
-          tag: {},
-          author: '',
-          content: '',
-          viewNum: 0,
-          commentNum: 0,
-          likeNum: 0
-        },
-        editedContent: {
-          tag: {}
-        }
-      }
+      throw action.error
     }
     case EDIT_POST_TITLE: {
       return {

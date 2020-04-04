@@ -2,6 +2,9 @@ import configureStore from 'core/state/configureStore'
 
 export default () => {
   const initialState = {
+    app: {
+      error: undefined
+    },
     drawer: {
       open: false
     },
