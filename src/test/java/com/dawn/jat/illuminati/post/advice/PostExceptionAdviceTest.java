@@ -22,11 +22,11 @@ public class PostExceptionAdviceTest {
         PostNotFoundException postException = new PostNotFoundException("Cannot find post");
 
         ResponseEntity<ErrorResponse> rsp = advice.exception(postException);
-        assertEquals(HttpStatus.NOT_FOUND, rsp.getStatusCode());
-        assertEquals(404, rsp.getStatusCodeValue());
+        assertEquals(HttpStatus.OK, rsp.getStatusCode());
+        assertEquals(200, rsp.getStatusCodeValue());
 
         Map<String, Object> error = new HashMap<String, Object>();
-        error.put("code", 204);
+        error.put("code", 404);
         error.put("message", "Cannot find post");
 
         assertEquals(error, rsp.getBody().getError());
@@ -43,7 +43,7 @@ public class PostExceptionAdviceTest {
         assertEquals(200, rsp.getStatusCodeValue());
 
         Map<String, Object> error = new HashMap<String, Object>();
-        error.put("code", 204);
+        error.put("code", 404);
         error.put("message", "Cannot find post summary");
 
         assertEquals(error, rsp.getBody().getError());
@@ -56,8 +56,8 @@ public class PostExceptionAdviceTest {
                 new PostCannotBeSavedException("Post cannot be save");
 
         ResponseEntity<ErrorResponse> rsp = advice.exception(postException);
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, rsp.getStatusCode());
-        assertEquals(500, rsp.getStatusCodeValue());
+        assertEquals(HttpStatus.OK, rsp.getStatusCode());
+        assertEquals(200, rsp.getStatusCodeValue());
 
         Map<String, Object> error = new HashMap<String, Object>();
         error.put("code", 500);
