@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Layout from 'error/components/layout/Layout'
+import Layout from 'error/components/base/Layout'
 
 const NotFound = ({ message }) => {
   return (

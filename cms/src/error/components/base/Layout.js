@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Header from 'error/components/layout/Header'
-import Title from 'error/components/layout/Title'
-import Description from 'error/components/layout/Description'
-import Button from 'error/components/layout/Button'
+import Header from 'error/components/base/Header'
+import Title from 'error/components/base/Title'
+import Description from 'error/components/base/Description'
+import Button from 'error/components/base/Button'
 
 const Layout = ({ title, description, detail }) => {
   return (
