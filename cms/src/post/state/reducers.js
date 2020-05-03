@@ -112,9 +112,6 @@ const post = (state = {}, action) => {
         }
       }
     }
-    case toError(SAVE_EDITED_CONTENT): {
-      return state
-    }
     case toSuccess(CREATE_NEW_POST): {
       return {
         ...state,
@@ -122,9 +119,6 @@ const post = (state = {}, action) => {
           ...state.editedContent
         }
       }
-    }
-    case toError(CREATE_NEW_POST): {
-      return state
     }
     case INIT_POST: {
       return {

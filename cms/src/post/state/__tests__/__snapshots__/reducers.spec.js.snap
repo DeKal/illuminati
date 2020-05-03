@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Reducer  EDIT_POST_AUTHOR should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "author": "edited author",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_BRIEF should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "brief": "edited brief",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_CONTENT should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "content": "edited content",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_SLUG should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "slug": "edited-slug",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_TAGS should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "tag": "edited tag",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_TIME should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "time": "04/04/2020",
+  },
+}
+`;
+
+exports[`Post Reducer  EDIT_POST_TITLE should work corectly 1`] = `
+Object {
+  "editedContent": Object {
+    "title": "edited title",
+  },
+}
+`;
+
+exports[`Post Reducer  FETCH_POST toRequest should work corectly 1`] = `
+Object {
+  "loading": true,
+}
+`;
+
+exports[`Post Reducer  FETCH_POST toSuccess should work corectly 1`] = `
+Object {
+  "content": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Object {
+      "test": true,
+      "test1": true,
+    },
+    "time": "test",
+    "title": "test",
+  },
+  "editedContent": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Object {
+      "test": true,
+      "test1": true,
+    },
+    "time": "test",
+    "title": "test",
+  },
+  "loading": false,
+}
+`;
+
+exports[`Post Reducer  INIT_POST should work corectly 1`] = `
+Object {
+  "content": Object {
+    "author": "",
+    "brief": "",
+    "commentNum": 0,
+    "content": "",
+    "id": "",
+    "likeNum": 0,
+    "slug": "",
+    "tag": Object {},
+    "time": 2020-04-03T17:00:00.000Z,
+    "title": "",
+    "viewNum": 0,
+  },
+  "editedContent": Object {
+    "author": "",
+    "brief": "",
+    "commentNum": 0,
+    "content": "",
+    "id": "",
+    "likeNum": 0,
+    "slug": "",
+    "tag": Object {},
+    "time": 2020-04-03T17:00:00.000Z,
+    "title": "",
+    "viewNum": 0,
+  },
+}
+`;
+
+exports[`Post Reducer  default should work corectly 1`] = `Object {}`;

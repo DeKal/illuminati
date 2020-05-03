@@ -1,4 +1,8 @@
 export const ERROR = 'app/error'
+export const APP_TURN_ON_LOADING = 'app/loading/on'
+export const APP_TURN_OFF_LOADING = 'app/loading/off'
+export const OPEN_TOAST = 'app/toast/open'
+export const CLOSE_TOAST = 'app/toast/close'
 
 export const OPEN_DRAWER = 'drawer/openDrawer'
 export const CLOSE_DRAWER = 'drawer/closeDrawer'

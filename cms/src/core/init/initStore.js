@@ -3,7 +3,13 @@ import configureStore from 'core/state/configureStore'
 export default () => {
   const initialState = {
     app: {
-      error: undefined
+      error: undefined,
+      loading: false,
+      toast: {
+        isDisplayToast: false,
+        success: true,
+        toastMsg: ''
+      }
     },
     drawer: {
       open: false
@@ -17,6 +23,7 @@ export default () => {
       posts: []
     },
     post: {
+      loading: false,
       content: {
         id: '',
         slug: '',
