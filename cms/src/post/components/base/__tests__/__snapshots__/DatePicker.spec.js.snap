@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Datepicker should render correctly 1`] = `
+exports[`DatePicker should render correctly 1`] = `
 <div
   data-test-id="theme-wrapper"
 >

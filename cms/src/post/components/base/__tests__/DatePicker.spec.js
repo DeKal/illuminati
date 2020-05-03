@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { shallowWithTheme } from 'core/utils/test-helper'
-import Datepicker from '../Datepicker'
+import DatePicker from 'post/components/base/DatePicker'
 
-describe('Datepicker', () => {
+describe('DatePicker', () => {
   it('should render correctly', function() {
-    const wrap = shallowWithTheme(<Datepicker />)
+    const wrap = shallowWithTheme(<DatePicker />)
     expect(wrap).toMatchSnapshot()
   })
 })
