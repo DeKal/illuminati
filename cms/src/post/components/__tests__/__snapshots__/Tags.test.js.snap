@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags should render Tags correctly 1`] = `
+<div
+  className="formControl"
+>
+  <WithStyles(ForwardRef(InputLabel))>
+    Tags
+  </WithStyles(ForwardRef(InputLabel))>
+  <WithStyles(ForwardRef(Select))
+    MenuProps={
+      Object {
+        "PaperProps": Object {
+          "style": Object {
+            "maxHeight": 224,
+            "width": 250,
+          },
+        },
+      }
+    }
+    fullWidth={true}
+    input={
+      <ForwardRef(WithStyles)
+        value={Array []}
+      />
+    }
+    multiple={true}
+    onChange={[Function]}
+    renderValue={[Function]}
+  >
+    <WithStyles(ForwardRef(MenuItem))
+      key="Algorithm"
+      value="Algorithm"
+    >
+      Algorithm
+    </WithStyles(ForwardRef(MenuItem))>
+    <WithStyles(ForwardRef(MenuItem))
+      key="Spring MVC"
+      value="Spring MVC"
+    >
+      Spring MVC
+    </WithStyles(ForwardRef(MenuItem))>
+  </WithStyles(ForwardRef(Select))>
+</div>
+`;
+
+exports[`Tags should render tag chips correctly 1`] = `
+<div
+  className="chips"
+>
+  <WithStyles(ForwardRef(Chip))
+    className="chip"
+    key="Algorithm"
+    label="Algorithm"
+  />
+  <WithStyles(ForwardRef(Chip))
+    className="chip"
+    key="Spring MVC"
+    label="Spring MVC"
+  />
+</div>
+`;

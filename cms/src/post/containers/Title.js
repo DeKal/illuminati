@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { getPostTitle, getEditedTitle } from 'post/state/selectors'
 import { editPostTitle } from 'post/state/actions'
-import Title from 'post/components/Post/Title'
+import Title from 'post/components/Title'
 
 const mapStateToProps = state => {
   const editedTitle = getEditedTitle(state)

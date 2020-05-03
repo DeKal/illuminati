@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Content should render Content correctly 1`] = `
+<a
+  config={Object {}}
+  data="content"
+  editor={[Function]}
+  onChange={[Function]}
+/>
+`;

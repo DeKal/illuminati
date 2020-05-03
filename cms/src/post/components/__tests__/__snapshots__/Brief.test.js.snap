@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Brief should render Brief correctly 1`] = `
+<WithStyles(WithStyles(ForwardRef(TextField)))
+  fullWidth={true}
+  label="Post Brief"
+  multiline={true}
+  onChange={[Function]}
+  required={true}
+  rows={6}
+  rowsMax={8}
+  value="brief"
+  variant="outlined"
+/>
+`;

@@ -14,7 +14,7 @@ import {
 } from 'core/state/actionType'
 import { toRequest, toSuccess, toError } from 'core/state/utils'
 
-describe('Post Reducer ', () => {
+describe('Post Reducer', () => {
   describe('default', () => {
     it('should work corectly', function() {
       const action = {
@@ -60,6 +60,50 @@ describe('Post Reducer ', () => {
       expect(() => {
         postReducer({}, action)
       }).toThrow(Error)
+    })
+  })
+
+  describe('CREATE_NEW_POST', () => {
+    it('toSuccess should work corectly', function() {
+      const state = {
+        editedContent: {
+          id: 'test',
+          slug: 'test',
+          title: 'test',
+          brief: 'test',
+          time: 'test',
+          tag: ['test', 'test1'],
+          author: 'test',
+          content: 'test'
+        }
+      }
+      const action = {
+        type: toSuccess(CREATE_NEW_POST),
+        payload: {}
+      }
+      expect(postReducer(state, action)).toMatchSnapshot()
+    })
+  })
+
+  describe('SAVE_EDITED_CONTENT', () => {
+    it('toSuccess should work corectly', function() {
+      const state = {
+        editedContent: {
+          id: 'test',
+          slug: 'test',
+          title: 'test',
+          brief: 'test',
+          time: 'test',
+          tag: ['test', 'test1'],
+          author: 'test',
+          content: 'test'
+        }
+      }
+      const action = {
+        type: toSuccess(SAVE_EDITED_CONTENT),
+        payload: {}
+      }
+      expect(postReducer(state, action)).toMatchSnapshot()
     })
   })
 

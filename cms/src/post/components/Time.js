@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MuiPickersUtilsProvider } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
-import DatePicker from 'post/components/DatePicker'
+import DatePicker from 'post/components/base/DatePicker'
 
 const Time = ({ isEdited, time, editPostTime }) => {
   return (

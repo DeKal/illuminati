@@ -1,6 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Post Reducer  EDIT_POST_AUTHOR should work corectly 1`] = `
+exports[`Post Reducer CREATE_NEW_POST toSuccess should work corectly 1`] = `
+Object {
+  "content": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Array [
+      "test",
+      "test1",
+    ],
+    "time": "test",
+    "title": "test",
+  },
+  "editedContent": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Array [
+      "test",
+      "test1",
+    ],
+    "time": "test",
+    "title": "test",
+  },
+}
+`;
+
+exports[`Post Reducer EDIT_POST_AUTHOR should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "author": "edited author",
@@ -8,7 +39,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_BRIEF should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_BRIEF should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "brief": "edited brief",
@@ -16,7 +47,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_CONTENT should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_CONTENT should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "content": "edited content",
@@ -24,7 +55,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_SLUG should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_SLUG should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "slug": "edited-slug",
@@ -32,7 +63,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_TAGS should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_TAGS should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "tag": "edited tag",
@@ -40,7 +71,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_TIME should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_TIME should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "time": "04/04/2020",
@@ -48,7 +79,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  EDIT_POST_TITLE should work corectly 1`] = `
+exports[`Post Reducer EDIT_POST_TITLE should work corectly 1`] = `
 Object {
   "editedContent": Object {
     "title": "edited title",
@@ -56,13 +87,13 @@ Object {
 }
 `;
 
-exports[`Post Reducer  FETCH_POST toRequest should work corectly 1`] = `
+exports[`Post Reducer FETCH_POST toRequest should work corectly 1`] = `
 Object {
   "loading": true,
 }
 `;
 
-exports[`Post Reducer  FETCH_POST toSuccess should work corectly 1`] = `
+exports[`Post Reducer FETCH_POST toSuccess should work corectly 1`] = `
 Object {
   "content": Object {
     "author": "test",
@@ -94,7 +125,7 @@ Object {
 }
 `;
 
-exports[`Post Reducer  INIT_POST should work corectly 1`] = `
+exports[`Post Reducer INIT_POST should work corectly 1`] = `
 Object {
   "content": Object {
     "author": "",
@@ -125,4 +156,35 @@ Object {
 }
 `;
 
-exports[`Post Reducer  default should work corectly 1`] = `Object {}`;
+exports[`Post Reducer SAVE_EDITED_CONTENT toSuccess should work corectly 1`] = `
+Object {
+  "content": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Array [
+      "test",
+      "test1",
+    ],
+    "time": "test",
+    "title": "test",
+  },
+  "editedContent": Object {
+    "author": "test",
+    "brief": "test",
+    "content": "test",
+    "id": "test",
+    "slug": "test",
+    "tag": Array [
+      "test",
+      "test1",
+    ],
+    "time": "test",
+    "title": "test",
+  },
+}
+`;
+
+exports[`Post Reducer default should work corectly 1`] = `Object {}`;

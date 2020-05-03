@@ -30,13 +30,7 @@ const Tags = ({ isEdited, allTags, tags, editPostTags, classes }) => {
         onChange={event => editPostTags(arrayToAttributes(event.target.value))}
         error={isEdited}
         input={<Input value={[]} />}
-        renderValue={selected => (
-          <div className={classes.chips}>
-            {selected.map(value => (
-              <Chip key={value} label={value} className={classes.chip} />
-            ))}
-          </div>
-        )}
+        renderValue={selected => renderSelectedChip(classes, selected)}
         MenuProps={MenuProps}
       >
         {allTags.map(tag => (
@@ -48,6 +42,14 @@ const Tags = ({ isEdited, allTags, tags, editPostTags, classes }) => {
     </div>
   )
 }
+
+export const renderSelectedChip = (classes, selected) => (
+  <div className={classes.chips}>
+    {selected.map(value => (
+      <Chip key={value} label={value} className={classes.chip} />
+    ))}
+  </div>
+)
 
 export default Tags
 

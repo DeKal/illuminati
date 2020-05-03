@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TextField from 'post/components/TextField'
+import TextField from 'post/components/base/TextField'
 
 const Brief = ({ isEdited, brief, editPostBrief }) => (
   <TextField

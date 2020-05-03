@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { getPostAuthor, getEditedAuthor } from 'post/state/selectors'
 import { editPostAuthor } from 'post/state/actions'
-import Author from 'post/components/Post/Author'
+import Author from 'post/components/Author'
 
 const mapStateToProps = state => {
   const editedAuthor = getEditedAuthor(state)

@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post should render Loading when loading correctly 1`] = `<Loading />`;
+
+exports[`Post should render Post correctly with create post 1`] = `
+<Styled(div)>
+  <WithStyles(WithStyles(ForwardRef(Paper)))>
+    <WithStyles(WithStyles(ForwardRef(Grid)))
+      container={true}
+      spacing={3}
+      style={
+        Object {
+          "padding": "16px",
+        }
+      }
+    >
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        item={true}
+        sm={11}
+      >
+        <WithStyles(ForwardRef(Typography))
+          variant="h6"
+        >
+          New Post
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+    </WithStyles(WithStyles(ForwardRef(Grid)))>
+    <WithStyles(WithStyles(ForwardRef(Grid)))
+      container={true}
+    >
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        container={true}
+        direction="column"
+        item={true}
+        sm={8}
+        spacing={3}
+        xs={12}
+      >
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Title) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Brief) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <ForwardRef />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        container={true}
+        direction="column"
+        item={true}
+        sm={4}
+        xs={6}
+      >
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Slug) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Author) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Time) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(TagsWithStyle) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Styled(WithStyles(ForwardRef(Button)))
+            color="primary"
+            onClick={[Function]}
+            size="large"
+            variant="contained"
+          >
+            Save
+          </Styled(WithStyles(ForwardRef(Button)))>
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+    </WithStyles(WithStyles(ForwardRef(Grid)))>
+  </WithStyles(WithStyles(ForwardRef(Paper)))>
+</Styled(div)>
+`;
+
+exports[`Post should render Post correctly with editing post 1`] = `
+<Styled(div)>
+  <WithStyles(WithStyles(ForwardRef(Paper)))>
+    <WithStyles(WithStyles(ForwardRef(Grid)))
+      container={true}
+      spacing={3}
+      style={
+        Object {
+          "padding": "16px",
+        }
+      }
+    >
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        item={true}
+        sm={11}
+      >
+        <WithStyles(ForwardRef(Typography))
+          variant="h6"
+        >
+          Editing Post
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+    </WithStyles(WithStyles(ForwardRef(Grid)))>
+    <WithStyles(WithStyles(ForwardRef(Grid)))
+      container={true}
+    >
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        container={true}
+        direction="column"
+        item={true}
+        sm={8}
+        spacing={3}
+        xs={12}
+      >
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Title) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Brief) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <ForwardRef />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+      <WithStyles(WithStyles(ForwardRef(Grid)))
+        container={true}
+        direction="column"
+        item={true}
+        sm={4}
+        xs={6}
+      >
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Slug) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Author) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(Time) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Connect(TagsWithStyle) />
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+        <WithStyles(WithStyles(ForwardRef(Grid)))
+          item={true}
+        >
+          <Styled(WithStyles(ForwardRef(Button)))
+            color="primary"
+            onClick={[Function]}
+            size="large"
+            variant="contained"
+          >
+            Save
+          </Styled(WithStyles(ForwardRef(Button)))>
+        </WithStyles(WithStyles(ForwardRef(Grid)))>
+      </WithStyles(WithStyles(ForwardRef(Grid)))>
+    </WithStyles(WithStyles(ForwardRef(Grid)))>
+  </WithStyles(WithStyles(ForwardRef(Paper)))>
+</Styled(div)>
+`;

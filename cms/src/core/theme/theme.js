@@ -5,6 +5,7 @@ export const theme = createMuiTheme({
   font:
     '-apple-system, blinkmacsystemfont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
   spaces: {
+    base: 8,
     xxxsmall: 7,
     xxsmall: 10,
     xsmall: 13,

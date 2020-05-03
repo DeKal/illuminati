@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import { getPostBrief, getEditedBrief } from 'post/state/selectors'
 import { editPostBrief } from 'post/state/actions'
-import Brief from 'post/components/Post/Brief'
+import Brief from 'post/components/Brief'
 
 const mapStateToProps = state => {
   const editedBrief = getEditedBrief(state)

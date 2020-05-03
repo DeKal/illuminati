@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles'
 import { getPostTags, getEditedTags } from 'post/state/selectors'
 import { editPostTags } from 'post/state/actions'
-import isEqual from 'lodash-es/isEqual'
-import Tags from 'post/components/Post/Tags'
+import Tags from 'post/components/Tags'
 import { attributesToArray } from 'core/utils/misc'
+import isEqual from 'lodash-es/isEqual'
 
 const useStyles = makeStyles(theme => ({
   formControl: {

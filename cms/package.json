@@ -77,12 +77,16 @@
       "^.+\\.tsx?$": "ts-jest",
       "\\.js$": "babel-jest"
     },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!lodash-es)"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "\\w+/containers/\\w+",
       "\\w+/const/\\w+",
       "\\w+/init/\\w+",
       "\\w+/theme/\\w+",
+      "\\w+/actions.js",
       "\\w+/sagas.js",
       "setupTests.js",
       "serviceWorker.js",
