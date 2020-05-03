@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorContainer should render correctly 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <Styled(div)>
+    <div
+      className="div-root-1 div-root-2"
+    />
+  </Styled(div)>
+</div>
+`;

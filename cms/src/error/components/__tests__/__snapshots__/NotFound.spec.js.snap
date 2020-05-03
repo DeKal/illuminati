@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should render not found page correctly 1`] = `
+<Layout
+  description="The page you are looking for might have been removed had its name changed or is temporarily unavailable."
+  detail="Pages not found"
+  title="An error 404 occurred"
+/>
+`;

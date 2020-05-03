@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Description should render correctly 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <Styled(p)>
+    <p
+      className="p-root-1 p-root-2"
+    />
+  </Styled(p)>
+</div>
+`;

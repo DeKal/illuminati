@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InternalServer should render internal server error page correctly 1`] = `
+<Layout
+  description="The server encountered an internal error or misconfiguration and was unable to complete your request."
+  title="An error 500 Internal Server Error occurred"
+/>
+`;

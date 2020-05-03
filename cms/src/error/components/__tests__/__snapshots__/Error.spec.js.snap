@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error should render 404 error page correctly 1`] = `
+<Styled(div)>
+  <Styled(div)>
+    <NotFound
+      message="404 error"
+    />
+  </Styled(div)>
+</Styled(div)>
+`;
+
+exports[`Error should render 500 error page correctly 1`] = `
+<Styled(div)>
+  <Styled(div)>
+    <InternalServer
+      message="500 error"
+    />
+  </Styled(div)>
+</Styled(div)>
+`;
+
+exports[`Error should render general error page correctly 1`] = `
+<Styled(div)>
+  <Styled(div)>
+    <General
+      message="[object Object]"
+    />
+  </Styled(div)>
+</Styled(div)>
+`;

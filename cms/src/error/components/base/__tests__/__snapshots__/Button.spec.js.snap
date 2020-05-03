@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render correctly 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <Styled(a)>
+    <a
+      className="a-root-1 a-root-2"
+    />
+  </Styled(a)>
+</div>
+`;
