@@ -179,7 +179,7 @@ describe('Post Reducer', () => {
 
   describe('INIT_POST', () => {
     it('should work corectly', function() {
-      jest.spyOn(Date, 'now').mockReturnValue(new Date('04/04/2020'))
+      jest.spyOn(Date, 'now').mockReturnValue(new Date(1586001600000))
       const action = {
         type: INIT_POST
       }
