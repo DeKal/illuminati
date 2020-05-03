@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render correctly 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <Header>
+    <Styled(div)>
+      <div
+        className="div-root-1"
+      >
+        <Styled(h1)>
+          <h1
+            className="h1-root-2"
+          />
+        </Styled(h1)>
+      </div>
+    </Styled(div)>
+  </Header>
+</div>
+`;

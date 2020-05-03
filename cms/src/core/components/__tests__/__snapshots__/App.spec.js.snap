@@ -2,6 +2,8 @@
 
 exports[`App should render App with close drawer 1`] = `
 <Fragment>
+  <Connect(FullScreenLoading) />
+  <Connect(ToastWithStyle) />
   <Connect(withRouter(DrawerContainer)) />
   <main
     className="open"
@@ -14,6 +16,8 @@ exports[`App should render App with close drawer 1`] = `
 
 exports[`App should render App with open drawer 1`] = `
 <Fragment>
+  <Connect(FullScreenLoading) />
+  <Connect(ToastWithStyle) />
   <Connect(withRouter(DrawerContainer)) />
   <main
     className="open shift"

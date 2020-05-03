@@ -7,17 +7,23 @@ exports[`PageSwitch should render PageSwitch with no error 1`] = `
       exact={true}
       path="/"
     >
-      <DashBoard />
+      <ForwardRef />
     </Route>
     <Route
       path="/profile"
     >
-      <User />
+      <ForwardRef />
     </Route>
     <Route
+      exact={true}
       path="/posts"
     >
-      <Connect(PostsWithHook) />
+      <ForwardRef />
+    </Route>
+    <Route
+      path="/post/:slug"
+    >
+      <ForwardRef />
     </Route>
   </Switch>
 </Styled(div)>

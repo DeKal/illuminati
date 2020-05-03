@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`General should render genral error page correctly 1`] = `
+<Layout
+  description="There are some errors happened during the process, please back to home page and try again."
+  detail="Error from script abc"
+  title="An error occurred"
+/>
+`;

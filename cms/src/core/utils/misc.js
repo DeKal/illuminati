@@ -1,7 +1,7 @@
 import { POSTS_PER_PAGE } from 'core/const/posts'
 
-export const isPathMatchUrl = (pathName, url) => {
-  if (url === '/' || pathName === '/') {
+export const isPathMatchUrl = (pathName, url, isExact = false) => {
+  if (url === '/' || pathName === '/' || isExact) {
     return pathName === url
   }
   return pathName.includes(url)
@@ -25,3 +25,16 @@ export const calcMaxRowsPerPage = postCount => {
   }
   return postsPerPageOptions
 }
+
+export const arrayToAttributes = array =>
+  array.reduce((object, attribute) => {
+    return {
+      ...object,
+      [attribute]: true
+    }
+  }, {})
+
+export const attributesToArray = obj =>
+  Object.keys(obj)
+    .map(attribute => (obj[attribute] ? attribute : null))
+    .filter(element => element)

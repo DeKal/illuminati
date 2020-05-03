@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField should render correctly 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <WithStyles(WithStyles(ForwardRef(TextField)))>
+    <WithStyles(ForwardRef(TextField))
+      classes={
+        Object {
+          "root": "WithStyles(ForwardRef(TextField))-root-1",
+        }
+      }
+    >
+      <ForwardRef(TextField)
+        classes={
+          Object {
+            "root": "MuiTextField-root WithStyles(ForwardRef(TextField))-root-1",
+          }
+        }
+      >
+        <WithStyles(ForwardRef(FormControl))
+          className="MuiTextField-root WithStyles(ForwardRef(TextField))-root-1"
+          color="primary"
+          disabled={false}
+          error={false}
+          fullWidth={false}
+          required={false}
+          variant="standard"
+        >
+          <ForwardRef(FormControl)
+            className="MuiTextField-root WithStyles(ForwardRef(TextField))-root-1"
+            classes={
+              Object {
+                "fullWidth": "MuiFormControl-fullWidth",
+                "marginDense": "MuiFormControl-marginDense",
+                "marginNormal": "MuiFormControl-marginNormal",
+                "root": "MuiFormControl-root",
+              }
+            }
+            color="primary"
+            disabled={false}
+            error={false}
+            fullWidth={false}
+            required={false}
+            variant="standard"
+          >
+            <div
+              className="MuiFormControl-root MuiTextField-root WithStyles(ForwardRef(TextField))-root-1"
+            >
+              <WithStyles(ForwardRef(Input))
+                autoFocus={false}
+                fullWidth={false}
+                multiline={false}
+              >
+                <ForwardRef(Input)
+                  autoFocus={false}
+                  classes={
+                    Object {
+                      "colorSecondary": "MuiInput-colorSecondary",
+                      "disabled": "Mui-disabled",
+                      "error": "Mui-error",
+                      "focused": "Mui-focused",
+                      "formControl": "MuiInput-formControl",
+                      "fullWidth": "MuiInput-fullWidth",
+                      "input": "MuiInput-input",
+                      "inputMarginDense": "MuiInput-inputMarginDense",
+                      "inputMultiline": "MuiInput-inputMultiline",
+                      "inputTypeSearch": "MuiInput-inputTypeSearch",
+                      "marginDense": "MuiInput-marginDense",
+                      "multiline": "MuiInput-multiline",
+                      "root": "MuiInput-root",
+                      "underline": "MuiInput-underline",
+                    }
+                  }
+                  fullWidth={false}
+                  multiline={false}
+                >
+                  <WithStyles(ForwardRef(InputBase))
+                    autoFocus={false}
+                    classes={
+                      Object {
+                        "colorSecondary": "MuiInput-colorSecondary",
+                        "disabled": "Mui-disabled",
+                        "error": "Mui-error",
+                        "focused": "Mui-focused",
+                        "formControl": "MuiInput-formControl",
+                        "fullWidth": "MuiInput-fullWidth",
+                        "input": "MuiInput-input",
+                        "inputMarginDense": "MuiInput-inputMarginDense",
+                        "inputMultiline": "MuiInput-inputMultiline",
+                        "inputTypeSearch": "MuiInput-inputTypeSearch",
+                        "marginDense": "MuiInput-marginDense",
+                        "multiline": "MuiInput-multiline",
+                        "root": "MuiInput-root MuiInput-underline",
+                        "underline": null,
+                      }
+                    }
+                    fullWidth={false}
+                    inputComponent="input"
+                    multiline={false}
+                    type="text"
+                  >
+                    <ForwardRef(InputBase)
+                      autoFocus={false}
+                      classes={
+                        Object {
+                          "adornedEnd": "MuiInputBase-adornedEnd",
+                          "adornedStart": "MuiInputBase-adornedStart",
+                          "colorSecondary": "MuiInputBase-colorSecondary MuiInput-colorSecondary",
+                          "disabled": "Mui-disabled Mui-disabled",
+                          "error": "Mui-error Mui-error",
+                          "focused": "Mui-focused Mui-focused",
+                          "formControl": "MuiInputBase-formControl MuiInput-formControl",
+                          "fullWidth": "MuiInputBase-fullWidth MuiInput-fullWidth",
+                          "input": "MuiInputBase-input MuiInput-input",
+                          "inputAdornedEnd": "MuiInputBase-inputAdornedEnd",
+                          "inputAdornedStart": "MuiInputBase-inputAdornedStart",
+                          "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
+                          "inputMarginDense": "MuiInputBase-inputMarginDense MuiInput-inputMarginDense",
+                          "inputMultiline": "MuiInputBase-inputMultiline MuiInput-inputMultiline",
+                          "inputTypeSearch": "MuiInputBase-inputTypeSearch MuiInput-inputTypeSearch",
+                          "marginDense": "MuiInputBase-marginDense MuiInput-marginDense",
+                          "multiline": "MuiInputBase-multiline MuiInput-multiline",
+                          "root": "MuiInputBase-root MuiInput-root MuiInput-underline",
+                        }
+                      }
+                      fullWidth={false}
+                      inputComponent="input"
+                      multiline={false}
+                      type="text"
+                    >
+                      <div
+                        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+                        onClick={[Function]}
+                      >
+                        <input
+                          aria-invalid={false}
+                          autoFocus={false}
+                          className="MuiInputBase-input MuiInput-input"
+                          disabled={false}
+                          onAnimationStart={[Function]}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          required={false}
+                          type="text"
+                        />
+                      </div>
+                    </ForwardRef(InputBase)>
+                  </WithStyles(ForwardRef(InputBase))>
+                </ForwardRef(Input)>
+              </WithStyles(ForwardRef(Input))>
+            </div>
+          </ForwardRef(FormControl)>
+        </WithStyles(ForwardRef(FormControl))>
+      </ForwardRef(TextField)>
+    </WithStyles(ForwardRef(TextField))>
+  </WithStyles(WithStyles(ForwardRef(TextField)))>
+</div>
+`;

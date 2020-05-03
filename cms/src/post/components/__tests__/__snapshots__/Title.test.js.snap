@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title should render Title correctly 1`] = `
+<WithStyles(WithStyles(ForwardRef(TextField)))
+  fullWidth={true}
+  label="Post title"
+  multiline={true}
+  onChange={[Function]}
+  required={true}
+  rowsMax={2}
+  value="title"
+  variant="outlined"
+/>
+`;

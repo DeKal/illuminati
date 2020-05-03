@@ -22,6 +22,7 @@ exports[`Paper should render with no error 1`] = `
       >
         <table
           className="MuiTable-root WithStyles(ForwardRef(Table))-root-1"
+          role={null}
         />
       </ForwardRef(Table)>
     </WithStyles(ForwardRef(Table))>

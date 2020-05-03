@@ -6,7 +6,7 @@ import Head from 'posts/containers/Head'
 import Pagination from 'posts/containers/Pagination'
 import Body from 'posts/containers/Body'
 import SelectedToolbar from 'posts/containers/SelectedToolbar'
-import Paper from 'posts/components/Posts/Paper'
+import Paper from 'core/components/Paper'
 import Table from 'posts/components/Posts/Table'
 import Loading from 'core/components/Loading'
 

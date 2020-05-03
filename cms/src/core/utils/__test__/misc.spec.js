@@ -1,4 +1,9 @@
-import { isPathMatchUrl, stringtifyTags, calcMaxRowsPerPage } from '../misc'
+import {
+  stringtifyTags,
+  calcMaxRowsPerPage,
+  isPathMatchUrl,
+  attributesToArray
+} from '../misc'
 
 describe('Misc ', () => {
   describe('isPathMatchUrl ', () => {
@@ -10,6 +15,7 @@ describe('Misc ', () => {
       expect(isPathMatchUrl('/settings/theme', '/settings')).toBe(true)
     })
   })
+
   describe('stringtifyTags ', () => {
     it('should match URL correctly with no error', function() {
       expect(stringtifyTags(['test', 'test2'])).toEqual('test, test2')
@@ -21,12 +27,25 @@ describe('Misc ', () => {
       )
     })
   })
+
   describe('calcMaxRowsPerPage ', () => {
     it('should match URL correctly with no error', function() {
       expect(calcMaxRowsPerPage(5)).toEqual([5, 10])
       expect(calcMaxRowsPerPage(8)).toEqual([5, 10])
       expect(calcMaxRowsPerPage(15)).toEqual([5, 10, 25])
       expect(calcMaxRowsPerPage(90)).toEqual([5, 10, 25, 50])
+    })
+  })
+
+  describe('attributesToArray ', () => {
+    it('should convert object to array', function() {
+      const object = {
+        a: true,
+        b: false,
+        c: true,
+        d: true
+      }
+      expect(attributesToArray(object)).toEqual(['a', 'c', 'd'])
     })
   })
 })

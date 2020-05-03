@@ -26,8 +26,8 @@ public class PostExceptionAdvice {
      */
     @ExceptionHandler(PostNotFoundException.class)
     public ResponseEntity<ErrorResponse> exception(PostNotFoundException exception) {
-        ErrorResponse error = new ErrorResponse(HttpStatus.NO_CONTENT, exception);
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND, exception);
+        return new ResponseEntity<>(error, HttpStatus.OK);
     }
 
     /**
@@ -36,7 +36,7 @@ public class PostExceptionAdvice {
     @ExceptionHandler(PostCannotBeSavedException.class)
     public ResponseEntity<ErrorResponse> exception(PostCannotBeSavedException exception) {
         ErrorResponse error = new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, exception);
-        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(error, HttpStatus.OK);
     }
 
     /**
@@ -44,7 +44,7 @@ public class PostExceptionAdvice {
      */
     @ExceptionHandler(PostSummaryNotFoundException.class)
     public ResponseEntity<ErrorResponse> exceptionPostSummary(Exception exception) {
-        ErrorResponse error = new ErrorResponse(HttpStatus.NO_CONTENT, exception);
+        ErrorResponse error = new ErrorResponse(HttpStatus.NOT_FOUND, exception);
         return new ResponseEntity<>(error, HttpStatus.OK);
     }
 }

@@ -6,6 +6,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/lib/integration/react'
 
+import ErrorBoundary from 'error/containers/ErrorBoundary'
 import App from 'core/containers/App'
 import Theme from 'core/theme/ThemeWrapper'
 import * as serviceWorker from 'serviceWorker'
@@ -18,7 +19,9 @@ const Root = (
     <PersistGate persistor={persistor}>
       <Router basename="/cms">
         <Theme>
-          <App />
+          <ErrorBoundary>
+            <App />
+          </ErrorBoundary>
         </Theme>
       </Router>
     </PersistGate>

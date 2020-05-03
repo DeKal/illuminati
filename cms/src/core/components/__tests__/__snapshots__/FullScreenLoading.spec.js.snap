@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullScreenLoading should not render with no isLoading 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <FullScreenLoading />
+</div>
+`;
+
+exports[`FullScreenLoading should render with no error 1`] = `
+<div
+  data-test-id="theme-wrapper"
+>
+  <FullScreenLoading
+    isLoading={true}
+  >
+    <div
+      className="makeStyles-root-1"
+    >
+      <WithStyles(ForwardRef(CircularProgress))
+        className="makeStyles-bottom-2"
+        disableShrink={true}
+        size={52}
+        thickness={4}
+        variant="indeterminate"
+      >
+        <ForwardRef(CircularProgress)
+          className="makeStyles-bottom-2"
+          classes={
+            Object {
+              "circle": "MuiCircularProgress-circle",
+              "circleDisableShrink": "MuiCircularProgress-circleDisableShrink",
+              "circleIndeterminate": "MuiCircularProgress-circleIndeterminate",
+              "circleStatic": "MuiCircularProgress-circleStatic",
+              "colorPrimary": "MuiCircularProgress-colorPrimary",
+              "colorSecondary": "MuiCircularProgress-colorSecondary",
+              "indeterminate": "MuiCircularProgress-indeterminate",
+              "root": "MuiCircularProgress-root",
+              "static": "MuiCircularProgress-static",
+              "svg": "MuiCircularProgress-svg",
+            }
+          }
+          disableShrink={true}
+          size={52}
+          thickness={4}
+          variant="indeterminate"
+        >
+          <div
+            className="MuiCircularProgress-root makeStyles-bottom-2 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+            role="progressbar"
+            style={
+              Object {
+                "height": 52,
+                "width": 52,
+              }
+            }
+          >
+            <svg
+              className="MuiCircularProgress-svg"
+              viewBox="22 22 44 44"
+            >
+              <circle
+                className="MuiCircularProgress-circle MuiCircularProgress-circleDisableShrink MuiCircularProgress-circleIndeterminate"
+                cx={44}
+                cy={44}
+                fill="none"
+                r={20}
+                strokeWidth={4}
+                style={Object {}}
+              />
+            </svg>
+          </div>
+        </ForwardRef(CircularProgress)>
+      </WithStyles(ForwardRef(CircularProgress))>
+    </div>
+  </FullScreenLoading>
+</div>
+`;

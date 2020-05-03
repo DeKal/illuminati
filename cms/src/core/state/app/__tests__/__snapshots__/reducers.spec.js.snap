@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Reducer APP_TURN_OFF_LOADING should work corectly 1`] = `
+Object {
+  "loading": false,
+}
+`;
+
+exports[`App Reducer APP_TURN_ON_LOADING should work corectly 1`] = `
+Object {
+  "loading": true,
+}
+`;
+
+exports[`App Reducer CLOSE_TOAST should work corectly 1`] = `
+Object {
+  "toast": Object {
+    "isDisplayToast": false,
+  },
+}
+`;
+
+exports[`App Reducer ERROR should work corectly 1`] = `
+Object {
+  "error": "Some thing wrong happened",
+}
+`;
+
+exports[`App Reducer OPEN_TOAST should work corectly 1`] = `
+Object {
+  "toast": Object {
+    "isDisplayToast": true,
+    "success": true,
+    "toastMsg": "successfully save user",
+  },
+}
+`;
+
+exports[`App Reducer default should work corectly 1`] = `Object {}`;

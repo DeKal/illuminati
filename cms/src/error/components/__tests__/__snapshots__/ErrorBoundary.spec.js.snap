@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorBoundary getDerivedStateFromError should work correctly 1`] = `
+Object {
+  "error": Object {
+    "code": 404,
+    "message": "Error",
+  },
+  "hasError": true,
+}
+`;
+
+exports[`ErrorBoundary should render children content correctly 1`] = `
+<div>
+  Content
+</div>
+`;
+
+exports[`ErrorBoundary should render error correctly 1`] = `
+<Error
+  error={
+    Object {
+      "msg": "Error",
+    }
+  }
+/>
+`;

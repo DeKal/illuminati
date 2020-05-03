@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should render correctly 1`] = `
+<Fragment>
+  <Header>
+    Oops!
+  </Header>
+  <Styled(h2)>
+    Error
+  </Styled(h2)>
+  <Styled(p)>
+    Internal server error
+  </Styled(p)>
+  <Styled(p)
+    style={
+      Object {
+        "color": "red",
+      }
+    }
+  >
+    Error: 
+    Error at line xxx
+  </Styled(p)>
+  <a
+    href="/cms"
+  >
+    <Styled(a)>
+       Go To Homepage 
+    </Styled(a)>
+  </a>
+</Fragment>
+`;

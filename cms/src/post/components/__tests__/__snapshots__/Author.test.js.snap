@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Author should render Author correctly 1`] = `
+<WithStyles(WithStyles(ForwardRef(TextField)))
+  fullWidth={true}
+  label="Author"
+  onChange={[Function]}
+  value="author"
+  variant="outlined"
+/>
+`;

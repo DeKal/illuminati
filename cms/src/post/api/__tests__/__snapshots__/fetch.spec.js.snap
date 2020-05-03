@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchPostFromSlug  fetchPostFromSlug with mock request 1`] = `
+Object {
+  "author": "Li Li",
+  "brief": "Design Patterns are very popular among software developers. A design pattern is a well-described solution to a common software problem. With this, we are cool.",
+  "commentNum": 0,
+  "content": "<p><strong>Add new content here.</strong></p>",
+  "id": "5e24614a68ac5fa5373bf91c",
+  "likeNum": 0,
+  "slug": "design-patterns-tutorial",
+  "tag": Array [
+    "System Design",
+  ],
+  "time": "15/01/2020",
+  "title": "Design Patterns – Example Tutorial",
+  "viewNum": 0,
+}
+`;
