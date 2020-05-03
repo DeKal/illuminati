@@ -82,6 +82,7 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
+      "\\w+/async-components/\\w+",
       "\\w+/containers/\\w+",
       "\\w+/const/\\w+",
       "\\w+/init/\\w+",
