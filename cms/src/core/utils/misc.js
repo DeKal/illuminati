@@ -35,4 +35,6 @@ export const arrayToAttributes = array =>
   }, {})
 
 export const attributesToArray = obj =>
-  Object.keys(obj).map(attribute => (obj[attribute] ? attribute : null))
+  Object.keys(obj)
+    .map(attribute => (obj[attribute] ? attribute : null))
+    .filter(element => element)

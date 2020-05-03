@@ -23,19 +23,17 @@ const useStyles = makeStyles(theme => ({
 const FullScreenLoading = ({ isLoading }) => {
   const classes = useStyles()
 
-  return (
-    isLoading && (
-      <div className={classes.root}>
-        <CircularProgress
-          size={52}
-          thickness={4}
-          className={classes.bottom}
-          variant="indeterminate"
-          disableShrink
-        />
-      </div>
-    )
-  )
+  return isLoading ? (
+    <div className={classes.root}>
+      <CircularProgress
+        size={52}
+        thickness={4}
+        className={classes.bottom}
+        variant="indeterminate"
+        disableShrink
+      />
+    </div>
+  ) : null
 }
 
 export default FullScreenLoading
