@@ -6,9 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class LoginController {
+    /**
+     * Login
+     * Login only when user is authenticated, otherwise redirect to cms page.
+     */
     @RequestMapping(value = {"/login"})
     public String index(Authentication authentication) {
-        if (authentication.isAuthenticated()) {
+        if (authentication != null && authentication.isAuthenticated()) {
             return "redirect:/cms";
         }
         return "login/index";
