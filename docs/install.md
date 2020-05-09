@@ -12,3 +12,7 @@
 ```bash
 ./gradlew build --refresh-dependencies
 ```
+- Install `git-crypt` and contact hhphat@apcs.vn to add your key into the repository.
+
+- Unlock the repository `git-crypt unlock`
+
