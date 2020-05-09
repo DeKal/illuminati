@@ -4,7 +4,7 @@ import Time from '../Time'
 
 describe('Time', () => {
   it('should render correctly', function() {
-    const wrap = mountWithTheme(<Time />)
+    const wrap = mountWithTheme(<Time time={1588993682} />)
     expect(wrap).toMatchSnapshot()
   })
 })
