@@ -4,7 +4,9 @@ exports[`Time should render correctly 1`] = `
 <div
   data-test-id="theme-wrapper"
 >
-  <Time>
+  <Time
+    time={1588993682}
+  >
     <MuiPickersUtilsProvider
       utils={[Function]}
     >
@@ -20,6 +22,7 @@ exports[`Time should render correctly 1`] = `
         label="Time"
         margin="normal"
         required={true}
+        value={1588993682}
         variant="inline"
       >
         <PickerWithState
@@ -42,6 +45,7 @@ exports[`Time should render correctly 1`] = `
           minDateMessage="Date should not be before minimal date"
           openTo="date"
           required={true}
+          value={1588993682}
           variant="inline"
           views={
             Array [
@@ -54,7 +58,7 @@ exports[`Time should render correctly 1`] = `
             DateInputProps={
               Object {
                 "format": "dd/MM/yyyy",
-                "inputValue": "03/05/2020",
+                "inputValue": "19/01/1970",
                 "onChange": [Function],
                 "openPicker": [Function],
                 "validationError": "",
@@ -83,7 +87,7 @@ exports[`Time should render correctly 1`] = `
               DateInputProps={
                 Object {
                   "format": "dd/MM/yyyy",
-                  "inputValue": "03/05/2020",
+                  "inputValue": "19/01/1970",
                   "onChange": [Function],
                   "openPicker": [Function],
                   "validationError": "",
@@ -123,11 +127,11 @@ exports[`Time should render correctly 1`] = `
                       class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                       required=""
                       type="text"
-                      value="03/05/2020"
+                      value="19/01/1970"
                     />,
                   }
                 }
-                inputValue="03/05/2020"
+                inputValue="19/01/1970"
                 keyboardIcon={<KeyboardIcon />}
                 label="Time"
                 margin="normal"
@@ -141,7 +145,7 @@ exports[`Time should render correctly 1`] = `
                   key="__/__/____"
                   onChange={[Function]}
                   refuse={/\\[\\^\\\\d\\]\\+/gi}
-                  value="03/05/2020"
+                  value="19/01/1970"
                 >
                   <WithStyles(ForwardRef(TextField))
                     InputProps={
@@ -168,7 +172,7 @@ exports[`Time should render correctly 1`] = `
                           class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                           required=""
                           type="text"
-                          value="03/05/2020"
+                          value="19/01/1970"
                         />,
                       }
                     }
@@ -176,7 +180,7 @@ exports[`Time should render correctly 1`] = `
                     margin="normal"
                     onChange={[Function]}
                     required={true}
-                    value="03/05/2020"
+                    value="19/01/1970"
                   >
                     <ForwardRef(TextField)
                       InputProps={
@@ -208,7 +212,7 @@ exports[`Time should render correctly 1`] = `
                             class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                             required=""
                             type="text"
-                            value="03/05/2020"
+                            value="19/01/1970"
                           />,
                         }
                       }
@@ -216,7 +220,7 @@ exports[`Time should render correctly 1`] = `
                       margin="normal"
                       onChange={[Function]}
                       required={true}
-                      value="03/05/2020"
+                      value="19/01/1970"
                     >
                       <WithStyles(ForwardRef(FormControl))
                         className="MuiTextField-root PickerWithState-root-1 PickerWithState-root-2"
@@ -336,13 +340,13 @@ exports[`Time should render correctly 1`] = `
                                     class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                                     required=""
                                     type="text"
-                                    value="03/05/2020"
+                                    value="19/01/1970"
                                   />,
                                 }
                               }
                               multiline={false}
                               onChange={[Function]}
-                              value="03/05/2020"
+                              value="19/01/1970"
                             >
                               <ForwardRef(Input)
                                 autoFocus={false}
@@ -384,13 +388,13 @@ exports[`Time should render correctly 1`] = `
                                       class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                                       required=""
                                       type="text"
-                                      value="03/05/2020"
+                                      value="19/01/1970"
                                     />,
                                   }
                                 }
                                 multiline={false}
                                 onChange={[Function]}
-                                value="03/05/2020"
+                                value="19/01/1970"
                               >
                                 <WithStyles(ForwardRef(InputBase))
                                   autoFocus={false}
@@ -433,14 +437,14 @@ exports[`Time should render correctly 1`] = `
                                         class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                                         required=""
                                         type="text"
-                                        value="03/05/2020"
+                                        value="19/01/1970"
                                       />,
                                     }
                                   }
                                   multiline={false}
                                   onChange={[Function]}
                                   type="text"
-                                  value="03/05/2020"
+                                  value="19/01/1970"
                                 >
                                   <ForwardRef(InputBase)
                                     autoFocus={false}
@@ -487,14 +491,14 @@ exports[`Time should render correctly 1`] = `
                                           class="MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedEnd"
                                           required=""
                                           type="text"
-                                          value="03/05/2020"
+                                          value="19/01/1970"
                                         />,
                                       }
                                     }
                                     multiline={false}
                                     onChange={[Function]}
                                     type="text"
-                                    value="03/05/2020"
+                                    value="19/01/1970"
                                   >
                                     <div
                                       className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-fullWidth MuiInput-fullWidth MuiInputBase-formControl MuiInput-formControl MuiInputBase-adornedEnd"
@@ -511,7 +515,7 @@ exports[`Time should render correctly 1`] = `
                                         onFocus={[Function]}
                                         required={true}
                                         type="text"
-                                        value="03/05/2020"
+                                        value="19/01/1970"
                                       />
                                       <WithStyles(ForwardRef(InputAdornment))
                                         position="end"
