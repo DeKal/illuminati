@@ -1,8 +1,10 @@
 package com.dawn.jat.illuminati.login.security;
 
+import lombok.Generated;
 import org.springframework.security.core.GrantedAuthority;
 
-public abstract class UserAuthority implements GrantedAuthority {
+@Generated
+abstract class UserAuthority implements GrantedAuthority {
     public enum Roles {
         ADMIN("admin"), USER("user");
         private String role;
@@ -15,5 +17,14 @@ public abstract class UserAuthority implements GrantedAuthority {
         public String toString() {
             return role;
         }
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof UserAuthority)) {
+            return false;
+        }
+        UserAuthority other = (UserAuthority) obj;
+        return getAuthority().equals(other.getAuthority());
     }
 }

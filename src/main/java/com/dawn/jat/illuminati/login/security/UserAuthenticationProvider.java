@@ -19,7 +19,6 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
     @Autowired
     private LoginService loginService;
 
-
     @Override
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
@@ -36,7 +35,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider {
         return null;
     }
 
-    private List<UserAuthority> getAuthority(String role) {
+    List<UserAuthority> getAuthority(String role) {
         if (UserAuthority.Roles.ADMIN.toString().equals(role)) {
             return new ArrayList<>(Collections.singletonList(new AdminAuthority()));
         } else if (UserAuthority.Roles.USER.toString().equals(role)) {

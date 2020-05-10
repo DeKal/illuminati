@@ -1,6 +1,5 @@
 package com.dawn.jat.illuminati.login.service;
 
-import com.dawn.jat.illuminati.core.convert.Converter;
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.repository.LoginRepository;
 
@@ -12,15 +11,9 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
-
 @Service
 @Transactional
 public class LoginService {
-    @Autowired
-    Converter converter;
-
     @Autowired
     LoginRepository repository;
 
