@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.core.security;
+package com.dawn.jat.illuminati.login.security;
 
 
 public class AdminAuthority extends UserAuthority {

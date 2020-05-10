@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.core.security;
+package com.dawn.jat.illuminati.login.security;
 
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.service.LoginService;
