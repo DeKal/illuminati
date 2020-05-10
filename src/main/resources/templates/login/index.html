@@ -27,11 +27,14 @@
         <div id="login-bg"></div>
         <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
             <form class="login100-form validate-form" th:action="@{/login}" method="post">
-					<span class="login100-form-title p-b-49">
-						Login
-					</span>
+                <span th:if="!${param.error}" class="login100-form-title p-b-49">
+                    Login
+                </span>
+                <div th:if="${param.error}" class="login100-form-error p-b-49">
+                    <span>Invalid Login</span>
+                </div>
 
-                <div class="wrap-input100 validate-input m-b-23" data-validate = "Username is required">
+                <div class="wrap-input100 validate-input m-b-23" data-validate="Username is required">
                     <span class="label-input100">Username</span>
                     <input class="input100" type="text" id="username" name="username" placeholder="Type your username">
                     <span class="focus-input100" data-symbol="&#xf206;"></span>
@@ -39,7 +42,8 @@
 
                 <div class="wrap-input100 validate-input" data-validate="Password is required">
                     <span class="label-input100">Password</span>
-                    <input id="password" name="password" class="input100" type="password" placeholder="Type your password">
+                    <input id="password" name="password" class="input100" type="password"
+                           placeholder="Type your password">
                     <span class="focus-input100" data-symbol="&#xf190;"></span>
                 </div>
 
@@ -55,12 +59,6 @@
                         <button class="login100-form-btn">
                             Login
                         </button>
-                    </div>
-                    <div th:if="${param.error}">
-                        Invalid username and password.
-                    </div>
-                    <div th:if="${param.logout}">
-                        You have been logged out.
                     </div>
                 </div>
             </form>
