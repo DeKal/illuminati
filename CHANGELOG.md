@@ -2,6 +2,20 @@
 
 Changelog of Git Changelog Gradle plugin.
 
+## Unreleased
+### No issue
+
+**[UPDATE] Fix release before generating changelog**
+
+
+[b970c03a009e74b](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/b970c03a009e74b) Phat Ho *2020-05-31 13:24:16*
+
+**Add CHANGELOG to new Release**
+
+
+[c6c91f144347e0d](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c6c91f144347e0d) Phat Ho *2020-05-31 13:19:30*
+
+
 ## 0.0.6
 ### No issue
 
