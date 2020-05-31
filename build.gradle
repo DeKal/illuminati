@@ -134,6 +134,10 @@ task generateGitChangelogMinimal(type: se.bjurr.gitchangelog.plugin.gradle.GitCh
 	file = new File("CHANGELOG.md");
 }
 
+generateGitChangelogMinimal{
+	mustRunAfter release
+}
+
 sourceSets {
 	main.java.srcDirs = ['src/main/java']
 }
@@ -186,8 +190,4 @@ bootRun {
 	dependsOn moveStaticAsset
 	dependsOn moveCmsTemplate
 	classpath = sourceSets.main.runtimeClasspath + configurations.developmentOnly
-}
-
-preTagCommit {
-	dependsOn generateGitChangelogMinimal
 }
