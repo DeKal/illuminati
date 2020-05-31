@@ -187,3 +187,7 @@ bootRun {
 	dependsOn moveCmsTemplate
 	classpath = sourceSets.main.runtimeClasspath + configurations.developmentOnly
 }
+
+afterReleaseBuild {
+	dependsOn generateGitChangelogMinimal
+}
