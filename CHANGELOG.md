@@ -2,6 +2,172 @@
 
 Changelog of Git Changelog Gradle plugin.
 
+## 0.0.6
+### No issue
+
+**[UPGRADE] Upgrade gradel to 6.4.1**
+
+
+[47eeee4a3c35c2a](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/47eeee4a3c35c2a) Phat Ho *2020-05-31 13:04:20*
+
+**Bump ts-jest from 25.5.1 to 26.0.0 in /cms**
+
+ * Bumps [ts-jest](https://github.com/kulshekhar/ts-jest) from 25.5.1 to 26.0.0.
+ * - [Release notes](https://github.com/kulshekhar/ts-jest/releases)
+ * - [Changelog](https://github.com/kulshekhar/ts-jest/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/kulshekhar/ts-jest/compare/v25.5.1...v26.0.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[ac16802ee0eb6a7](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/ac16802ee0eb6a7) dependabot-preview[bot] *2020-05-27 11:30:40*
+
+**Bump enzyme-to-json from 3.4.4 to 3.5.0 in /cms**
+
+ * Bumps [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) from 3.4.4 to 3.5.0.
+ * - [Release notes](https://github.com/adriantoine/enzyme-to-json/releases)
+ * - [Changelog](https://github.com/adriantoine/enzyme-to-json/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/adriantoine/enzyme-to-json/compare/v3.4.4...v3.5.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[306039de44dcafe](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/306039de44dcafe) dependabot-preview[bot] *2020-05-26 22:16:25*
+
+**Bump @material-ui/lab from 4.0.0-alpha.53 to 4.0.0-alpha.54 in /cms**
+
+ * Bumps [@material-ui/lab](https://github.com/mui-org/material-ui/tree/HEAD/packages/material-ui-lab) from 4.0.0-alpha.53 to 4.0.0-alpha.54.
+ * - [Release notes](https://github.com/mui-org/material-ui/releases)
+ * - [Changelog](https://github.com/mui-org/material-ui/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/mui-org/material-ui/commits/HEAD/packages/material-ui-lab)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[75ce3385c8e383b](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/75ce3385c8e383b) dependabot-preview[bot] *2020-05-25 22:15:44*
+
+**Bump typescript from 3.8.3 to 3.9.3 in /cms**
+
+ * Bumps [typescript](https://github.com/Microsoft/TypeScript) from 3.8.3 to 3.9.3.
+ * - [Release notes](https://github.com/Microsoft/TypeScript/releases)
+ * - [Commits](https://github.com/Microsoft/TypeScript/compare/v3.8.3...v3.9.3)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[09416579f1199a6](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/09416579f1199a6) dependabot-preview[bot] *2020-05-20 22:14:50*
+
+**Bump stylelint from 13.3.3 to 13.5.0 in /cms**
+
+ * Bumps [stylelint](https://github.com/stylelint/stylelint) from 13.3.3 to 13.5.0.
+ * - [Release notes](https://github.com/stylelint/stylelint/releases)
+ * - [Changelog](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/stylelint/stylelint/compare/13.3.3...13.5.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[995c2f3927331a0](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/995c2f3927331a0) dependabot-preview[bot] *2020-05-19 22:15:27*
+
+**Bump date-fns from 2.13.0 to 2.14.0 in /cms**
+
+ * Bumps [date-fns](https://github.com/date-fns/date-fns) from 2.13.0 to 2.14.0.
+ * - [Release notes](https://github.com/date-fns/date-fns/releases)
+ * - [Changelog](https://github.com/date-fns/date-fns/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/date-fns/date-fns/compare/v2.13.0...v2.14.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[991e305cdd6b201](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/991e305cdd6b201) dependabot-preview[bot] *2020-05-18 22:14:20*
+
+**Bump @types/jest from 25.2.2 to 25.2.3 in /cms**
+
+ * Bumps [@types/jest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/jest) from 25.2.2 to 25.2.3.
+ * - [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+ * - [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/jest)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[f87dfb183f4c0a6](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f87dfb183f4c0a6) dependabot-preview[bot] *2020-05-18 22:13:07*
+
+**Bump com.github.node-gradle.node from 2.2.3 to 2.2.4**
+
+ * Bumps com.github.node-gradle.node from 2.2.3 to 2.2.4.
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[7872524603f13a4](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/7872524603f13a4) dependabot-preview[bot] *2020-05-18 22:12:19*
+
+**Bump org.springframework.boot from 2.2.7.RELEASE to 2.3.0.RELEASE**
+
+ * Bumps [org.springframework.boot](https://github.com/spring-projects/spring-boot) from 2.2.7.RELEASE to 2.3.0.RELEASE.
+ * - [Release notes](https://github.com/spring-projects/spring-boot/releases)
+ * - [Commits](https://github.com/spring-projects/spring-boot/compare/v2.2.7.RELEASE...v2.3.0.RELEASE)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[6315db4b8be9c04](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/6315db4b8be9c04) dependabot-preview[bot] *2020-05-15 22:13:57*
+
+**Bump spring-boot-gradle-plugin from 2.2.7.RELEASE to 2.3.0.RELEASE**
+
+ * Bumps [spring-boot-gradle-plugin](https://github.com/spring-projects/spring-boot) from 2.2.7.RELEASE to 2.3.0.RELEASE.
+ * - [Release notes](https://github.com/spring-projects/spring-boot/releases)
+ * - [Commits](https://github.com/spring-projects/spring-boot/compare/v2.2.7.RELEASE...v2.3.0.RELEASE)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[da4336ebb0a7fc6](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/da4336ebb0a7fc6) dependabot-preview[bot] *2020-05-15 22:13:35*
+
+**[Security] Bump handlebars from 4.5.3 to 4.7.6 in /cms**
+
+ * Bumps [handlebars](https://github.com/wycats/handlebars.js) from 4.5.3 to 4.7.6. **This update includes a security fix.**
+ * - [Release notes](https://github.com/wycats/handlebars.js/releases)
+ * - [Changelog](https://github.com/handlebars-lang/handlebars.js/blob/master/release-notes.md)
+ * - [Commits](https://github.com/wycats/handlebars.js/compare/v4.5.3...v4.7.6)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[e5e0a8fafe152c9](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/e5e0a8fafe152c9) dependabot-preview[bot] *2020-05-14 09:21:27*
+
+**Bump eslint-plugin-react from 7.19.0 to 7.20.0 in /cms**
+
+ * Bumps [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) from 7.19.0 to 7.20.0.
+ * - [Release notes](https://github.com/yannickcr/eslint-plugin-react/releases)
+ * - [Changelog](https://github.com/yannickcr/eslint-plugin-react/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/yannickcr/eslint-plugin-react/compare/v7.19.0...v7.20.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[c1578b621280a28](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c1578b621280a28) dependabot-preview[bot] *2020-05-13 22:15:39*
+
+**Bump @types/jest from 25.2.1 to 25.2.2 in /cms**
+
+ * Bumps [@types/jest](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/HEAD/types/jest) from 25.2.1 to 25.2.2.
+ * - [Release notes](https://github.com/DefinitelyTyped/DefinitelyTyped/releases)
+ * - [Commits](https://github.com/DefinitelyTyped/DefinitelyTyped/commits/HEAD/types/jest)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[c13b3d8811d0e40](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c13b3d8811d0e40) dependabot-preview[bot] *2020-05-13 22:14:55*
+
+**Bump @material-ui/lab from 4.0.0-alpha.52 to 4.0.0-alpha.53 in /cms**
+
+ * Bumps [@material-ui/lab](https://github.com/mui-org/material-ui/tree/HEAD/packages/material-ui-lab) from 4.0.0-alpha.52 to 4.0.0-alpha.53.
+ * - [Release notes](https://github.com/mui-org/material-ui/releases)
+ * - [Changelog](https://github.com/mui-org/material-ui/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/mui-org/material-ui/commits/HEAD/packages/material-ui-lab)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[b9672c9c4a6bfdc](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/b9672c9c4a6bfdc) dependabot-preview[bot] *2020-05-12 22:16:50*
+
+**Bump react-router-dom from 5.1.2 to 5.2.0 in /cms**
+
+ * Bumps [react-router-dom](https://github.com/ReactTraining/react-router) from 5.1.2 to 5.2.0.
+ * - [Release notes](https://github.com/ReactTraining/react-router/releases)
+ * - [Changelog](https://github.com/ReactTraining/react-router/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/ReactTraining/react-router/compare/v5.1.2...v5.2.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[d884a8a77b528bf](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/d884a8a77b528bf) dependabot-preview[bot] *2020-05-11 22:14:19*
+
+**Bump ts-jest from 25.5.0 to 25.5.1 in /cms**
+
+ * Bumps [ts-jest](https://github.com/kulshekhar/ts-jest) from 25.5.0 to 25.5.1.
+ * - [Release notes](https://github.com/kulshekhar/ts-jest/releases)
+ * - [Changelog](https://github.com/kulshekhar/ts-jest/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/kulshekhar/ts-jest/compare/v25.5.0...v25.5.1)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[afe388061b33a78](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/afe388061b33a78) dependabot-preview[bot] *2020-05-11 22:13:48*
+
+**Add CHANGELOG to new Release**
+
+
+[5337e515ff1ce60](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/5337e515ff1ce60) Phat Ho *2020-05-10 14:05:15*
+
+
 ## 0.0.5
 ### GitHub [#101](https://github.com/DeKal/illuminati/issues/101) CMS: Fix Readme of CMS
 
