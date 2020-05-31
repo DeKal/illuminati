@@ -188,6 +188,6 @@ bootRun {
 	classpath = sourceSets.main.runtimeClasspath + configurations.developmentOnly
 }
 
-afterReleaseBuild {
+preTagCommit {
 	dependsOn generateGitChangelogMinimal
 }
