@@ -70,7 +70,6 @@ public class PostControllerTest {
                 "01/01/2020",
                 "Phat Ho",
                 null,
-                17,
                 tags);
     }
 

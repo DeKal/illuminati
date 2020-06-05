@@ -33,5 +33,4 @@ public class PostEntity {
     private long viewNum;
     private long commentNum;
     private long likeNum;
-    private long timeRead;
 }

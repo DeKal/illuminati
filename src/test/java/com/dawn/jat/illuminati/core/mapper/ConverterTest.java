@@ -45,7 +45,6 @@ class ConverterTest {
                 "01/01/2020 new",
                 "Li Li new",
                 "new content",
-                5,
                 tags);
     }
 
