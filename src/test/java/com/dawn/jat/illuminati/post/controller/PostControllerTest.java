@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -71,15 +70,14 @@ public class PostControllerTest {
                 "01/01/2020",
                 "Phat Ho",
                 null,
+                17,
                 tags);
     }
 
     @Test
     public void findBySlug_whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         String mockSlug = postEntity1.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
-
-        Mockito.when(postService.findBySlug(mockSlug)).thenReturn(mockPostEntities);
+        Mockito.when(postService.getPost(mockSlug)).thenReturn(postDto);
 
         ResponseEntity<Object> responseEntity = postController.getPostBySlug(mockSlug);
         assertNotNull(responseEntity);
@@ -89,9 +87,8 @@ public class PostControllerTest {
 
     @Test
     void findBySlug_whenPostIdIsUnAvail_thenRetrievedPostIsIncorrect() {
-        Optional<PostEntity> emptyEntities = Optional.empty();
-        Mockito.when(postService.findBySlug(""))
-                .thenReturn(emptyEntities);
+        Mockito.when(postService.getPost(""))
+                .thenReturn(null);
 
         assertThrows(PostNotFoundException.class, () -> {
             postController.getPostBySlug("");
@@ -101,7 +98,7 @@ public class PostControllerTest {
     @Test
     public void getPostSummary_whenPostSummaryIdIsAvail_thenRetrievedPostSummaryIsCorrect() {
         List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
-        Mockito.when(postService.findPostSummary()).thenReturn(mockPostEntities);
+        Mockito.when(postService.getPostList()).thenReturn(mockPostEntities);
 
         ResponseEntity<Object> responseEntity = postController.getAllPostSummary();
         assertNotNull(responseEntity);
@@ -111,7 +108,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostSummary_whenPostSummaryIdIsUnAvail_thenRetrievedPostSummaryIsIncorrect() {
-        Mockito.when(postService.findPostSummary())
+        Mockito.when(postService.getPostList())
                 .thenReturn(new ArrayList<>());
 
         assertThrows(PostSummaryNotFoundException.class, () -> {
@@ -121,26 +118,26 @@ public class PostControllerTest {
 
     @Test
     public void create_whenPostSuccessfullyCreate_sendSuccessResponseWithPost() {
-        Mockito.when(postService.create(postDto))
-                .thenReturn(postEntity1);
+        Mockito.when(postService.createPost(postDto))
+                .thenReturn(postDto);
 
-        ResponseEntity<Object> responseEntity = postController.createPost(postDto);
+        ResponseEntity<?> responseEntity = postController.createPost(postDto);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
     @Test
     public void savePost_whenPostSuccessfullySaved_sendSuccessResponseWithPost() {
-        Mockito.when(postService.save(postDto))
-                .thenReturn(postEntity1);
+        Mockito.when(postService.savePost(postDto))
+                .thenReturn(true);
 
-        ResponseEntity<Object> responseEntity = postController.savePost(postDto);
+        ResponseEntity<?> responseEntity = postController.savePost(postDto);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
     }
 
     @Test
     public void savePost_whenPostFailedToSave_throwPostCannotBeSavedException() {
-        Mockito.when(postService.save(postDto))
-                .thenReturn(null);
+        Mockito.when(postService.savePost(postDto))
+                .thenReturn(false);
 
         Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
             postController.savePost(postDto);

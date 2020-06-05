@@ -18,5 +18,6 @@ public class PostDto {
     private String time;
     private String author;
     private String content;
+    private long timeRead;
     private Map<String, Boolean> tag;
 }

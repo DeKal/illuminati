@@ -1,17 +1,20 @@
-package com.dawn.jat.illuminati.core.convert;
+package com.dawn.jat.illuminati.core.mapper;
 
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-
+import java.util.Objects;
 import org.springframework.stereotype.Service;
 
 @Service
 public class Converter {
     private  <T> List<String> convertMapKeysToArray(Map<String, T> map) {
+        if (Objects.isNull(map)) {
+            return Collections.emptyList();
+        }
         List<String> list = new ArrayList<>();
         map.forEach((key, value) -> {
             list.add(key);

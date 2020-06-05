@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.core.convert;
+package com.dawn.jat.illuminati.core.mapper;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -45,6 +45,7 @@ class ConverterTest {
                 "01/01/2020 new",
                 "Li Li new",
                 "new content",
+                5,
                 tags);
     }
 

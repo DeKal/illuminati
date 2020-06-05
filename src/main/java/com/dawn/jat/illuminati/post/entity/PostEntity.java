@@ -1,7 +1,6 @@
 package com.dawn.jat.illuminati.post.entity;
 
 import java.util.List;
-
 import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
@@ -34,4 +33,5 @@ public class PostEntity {
     private long viewNum;
     private long commentNum;
     private long likeNum;
+    private long timeRead;
 }

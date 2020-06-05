@@ -5,7 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
-import com.dawn.jat.illuminati.core.convert.Converter;
+import com.dawn.jat.illuminati.core.mapper.Converter;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
@@ -70,13 +70,14 @@ public class PostServiceTest {
                 "01/01/2020 new",
                 "Li Li new",
                 "new content",
+                10,
                 tags);
     }
 
     @Test
     public void findPostSummary_whenNoRecord() {
         Mockito.when(postSummaryRepository.findAll()).thenReturn(Arrays.asList());
-        assertThat(postService.findPostSummary().size(), is(0));
+        assertThat(postService.getPostList().size(), is(0));
         Mockito.verify(postSummaryRepository, Mockito.times(1)).findAll();
     }
 
@@ -85,18 +86,18 @@ public class PostServiceTest {
         List mockPostEntities = Arrays.asList(postSummaryEntity);
 
         Mockito.when(postSummaryRepository.findAll()).thenReturn(mockPostEntities);
-        assertThat(postService.findPostSummary().size(), is(1));
-        assertThat(postService.findPostSummary().get(0), is(postSummaryEntity));
+        assertThat(postService.getPostList().size(), is(1));
+        assertThat(postService.getPostList().get(0), is(postSummaryEntity));
         Mockito.verify(postSummaryRepository, Mockito.times(2)).findAll();
     }
 
     @Test
     public void findPostBySlug() {
         String mockSlug = postEntity.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
+        PostEntity mockPostEntities = postEntity;
 
         Mockito.when(postRepository.findBySlug(mockSlug)).thenReturn(mockPostEntities);
-        assertThat(postService.findBySlug(mockSlug), is(mockPostEntities));
+        assertThat(postService.getPost(mockSlug), is(postDto));
         Mockito.verify(postRepository, Mockito.times(1)).findBySlug(mockSlug);
     }
 
@@ -114,7 +115,7 @@ public class PostServiceTest {
                 .thenReturn(postEntity);
         Mockito.when(postRepository.savePost(any(PostEntity.class)))
                 .thenReturn(postEntity);
-        assertThat(postService.create(postDto), is(postEntity));
+        assertThat(postService.createPost(postDto), is(postEntity));
         Mockito.verify(postRepository, Mockito.times(1)).savePost(postEntity);
     }
 
@@ -133,7 +134,7 @@ public class PostServiceTest {
         Mockito.when(postRepository.findById(postDto.getId()))
                 .thenReturn(Optional.of(postEntity));
 
-        postService.save(postDto);
+        postService.savePost(postDto);
 
 
         Mockito.verify(postRepository, Mockito.times(1)).findById(postDto.getId());
@@ -152,7 +153,7 @@ public class PostServiceTest {
                 .thenReturn(Optional.empty());
 
         Assertions.assertThrows(PostNotFoundException.class, () -> {
-            postService.save(postDto);
+            postService.savePost(postDto);
         });
     }
 }

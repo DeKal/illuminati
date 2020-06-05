@@ -2,9 +2,7 @@ package com.dawn.jat.illuminati.login.service;
 
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.repository.LoginRepository;
-
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
