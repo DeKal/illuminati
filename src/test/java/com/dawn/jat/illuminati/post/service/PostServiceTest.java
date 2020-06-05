@@ -54,12 +54,15 @@ public class PostServiceTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity("how-to-apply-agile-methodology",
+        String tagList[] = new String[] { "System Design", "OOP" };
+        postEntity = new PostEntity("5e80afe11de7a40da7f97052",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology",
-                "Guide",
+                "How to apply Agile methodology new",
                 "01/01/2020",
-                new ArrayList<>(Arrays.asList("Agile")),
-                "Phat Ho");
+                new ArrayList<>(Arrays.asList(tagList)),
+                "Li Li new",
+                "new content");
         HashMap tags = new HashMap();
         tags.put("System Design", Boolean.TRUE);
         tags.put("OOP", Boolean.TRUE);
@@ -120,33 +123,33 @@ public class PostServiceTest {
 
     @Test
     void savePost_WithDto_SuccessfullySaveDto() {
-
-        PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
+        String tagList[] = new String[] { "System Design", "OOP" };
+        PostEntity expectedPost = new PostEntity("5e80afe11de7a40da7f97052",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
                 "How to apply Agile methodology new",
                 "01/01/2020 new",
-                new ArrayList<>(Arrays.asList("System Design", "OOP")),
-                "Li Li new");
+                new ArrayList<>(Arrays.asList(tagList)),
+                "Li Li new",
+                "");
         expectedPost.setContent("new content");
-        Mockito.when(postRepository.findById(postDto.getId()))
-                .thenReturn(Optional.of(postEntity));
         Mockito.when(postRepository.findById(postDto.getId()))
                 .thenReturn(Optional.of(postEntity));
 
         postService.savePost(postDto);
-
-
         Mockito.verify(postRepository, Mockito.times(1)).findById(postDto.getId());
     }
 
     @Test
     void savePost_WithDto_ThrowPostNotFoundException() {
-        PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
+        PostEntity expectedPost = new PostEntity("5e80",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
                 "How to apply Agile methodology new",
                 "01/01/2020 new",
-                new ArrayList<>(Arrays.asList("System Design", "OOP")),
-                "Li Li new");
+                new ArrayList<>(Arrays.asList("System Design")),
+                "Li Li new",
+                "");
         expectedPost.setContent("new content");
         Mockito.when(postRepository.findById(postDto.getId()))
                 .thenReturn(Optional.empty());

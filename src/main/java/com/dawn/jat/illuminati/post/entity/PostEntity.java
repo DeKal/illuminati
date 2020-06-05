@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "post")
 public class PostEntity {
-    @Id
+    @Id @NonNull
     private String id;
     @NonNull
     private String slug;
@@ -29,6 +29,7 @@ public class PostEntity {
     private List<String> tag;
     @NonNull
     private String author;
+    @NonNull
     private String content;
     private long viewNum;
     private long commentNum;

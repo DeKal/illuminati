@@ -29,15 +29,18 @@ class ConverterTest {
 
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity("how-to-apply-agile-methodology",
+        postEntity = new PostEntity("123",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology",
                 "Guide",
                 "01/01/2020",
                 new ArrayList<>(Arrays.asList("Agile")),
-                "Phat Ho");
+                "Phat Ho",
+                "new content");
         HashMap tags = new HashMap();
         tags.put("System Design", Boolean.TRUE);
         tags.put("OOP", Boolean.TRUE);
+        tags.put("Algorithm", Boolean.FALSE);
         postDto = new PostDto("5e80afe11de7a40da7f97052",
                 "how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
@@ -51,12 +54,14 @@ class ConverterTest {
     @Test
     public void convertPostDtoToEntity_givenDto_returnEntity() {
         PostEntity actualEntity = converter.convertPostDtoToEntity(postDto, postEntity);
-        PostEntity expectedPostEntity = new PostEntity("how-to-apply-agile-methodology",
+        PostEntity expectedPostEntity = new PostEntity("5e80afe11de7a40da7f97052",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
                 "How to apply Agile methodology new",
                 "01/01/2020 new",
                 new ArrayList<>(Arrays.asList("OOP", "System Design")),
-                "Li Li new");
+                "Li Li new",
+                "");
         expectedPostEntity.setContent("new content");
         assertThat(actualEntity, is(expectedPostEntity));
     }

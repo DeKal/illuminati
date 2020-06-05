@@ -47,19 +47,23 @@ public class PostControllerTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity1 = new PostEntity("how-to-apply-agile-methodology",
+        postEntity1 = new PostEntity("5e80afe11de7a40da7f97052",
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology",
                 "Guide",
                 "01/01/2020",
                 new ArrayList<>(Arrays.asList("Agile")),
-                "Phat Ho");
+                "Phat Ho",
+                "new content");
 
-        postEntity2 = new PostEntity("getting-started-with-reactjs",
+        postEntity2 = new PostEntity("5e80afe11de7a40da7f97052",
+                "getting-started-with-reactjs",
                 "Getting started with ReactJS",
                 "Guide",
                 "02/01/2020",
                 new ArrayList<>(Arrays.asList("Web Development", "Frontend")),
-                "Phat Ho");
+                "Phat Ho",
+                "");
 
         HashMap tags = new HashMap();
         tags.put("Agile", Boolean.TRUE);
@@ -69,7 +73,7 @@ public class PostControllerTest {
                 "Guide",
                 "01/01/2020",
                 "Phat Ho",
-                null,
+                "",
                 tags);
     }
 
