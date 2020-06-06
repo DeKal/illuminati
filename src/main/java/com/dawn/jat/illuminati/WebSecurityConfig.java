@@ -1,6 +1,6 @@
 package com.dawn.jat.illuminati;
 
-import com.dawn.jat.illuminati.login.security.UserAuthenticationProvider;
+import com.dawn.jat.illuminati.login.provider.UserAuthenticationProvider;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

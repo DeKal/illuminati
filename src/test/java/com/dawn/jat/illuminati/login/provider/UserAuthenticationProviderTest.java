@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.login.security;
+package com.dawn.jat.illuminati.login.provider;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.dawn.jat.illuminati.login.authority.AdminAuthority;
+import com.dawn.jat.illuminati.login.authority.NormalAuthority;
+import com.dawn.jat.illuminati.login.authority.UserAuthority;
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.mock.MockAuthentication;
 import com.dawn.jat.illuminati.login.service.LoginService;

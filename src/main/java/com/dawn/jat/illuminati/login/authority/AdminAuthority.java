@@ -1,4 +1,4 @@
-package com.dawn.jat.illuminati.login.security;
+package com.dawn.jat.illuminati.login.authority;
 
 import lombok.Generated;
 
