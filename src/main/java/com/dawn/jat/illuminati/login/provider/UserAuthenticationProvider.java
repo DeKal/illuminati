@@ -1,5 +1,8 @@
-package com.dawn.jat.illuminati.login.security;
+package com.dawn.jat.illuminati.login.provider;
 
+import com.dawn.jat.illuminati.login.authority.AdminAuthority;
+import com.dawn.jat.illuminati.login.authority.NormalAuthority;
+import com.dawn.jat.illuminati.login.authority.UserAuthority;
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.service.LoginService;
 

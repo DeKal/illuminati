@@ -1,10 +1,10 @@
-package com.dawn.jat.illuminati.login.security;
+package com.dawn.jat.illuminati.login.authority;
 
 import lombok.Generated;
 import org.springframework.security.core.GrantedAuthority;
 
 @Generated
-abstract class UserAuthority implements GrantedAuthority {
+public abstract class UserAuthority implements GrantedAuthority {
     public enum Roles {
         ADMIN("admin"), USER("user");
         private String role;
