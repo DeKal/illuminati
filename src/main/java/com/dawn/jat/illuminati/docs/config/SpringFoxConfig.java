@@ -3,6 +3,8 @@ package com.dawn.jat.illuminati.docs.config;
 import com.dawn.jat.illuminati.docs.entity.InternalServerResponse;
 import com.fasterxml.classmate.TypeResolver;
 import com.google.common.collect.Lists;
+import java.util.List;
+
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -17,7 +19,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import java.util.List;
 
 @Generated
 @Configuration
@@ -26,6 +27,9 @@ public class SpringFoxConfig {
     @Autowired
     private TypeResolver typeResolver;
 
+    /**
+     * Add api to swagger.
+     */
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)

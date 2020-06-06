@@ -11,11 +11,11 @@ import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
 
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.util.List;
 import java.util.Optional;
 
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,7 +55,9 @@ public class PostController {
      * @throws PostSummaryNotFoundException if Post Summary has No Content
      */
     @GetMapping(value = "/all-post/summary")
-    @ApiResponses({@ApiResponse(code = 200, message = "OK", response = PostSummariesResponse.class)})
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK", response = PostSummariesResponse.class)
+    })
     public ResponseEntity<Object> getAllPostSummary() {
         List<PostSummaryEntity> allPost = postService.findPostSummary();
 
