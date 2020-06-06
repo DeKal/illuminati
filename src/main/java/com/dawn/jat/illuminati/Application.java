@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @Generated
 @SpringBootApplication
-public class IlluminatiApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(IlluminatiApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
 }
