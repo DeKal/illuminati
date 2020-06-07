@@ -11,6 +11,9 @@ See [Installation Guide](/docs/install.md).
 ## Run/Build/Deploy Process
 See [Process Guide](/docs/process.md).
 
+## API documentation
+See [API Guide](/docs/swagger.md).
+
 ## Development
 See [Deveplopment Guide](/docs/dev.md).
 
@@ -34,6 +37,9 @@ See [MongoDB Simple Guide](/docs/mongo_guide.md).
 
 ## Mongo Import/Export Data
 See [MongoDB Import/Export Guide](/docs/mongo_import_export.md).
+
+## Documentation
+See more docs at [Help](/docs/HELP.md)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
