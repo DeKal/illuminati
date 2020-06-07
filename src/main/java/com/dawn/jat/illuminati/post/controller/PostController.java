@@ -1,6 +1,8 @@
 package com.dawn.jat.illuminati.post.controller;
 
 import com.dawn.jat.illuminati.core.response.SuccessResponse;
+import com.dawn.jat.illuminati.docs.entity.GetPostResponse;
+import com.dawn.jat.illuminati.docs.entity.PostSummariesResponse;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
@@ -8,8 +10,12 @@ import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
+
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +37,7 @@ public class PostController {
      * Gets a Post by the slug.
      */
     @GetMapping(value = "/{slug}")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
     public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
         Optional<PostEntity> postEntity = postService.findBySlug(slug);
 
@@ -44,9 +51,13 @@ public class PostController {
 
     /**
      * Gets list of Post Summary.
+     *
      * @throws PostSummaryNotFoundException if Post Summary has No Content
      */
     @GetMapping(value = "/all-post/summary")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "OK", response = PostSummariesResponse.class)
+    })
     public ResponseEntity<Object> getAllPostSummary() {
         List<PostSummaryEntity> allPost = postService.findPostSummary();
 
@@ -62,6 +73,7 @@ public class PostController {
      * Create a Post in to database.
      */
     @PostMapping(value = "/create")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
     public ResponseEntity<Object> createPost(@RequestBody PostDto post) {
         PostEntity savedPost = postService.create(post);
         SuccessResponse resp = new SuccessResponse(savedPost);
@@ -70,9 +82,11 @@ public class PostController {
 
     /**
      * Save an edited Post in to database.
+     *
      * @throws PostCannotBeSavedException if post cannot be saved
      */
     @PostMapping(value = "/save")
+    @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
     public ResponseEntity<Object> savePost(@RequestBody PostDto post) {
         PostEntity savedPost = postService.save(post);
         if (savedPost == null) {

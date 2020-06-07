@@ -1,10 +1,11 @@
-package com.dawn.jat.illuminati;
+package com.dawn.jat.illuminati.core.config;
 
 import com.dawn.jat.illuminati.login.provider.UserAuthenticationProvider;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -31,7 +32,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         }
         http.authorizeRequests()
                 .antMatchers("/login", "/login/**").permitAll()
-                .antMatchers("/api/**").permitAll()
+                .antMatchers(HttpMethod.GET,
+                        "/api/**",
+                        "/v2/api-docs",
+                        "/swagger-resources/**",
+                        "/swagger-ui.html**",
+                        "/webjars/**",
+                        "favicon.ico"
+                ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
