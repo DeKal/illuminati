@@ -2,6 +2,174 @@
 
 Changelog of Git Changelog Gradle plugin.
 
+## 0.0.7
+### GitHub [#210](https://github.com/DeKal/illuminati/issues/210) Spring Post Request is Forbidden by CSRF
+
+**[#210] Disable CSRF**
+
+
+[1ccb804f488ab09](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/1ccb804f488ab09) Phat Ho *2020-06-06 05:00:44*
+
+
+### GitHub [#217](https://github.com/DeKal/illuminati/issues/217) Adding Swagger 
+
+**[#217] Add document for swagger**
+
+
+[37f57441933d1d0](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/37f57441933d1d0) Phat Ho *2020-06-07 04:07:27*
+
+**[#217] Improve swagger doc**
+
+
+[f4877ae92ee77e3](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f4877ae92ee77e3) Phat Ho *2020-06-06 17:14:50*
+
+**[#217] Fix checkstyle and covcode error**
+
+
+[4510e288458bb9f](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/4510e288458bb9f) Phat Ho *2020-06-06 16:41:04*
+
+**[#217] Adding swagger**
+
+
+[c5fdd0f2b54414f](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c5fdd0f2b54414f) Phat Ho *2020-06-06 16:28:21*
+
+
+### No issue
+
+**Update README.md**
+
+
+[993f41d20959495](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/993f41d20959495) Huu-Phat Ho *2020-06-07 05:35:21*
+
+**Set theme jekyll-theme-cayman**
+
+
+[f35e585f01eebac](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f35e585f01eebac) Huu-Phat Ho *2020-06-07 05:34:22*
+
+**Set theme jekyll-theme-architect**
+
+
+[cd3663776715b39](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/cd3663776715b39) Huu-Phat Ho *2020-06-07 05:32:31*
+
+**Set theme jekyll-theme-architect**
+
+
+[8367a2f46cd2cd4](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/8367a2f46cd2cd4) Huu-Phat Ho *2020-06-07 04:56:58*
+
+**Set theme jekyll-theme-cayman**
+
+
+[13c09cdccbe95c7](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/13c09cdccbe95c7) Huu-Phat Ho *2020-06-07 04:56:29*
+
+**Set theme jekyll-theme-architect**
+
+
+[14ad7cad6330924](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/14ad7cad6330924) Huu-Phat Ho *2020-06-07 04:48:08*
+
+**Set theme jekyll-theme-architect**
+
+
+[67403746f1af021](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/67403746f1af021) Huu-Phat Ho *2020-06-07 04:32:17*
+
+**Set theme jekyll-theme-cayman**
+
+
+[d2d1d570e89cd43](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/d2d1d570e89cd43) Huu-Phat Ho *2020-06-07 04:31:18*
+
+**Set theme jekyll-theme-minimal**
+
+
+[baae49f6f298645](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/baae49f6f298645) Huu-Phat Ho *2020-06-07 04:30:15*
+
+**[Sonar] Fix potential bug UI**
+
+
+[9f57a0d7c40a306](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/9f57a0d7c40a306) Phat Ho *2020-06-06 11:33:16*
+
+**[Update] Remove code quality from Scrutinize and try sonarcloud**
+
+
+[1c6528bfa09f1d9](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/1c6528bfa09f1d9) Phat Ho *2020-06-06 10:52:04*
+
+**[Refactor] Refactor and Remove css style**
+
+
+[eae64ed06db986b](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/eae64ed06db986b) Phat Ho *2020-06-06 10:37:35*
+
+**[Security] Bump websocket-extensions from 0.1.3 to 0.1.4 in /cms**
+
+ * Bumps [websocket-extensions](https://github.com/faye/websocket-extensions-node) from 0.1.3 to 0.1.4. **This update includes a security fix.**
+ * - [Release notes](https://github.com/faye/websocket-extensions-node/releases)
+ * - [Changelog](https://github.com/faye/websocket-extensions-node/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/faye/websocket-extensions-node/compare/0.1.3...0.1.4)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[310213829ecc32f](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/310213829ecc32f) dependabot-preview[bot] *2020-06-05 16:50:17*
+
+**Bump ts-jest from 26.0.0 to 26.1.0 in /cms**
+
+ * Bumps [ts-jest](https://github.com/kulshekhar/ts-jest) from 26.0.0 to 26.1.0.
+ * - [Release notes](https://github.com/kulshekhar/ts-jest/releases)
+ * - [Changelog](https://github.com/kulshekhar/ts-jest/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/kulshekhar/ts-jest/compare/v26.0.0...v26.1.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[9819b36daf334bd](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/9819b36daf334bd) dependabot-preview[bot] *2020-06-05 15:53:41*
+
+**Bump typescript from 3.9.3 to 3.9.5 in /cms**
+
+ * Bumps [typescript](https://github.com/Microsoft/TypeScript) from 3.9.3 to 3.9.5.
+ * - [Release notes](https://github.com/Microsoft/TypeScript/releases)
+ * - [Commits](https://github.com/Microsoft/TypeScript/commits)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[f7597320d9d2a82](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f7597320d9d2a82) dependabot-preview[bot] *2020-06-04 22:16:17*
+
+**Bump stylelint from 13.5.0 to 13.6.0 in /cms**
+
+ * Bumps [stylelint](https://github.com/stylelint/stylelint) from 13.5.0 to 13.6.0.
+ * - [Release notes](https://github.com/stylelint/stylelint/releases)
+ * - [Changelog](https://github.com/stylelint/stylelint/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/stylelint/stylelint/compare/13.5.0...13.6.0)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[1dc991caa3f3b03](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/1dc991caa3f3b03) dependabot-preview[bot] *2020-06-04 22:15:48*
+
+**Bump @material-ui/lab from 4.0.0-alpha.54 to 4.0.0-alpha.55 in /cms**
+
+ * Bumps [@material-ui/lab](https://github.com/mui-org/material-ui/tree/HEAD/packages/material-ui-lab) from 4.0.0-alpha.54 to 4.0.0-alpha.55.
+ * - [Release notes](https://github.com/mui-org/material-ui/releases)
+ * - [Changelog](https://github.com/mui-org/material-ui/blob/master/CHANGELOG.md)
+ * - [Commits](https://github.com/mui-org/material-ui/commits/HEAD/packages/material-ui-lab)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[b9dd7ac10eb9150](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/b9dd7ac10eb9150) dependabot-preview[bot] *2020-06-01 22:16:33*
+
+**Bump clsx from 1.1.0 to 1.1.1 in /cms**
+
+ * Bumps [clsx](https://github.com/lukeed/clsx) from 1.1.0 to 1.1.1.
+ * - [Release notes](https://github.com/lukeed/clsx/releases)
+ * - [Commits](https://github.com/lukeed/clsx/compare/v1.1.0...v1.1.1)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[f0b65317695a25a](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/f0b65317695a25a) dependabot-preview[bot] *2020-06-01 22:15:09*
+
+**Bump @ckeditor/ckeditor5-build-classic from 19.0.0 to 19.0.2 in /cms**
+
+ * Bumps [@ckeditor/ckeditor5-build-classic](https://github.com/ckeditor/ckeditor5/tree/HEAD/packages/ckeditor5-build-classic) from 19.0.0 to 19.0.2.
+ * - [Release notes](https://github.com/ckeditor/ckeditor5/releases)
+ * - [Changelog](https://github.com/ckeditor/ckeditor5/blob/master/packages/ckeditor5-build-classic/CHANGELOG.md)
+ * - [Commits](https://github.com/ckeditor/ckeditor5/commits/HEAD/packages/ckeditor5-build-classic)
+ * Signed-off-by: dependabot-preview[bot] &lt;support@dependabot.com&gt;
+
+[a71e81c50021264](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/a71e81c50021264) dependabot-preview[bot] *2020-06-01 22:14:37*
+
+**Add CHANGELOG to new Release**
+
+
+[c6c91f144347e0d](https://github.com/tomasbjerre/git-changelog-gradle-plugin/commit/c6c91f144347e0d) Phat Ho *2020-05-31 13:19:30*
+
+
 ## 0.0.6
 ### No issue
 
