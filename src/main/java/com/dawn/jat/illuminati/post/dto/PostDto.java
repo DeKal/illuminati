@@ -19,4 +19,7 @@ public class PostDto {
     private String author;
     private String content;
     private Map<String, Boolean> tag;
+    private long viewNum;
+    private long commentNum;
+    private long likeNum;
 }

@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "post")
 public class PostEntity {
-    @Id @NonNull
+    @Id
     private String id;
     @NonNull
     private String slug;

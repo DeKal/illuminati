@@ -4,12 +4,12 @@ import com.dawn.jat.illuminati.core.mapper.Converter;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,10 @@ public class PostService {
     @Autowired
     private PostSummaryRepository postSummaryRepository;
 
-    public List<PostSummaryEntity> getPostList() {
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public List<PostSummaryEntity> getPostSummaries() {
         return postSummaryRepository.findAll();
     }
 
@@ -37,8 +40,7 @@ public class PostService {
      * @param slug String
      * @return PostDto
      */
-    public PostDto getPost(String slug) {
-        ModelMapper modelMapper = new ModelMapper();
+    public PostDto getPostBySlug(String slug) {
         return modelMapper.map(postRepository.findBySlug(slug), PostDto.class);
     }
 
@@ -52,41 +54,45 @@ public class PostService {
         PostEntity post = new PostEntity();
         post = converter.convertPostDtoToEntity(postDto, post);
         postRepository.savePost(post);
-        postDto.setId(post.getId());
         return postDto;
-    }
-
-    /**
-     * Find Post by id.
-     *
-     * @param id String
-     * @return PostDto
-     */
-    private PostDto getPostById(String id) {
-        Optional<PostEntity> postObj = postRepository.findById(id);
-        if (!postObj.isPresent()) {
-            throw new PostNotFoundException("Saved post cannot be found!!!");
-        }
-        ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(postObj.get(), PostDto.class);
     }
 
     /**
      * Save a post info to an existing post.
      *
-     * @param postDto PostDto
-     * @return Boolean
+     * @param rawPostDto PostDto
+     * @return PostDto
      */
-    public Boolean savePost(PostDto postDto) {
-        String id = postDto.getId();
-        if (Objects.isNull(id)) {
-            return false;
+    public PostDto savePost(PostDto rawPostDto) {
+        PostDto postDto = validateExistPost(rawPostDto);
+        PostEntity postEntity = postRepository.findById(postDto.getId()).get();
+        postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
+        postEntity = postRepository.savePost(postEntity);
+        if (Objects.isNull(postEntity)) {
+            throw new PostCannotBeSavedException("Post can not be saved.");
         }
-        PostDto newPostDto = getPostById(postDto.getId());
-        PostEntity newPostEntity = new PostEntity();
-        newPostEntity = converter.convertPostDtoToEntity(newPostDto, newPostEntity);
-        postRepository.savePost(newPostEntity);
-        return true;
+        return postDto;
+    }
+
+    /**
+     * Validate Existing Post.
+     *
+     * @param postDto PostDto
+     * @return PostDto
+     */
+    private PostDto validateExistPost(PostDto postDto) {
+        if (Objects.isNull(postDto.getId())) {
+            throw new PostNotFoundException(
+                    "Requested information is not exist. May be it was deleted."
+            );
+        }
+        Boolean existPost = postRepository.existsById(postDto.getId());
+        if (!existPost) {
+            throw new PostNotFoundException(
+                    "Requested information is not exist. May be it was deleted."
+            );
+        }
+        return postDto;
     }
 
     /**

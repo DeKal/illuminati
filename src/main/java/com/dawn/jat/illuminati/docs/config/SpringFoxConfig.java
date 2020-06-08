@@ -4,7 +4,6 @@ import com.dawn.jat.illuminati.docs.entity.InternalServerResponse;
 import com.fasterxml.classmate.TypeResolver;
 import com.google.common.collect.Lists;
 import java.util.List;
-
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
