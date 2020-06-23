@@ -53,21 +53,23 @@ public class PostService {
     public PostDto createPost(PostDto postDto) {
         PostEntity post = new PostEntity();
         post = converter.convertPostDtoToEntity(postDto, post);
-        postRepository.savePost(post);
-        return postDto;
+        post = postRepository.savePost(post);
+        return modelMapper.map(post, PostDto.class);
     }
 
     /**
      * Save a post info to an existing post.
      *
-     * @param rawPostDto PostDto
+     * @param postDto PostDto
      * @return PostDto
      */
-    public PostDto savePost(PostDto rawPostDto) {
-        PostDto postDto = validateExistPost(rawPostDto);
-        PostEntity postEntity = postRepository.findById(postDto.getId()).get();
-        postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
-        postEntity = postRepository.savePost(postEntity);
+    public PostDto savePost(PostDto postDto) {
+        PostEntity postEntity = null;
+        if(validateExistPost(postDto)) {
+            postEntity = postRepository.findById(postDto.getId()).get();
+            postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
+            postEntity = postRepository.savePost(postEntity);
+        }
         if (Objects.isNull(postEntity)) {
             throw new PostCannotBeSavedException("Post can not be saved.");
         }
@@ -80,19 +82,15 @@ public class PostService {
      * @param postDto PostDto
      * @return PostDto
      */
-    private PostDto validateExistPost(PostDto postDto) {
+    private Boolean validateExistPost(PostDto postDto) {
         if (Objects.isNull(postDto.getId())) {
-            throw new PostNotFoundException(
-                    "Requested information is not exist. May be it was deleted."
-            );
+            return false;
         }
         Boolean existPost = postRepository.existsById(postDto.getId());
         if (!existPost) {
-            throw new PostNotFoundException(
-                    "Requested information is not exist. May be it was deleted."
-            );
+            return false;
         }
-        return postDto;
+        return true;
     }
 
     /**

@@ -2,7 +2,7 @@ package com.dawn.jat.illuminati.post.service;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
@@ -11,7 +11,7 @@ import com.dawn.jat.illuminati.post.advice.PostExceptionAdvice;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
-import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
 
@@ -126,6 +126,7 @@ public class PostServiceTest {
                 .thenReturn(postEntity);
         Mockito.when(postRepository.savePost(any(PostEntity.class)))
                 .thenReturn(postEntity);
+        Mockito.when(modelMapper.map(any(), any())).thenReturn(postDto);
         assertThat(postService.createPost(postDto), is(postDto));
         Mockito.verify(postRepository, Mockito.times(1)).savePost(postEntity);
     }
@@ -161,19 +162,18 @@ public class PostServiceTest {
     }
 
     @Test
-    void savePost_WithDto_ThrowPostNotFoundException() {
-        Mockito.when(postRepository.existsById(postDto.getId()))
-                .thenReturn(false);
-        Assertions.assertThrows(PostNotFoundException.class, () -> {
+    void savePost_WithDto_getIdNullThrowPostCanNotBeSavedException_invalidPost() {
+        PostDto postDto = new PostDto();
+        postDto.setId(null);
+        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
             postService.savePost(postDto);
         });
     }
 
     @Test
-    void savePost_WithDto_ThrowPostNotFoundException_invalidPost() {
-        PostDto postDto = new PostDto();
-        postDto.setId(null);
-        Assertions.assertThrows(PostNotFoundException.class, () -> {
+    void savePost_WithDto_nonExistentPostThrowPostCanNotBeSavedException_invalidPost() {
+        Mockito.when(postRepository.existsById(postDto.getId())).thenReturn(false);
+        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
             postService.savePost(postDto);
         });
     }
