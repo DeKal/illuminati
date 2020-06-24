@@ -54,8 +54,6 @@ public class PostServiceTest {
     @Mock
     private ModelMapper modelMapper;
 
-    private PostExceptionAdvice advice = new PostExceptionAdvice();
-
     /**
      * Initializing postEntity object.
      */
@@ -82,6 +80,14 @@ public class PostServiceTest {
                 "new content",
                 tags,
                 0,0,0);
+
+        postSummaryEntity = new PostSummaryEntity("how-to-apply-agile-methodology",
+                "How to apply Agile methodology new",
+                "How to apply Agile methodology new",
+                "01/01/2020 new",
+                new String[]{"System Design", "OOP"},
+                "new content");
+
     }
 
     @Test
@@ -93,8 +99,7 @@ public class PostServiceTest {
 
     @Test
     public void findPostSummary_whenRecord() {
-        List mockPostEntities = Arrays.asList(postSummaryEntity);
-
+        List<PostSummaryEntity> mockPostEntities = Arrays.asList(postSummaryEntity);
         Mockito.when(postSummaryRepository.findAll()).thenReturn(mockPostEntities);
         assertThat(postService.getPostSummaries().size(), is(1));
         assertThat(postService.getPostSummaries().get(0), is(postSummaryEntity));
@@ -160,9 +165,9 @@ public class PostServiceTest {
 
     @Test
     void savePost_WithIdNullDto_ThrowPostCanNotBeSavedException() {
-        PostDto inputPostDto = new PostDto();
+        PostDto nullIdPostDto = new PostDto();
         Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
-            postService.savePost(inputPostDto);
+            postService.savePost(nullIdPostDto);
         });
     }
 

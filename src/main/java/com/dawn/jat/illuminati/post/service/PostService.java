@@ -64,16 +64,17 @@ public class PostService {
      * @return PostDto
      */
     public PostDto savePost(PostDto postDto) {
-        PostEntity postEntity = new PostEntity();
-        if(validateExistPost(postDto)) {
-            postEntity = postRepository.findById(postDto.getId()).get();
-            postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
-            postEntity = postRepository.savePost(postEntity);
+        PostEntity resultPostEntity = null;
+        if (validateExistPost(postDto)) {
+            PostEntity existedPostEntity = postRepository.findById(postDto.getId()).get();
+            PostEntity savePostEntity =
+                    converter.convertPostDtoToEntity(postDto, existedPostEntity);
+            resultPostEntity = postRepository.savePost(savePostEntity);
         }
-        if (Objects.isNull(postEntity)) {
+        if (Objects.isNull(resultPostEntity)) {
             throw new PostCannotBeSavedException("Post can not be saved.");
         }
-        return modelMapper.map(postEntity, PostDto.class);
+        return modelMapper.map(resultPostEntity, PostDto.class);
     }
 
     /**
