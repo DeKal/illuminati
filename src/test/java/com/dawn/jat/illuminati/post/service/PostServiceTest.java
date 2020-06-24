@@ -5,11 +5,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
-import com.dawn.jat.illuminati.core.convert.Converter;
+import com.dawn.jat.illuminati.core.mapper.Converter;
+import com.dawn.jat.illuminati.post.advice.PostExceptionAdvice;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
-import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
 
@@ -27,6 +28,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
@@ -49,17 +51,23 @@ public class PostServiceTest {
     @InjectMocks
     PostService postService;
 
+    @Mock
+    private ModelMapper modelMapper;
+
     /**
      * Initializing postEntity object.
      */
     @BeforeAll
     public static void init() {
-        postEntity = new PostEntity("how-to-apply-agile-methodology",
+        postEntity = new PostEntity(
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology",
-                "Guide",
+                "How to apply Agile methodology new",
                 "01/01/2020",
-                new ArrayList<>(Arrays.asList("Agile")),
-                "Phat Ho");
+                new ArrayList<>(Arrays.asList("System Design", "OOP")),
+                "Li Li new",
+                "new content");
+
         HashMap tags = new HashMap();
         tags.put("System Design", Boolean.TRUE);
         tags.put("OOP", Boolean.TRUE);
@@ -70,33 +78,41 @@ public class PostServiceTest {
                 "01/01/2020 new",
                 "Li Li new",
                 "new content",
-                tags);
+                tags,
+                0,0,0);
+
+        postSummaryEntity = new PostSummaryEntity("how-to-apply-agile-methodology",
+                "How to apply Agile methodology new",
+                "How to apply Agile methodology new",
+                "01/01/2020 new",
+                new String[]{"System Design", "OOP"},
+                "new content");
+
     }
 
     @Test
     public void findPostSummary_whenNoRecord() {
         Mockito.when(postSummaryRepository.findAll()).thenReturn(Arrays.asList());
-        assertThat(postService.findPostSummary().size(), is(0));
+        assertThat(postService.getPostSummaries().size(), is(0));
         Mockito.verify(postSummaryRepository, Mockito.times(1)).findAll();
     }
 
     @Test
     public void findPostSummary_whenRecord() {
-        List mockPostEntities = Arrays.asList(postSummaryEntity);
-
+        List<PostSummaryEntity> mockPostEntities = Arrays.asList(postSummaryEntity);
         Mockito.when(postSummaryRepository.findAll()).thenReturn(mockPostEntities);
-        assertThat(postService.findPostSummary().size(), is(1));
-        assertThat(postService.findPostSummary().get(0), is(postSummaryEntity));
+        assertThat(postService.getPostSummaries().size(), is(1));
+        assertThat(postService.getPostSummaries().get(0), is(postSummaryEntity));
         Mockito.verify(postSummaryRepository, Mockito.times(2)).findAll();
     }
 
     @Test
-    public void findPostBySlug() {
+    public void getPostBySlug() {
         String mockSlug = postEntity.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity);
+        PostDto resultPostDto = new PostDto();
+        Mockito.when(modelMapper.map(any(), any())).thenReturn(resultPostDto);
 
-        Mockito.when(postRepository.findBySlug(mockSlug)).thenReturn(mockPostEntities);
-        assertThat(postService.findBySlug(mockSlug), is(mockPostEntities));
+        assertThat(postService.getPostBySlug(mockSlug), is(resultPostDto));
         Mockito.verify(postRepository, Mockito.times(1)).findBySlug(mockSlug);
     }
 
@@ -114,45 +130,52 @@ public class PostServiceTest {
                 .thenReturn(postEntity);
         Mockito.when(postRepository.savePost(any(PostEntity.class)))
                 .thenReturn(postEntity);
-        assertThat(postService.create(postDto), is(postEntity));
+        Mockito.when(modelMapper.map(any(), any())).thenReturn(postDto);
+        assertThat(postService.createPost(postDto), is(postDto));
         Mockito.verify(postRepository, Mockito.times(1)).savePost(postEntity);
     }
 
     @Test
     void savePost_WithDto_SuccessfullySaveDto() {
-
-        PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
+        PostEntity expectedPost = new PostEntity(
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology new",
                 "How to apply Agile methodology new",
                 "01/01/2020 new",
                 new ArrayList<>(Arrays.asList("System Design", "OOP")),
-                "Li Li new");
+                "Li Li new",
+                "");
         expectedPost.setContent("new content");
-        Mockito.when(postRepository.findById(postDto.getId()))
+        String id = postDto.getId();
+
+        Mockito.when(postRepository.existsById(id))
+                .thenReturn(true);
+
+        Mockito.when(postRepository.findById(id))
                 .thenReturn(Optional.of(postEntity));
-        Mockito.when(postRepository.findById(postDto.getId()))
-                .thenReturn(Optional.of(postEntity));
 
-        postService.save(postDto);
+        Mockito.when(converter.convertPostDtoToEntity(eq(postDto), any(PostEntity.class)))
+                .thenReturn(postEntity);
 
+        Mockito.when(postRepository.savePost(postEntity)).thenReturn(postEntity);
 
-        Mockito.verify(postRepository, Mockito.times(1)).findById(postDto.getId());
+        Mockito.when(modelMapper.map(any(), any())).thenReturn(postDto);
+        assertThat(postService.savePost(postDto), is(postDto));
     }
 
     @Test
-    void savePost_WithDto_ThrowPostNotFoundException() {
-        PostEntity expectedPost = new PostEntity("how-to-apply-agile-methodology",
-                "How to apply Agile methodology new",
-                "How to apply Agile methodology new",
-                "01/01/2020 new",
-                new ArrayList<>(Arrays.asList("System Design", "OOP")),
-                "Li Li new");
-        expectedPost.setContent("new content");
-        Mockito.when(postRepository.findById(postDto.getId()))
-                .thenReturn(Optional.empty());
+    void savePost_WithIdNullDto_ThrowPostCanNotBeSavedException() {
+        PostDto nullIdPostDto = new PostDto();
+        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
+            postService.savePost(nullIdPostDto);
+        });
+    }
 
-        Assertions.assertThrows(PostNotFoundException.class, () -> {
-            postService.save(postDto);
+    @Test
+    void savePost_WithNonExistentDto_ThrowPostCanNotBeSavedException() {
+        Mockito.when(postRepository.existsById(postDto.getId())).thenReturn(false);
+        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
+            postService.savePost(postDto);
         });
     }
 }

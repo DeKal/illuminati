@@ -1,17 +1,16 @@
 package com.dawn.jat.illuminati.post.service;
 
-import com.dawn.jat.illuminati.core.convert.Converter;
+import com.dawn.jat.illuminati.core.mapper.Converter;
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
+import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.repository.PostRepository;
 import com.dawn.jat.illuminati.post.repository.PostSummaryRepository;
-
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
+import java.util.Objects;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,44 +27,78 @@ public class PostService {
     @Autowired
     private PostSummaryRepository postSummaryRepository;
 
-    public List<PostSummaryEntity> findPostSummary() {
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public List<PostSummaryEntity> getPostSummaries() {
         return postSummaryRepository.findAll();
     }
 
-    public Optional<PostEntity> findBySlug(String slug) {
-        return postRepository.findBySlug(slug);
+    /**
+     * Get Post by Slug.
+     *
+     * @param slug String
+     * @return PostDto
+     */
+    public PostDto getPostBySlug(String slug) {
+        return modelMapper.map(postRepository.findBySlug(slug), PostDto.class);
     }
 
     /**
      * Create new Entity from postDTO receive from client.
+     *
      * @param postDto PostDto
-     * @return PostEntity
+     * @return PostDto
      */
-    public PostEntity create(PostDto postDto) {
-        PostEntity post = new PostEntity();
-        post = converter.convertPostDtoToEntity(postDto, post);
-        return postRepository.savePost(post);
-    }
-
-    private PostEntity findById(String id) {
-        Optional<PostEntity> postObj = postRepository.findById(id);
-        if (!postObj.isPresent()) {
-            throw new PostNotFoundException("Saved post cannot be found!!!");
-        }
-        return postObj.get();
+    public PostDto createPost(PostDto postDto) {
+        PostEntity postEntity = new PostEntity();
+        postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
+        postEntity = postRepository.savePost(postEntity);
+        return modelMapper.map(postEntity, PostDto.class);
     }
 
     /**
      * Save a post info to an existing post.
+     *
      * @param postDto PostDto
-     * @return PostEntity
+     * @return PostDto
      */
-    public PostEntity save(PostDto postDto) {
-        PostEntity savedPost = findById(postDto.getId());
-        savedPost = converter.convertPostDtoToEntity(postDto, savedPost);
-        return postRepository.savePost(savedPost);
+    public PostDto savePost(PostDto postDto) {
+        PostEntity resultPostEntity = null;
+        if (validateExistPost(postDto)) {
+            PostEntity existedPostEntity = postRepository.findById(postDto.getId()).get();
+            PostEntity savePostEntity =
+                    converter.convertPostDtoToEntity(postDto, existedPostEntity);
+            resultPostEntity = postRepository.savePost(savePostEntity);
+        }
+        if (Objects.isNull(resultPostEntity)) {
+            throw new PostCannotBeSavedException("Post can not be saved.");
+        }
+        return modelMapper.map(resultPostEntity, PostDto.class);
     }
 
+    /**
+     * Validate Existing Post.
+     *
+     * @param postDto PostDto
+     * @return PostDto
+     */
+    private Boolean validateExistPost(PostDto postDto) {
+        if (Objects.isNull(postDto.getId())) {
+            return false;
+        }
+        Boolean existPost = postRepository.existsById(postDto.getId());
+        if (!existPost) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Delete an existing post.
+     *
+     * @param slug String
+     */
     public void deleteBySlug(String slug) {
         postRepository.deleteBySlug(slug);
     }

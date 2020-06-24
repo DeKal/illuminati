@@ -5,11 +5,9 @@ import com.dawn.jat.illuminati.login.authority.NormalAuthority;
 import com.dawn.jat.illuminati.login.authority.UserAuthority;
 import com.dawn.jat.illuminati.login.entity.User;
 import com.dawn.jat.illuminati.login.service.LoginService;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

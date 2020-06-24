@@ -4,18 +4,15 @@ import com.dawn.jat.illuminati.core.response.SuccessResponse;
 import com.dawn.jat.illuminati.docs.entity.GetPostResponse;
 import com.dawn.jat.illuminati.docs.entity.PostSummariesResponse;
 import com.dawn.jat.illuminati.post.dto.PostDto;
-import com.dawn.jat.illuminati.post.entity.PostEntity;
 import com.dawn.jat.illuminati.post.entity.PostSummaryEntity;
 import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
-
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import java.util.List;
-import java.util.Optional;
-
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,13 +36,12 @@ public class PostController {
     @GetMapping(value = "/{slug}")
     @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
     public ResponseEntity<Object> getPostBySlug(@PathVariable("slug") String slug) {
-        Optional<PostEntity> postEntity = postService.findBySlug(slug);
+        PostDto postDto = postService.getPostBySlug(slug);
 
-        if (!postEntity.isPresent()) {
+        if (Objects.isNull(postDto)) {
             throw new PostNotFoundException("Cannot find post");
         }
-
-        SuccessResponse resp = new SuccessResponse(postEntity);
+        SuccessResponse resp = new SuccessResponse(postDto);
         return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
@@ -59,7 +55,7 @@ public class PostController {
             @ApiResponse(code = 200, message = "OK", response = PostSummariesResponse.class)
     })
     public ResponseEntity<Object> getAllPostSummary() {
-        List<PostSummaryEntity> allPost = postService.findPostSummary();
+        List<PostSummaryEntity> allPost = postService.getPostSummaries();
 
         if (allPost.isEmpty()) {
             throw new PostSummaryNotFoundException("Cannot find post summary");
@@ -74,10 +70,11 @@ public class PostController {
      */
     @PostMapping(value = "/create")
     @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
-    public ResponseEntity<Object> createPost(@RequestBody PostDto post) {
-        PostEntity savedPost = postService.create(post);
-        SuccessResponse resp = new SuccessResponse(savedPost);
-        return new ResponseEntity<>(resp, HttpStatus.OK);
+    public ResponseEntity<?> createPost(@RequestBody PostDto inputPostDto) {
+        PostDto newPostDto = postService.createPost(inputPostDto);
+
+        SuccessResponse resp = new SuccessResponse(newPostDto);
+        return new ResponseEntity<>(resp, HttpStatus.CREATED);
     }
 
     /**
@@ -87,12 +84,9 @@ public class PostController {
      */
     @PostMapping(value = "/save")
     @ApiResponses({@ApiResponse(code = 200, message = "OK", response = GetPostResponse.class)})
-    public ResponseEntity<Object> savePost(@RequestBody PostDto post) {
-        PostEntity savedPost = postService.save(post);
-        if (savedPost == null) {
-            throw new PostCannotBeSavedException("Failed to save Post");
-        }
-        SuccessResponse resp = new SuccessResponse(savedPost);
+    public ResponseEntity<?> savePost(@RequestBody PostDto inputPostDto) {
+        PostDto newPostDto = postService.savePost(inputPostDto);
+        SuccessResponse resp = new SuccessResponse(newPostDto);
         return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 }

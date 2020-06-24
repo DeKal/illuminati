@@ -7,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.dawn.jat.illuminati.post.dto.PostDto;
 import com.dawn.jat.illuminati.post.entity.PostEntity;
-import com.dawn.jat.illuminati.post.exception.PostCannotBeSavedException;
 import com.dawn.jat.illuminati.post.exception.PostNotFoundException;
 import com.dawn.jat.illuminati.post.exception.PostSummaryNotFoundException;
 import com.dawn.jat.illuminati.post.service.PostService;
@@ -16,9 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -48,19 +45,23 @@ public class PostControllerTest {
      */
     @BeforeAll
     public static void init() {
-        postEntity1 = new PostEntity("how-to-apply-agile-methodology",
+        postEntity1 = new PostEntity(
+                "how-to-apply-agile-methodology",
                 "How to apply Agile methodology",
                 "Guide",
                 "01/01/2020",
                 new ArrayList<>(Arrays.asList("Agile")),
-                "Phat Ho");
+                "Phat Ho",
+                "new content");
 
-        postEntity2 = new PostEntity("getting-started-with-reactjs",
+        postEntity2 = new PostEntity(
+                "getting-started-with-reactjs",
                 "Getting started with ReactJS",
                 "Guide",
                 "02/01/2020",
                 new ArrayList<>(Arrays.asList("Web Development", "Frontend")),
-                "Phat Ho");
+                "Phat Ho",
+                "");
 
         HashMap tags = new HashMap();
         tags.put("Agile", Boolean.TRUE);
@@ -70,16 +71,15 @@ public class PostControllerTest {
                 "Guide",
                 "01/01/2020",
                 "Phat Ho",
-                null,
-                tags);
+                "",
+                tags,
+                0,0,0);
     }
 
     @Test
     public void findBySlug_whenPostIdIsAvail_thenRetrievedPostIsCorrect() {
         String mockSlug = postEntity1.getSlug();
-        Optional<PostEntity> mockPostEntities = Optional.of(postEntity1);
-
-        Mockito.when(postService.findBySlug(mockSlug)).thenReturn(mockPostEntities);
+        Mockito.when(postService.getPostBySlug(mockSlug)).thenReturn(postDto);
 
         ResponseEntity<Object> responseEntity = postController.getPostBySlug(mockSlug);
         assertNotNull(responseEntity);
@@ -89,9 +89,8 @@ public class PostControllerTest {
 
     @Test
     void findBySlug_whenPostIdIsUnAvail_thenRetrievedPostIsIncorrect() {
-        Optional<PostEntity> emptyEntities = Optional.empty();
-        Mockito.when(postService.findBySlug(""))
-                .thenReturn(emptyEntities);
+        Mockito.when(postService.getPostBySlug(""))
+                .thenReturn(null);
 
         assertThrows(PostNotFoundException.class, () -> {
             postController.getPostBySlug("");
@@ -101,7 +100,7 @@ public class PostControllerTest {
     @Test
     public void getPostSummary_whenPostSummaryIdIsAvail_thenRetrievedPostSummaryIsCorrect() {
         List mockPostEntities = Arrays.asList(postEntity1, postEntity2);
-        Mockito.when(postService.findPostSummary()).thenReturn(mockPostEntities);
+        Mockito.when(postService.getPostSummaries()).thenReturn(mockPostEntities);
 
         ResponseEntity<Object> responseEntity = postController.getAllPostSummary();
         assertNotNull(responseEntity);
@@ -111,7 +110,7 @@ public class PostControllerTest {
 
     @Test
     public void getPostSummary_whenPostSummaryIdIsUnAvail_thenRetrievedPostSummaryIsIncorrect() {
-        Mockito.when(postService.findPostSummary())
+        Mockito.when(postService.getPostSummaries())
                 .thenReturn(new ArrayList<>());
 
         assertThrows(PostSummaryNotFoundException.class, () -> {
@@ -121,29 +120,19 @@ public class PostControllerTest {
 
     @Test
     public void create_whenPostSuccessfullyCreate_sendSuccessResponseWithPost() {
-        Mockito.when(postService.create(postDto))
-                .thenReturn(postEntity1);
+        Mockito.when(postService.createPost(postDto))
+                .thenReturn(postDto);
 
-        ResponseEntity<Object> responseEntity = postController.createPost(postDto);
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        ResponseEntity<?> responseEntity = postController.createPost(postDto);
+        assertEquals(HttpStatus.CREATED, responseEntity.getStatusCode());
     }
 
     @Test
     public void savePost_whenPostSuccessfullySaved_sendSuccessResponseWithPost() {
-        Mockito.when(postService.save(postDto))
-                .thenReturn(postEntity1);
+        Mockito.when(postService.savePost(postDto))
+                .thenReturn(postDto);
 
-        ResponseEntity<Object> responseEntity = postController.savePost(postDto);
+        ResponseEntity<?> responseEntity = postController.savePost(postDto);
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-    }
-
-    @Test
-    public void savePost_whenPostFailedToSave_throwPostCannotBeSavedException() {
-        Mockito.when(postService.save(postDto))
-                .thenReturn(null);
-
-        Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
-            postController.savePost(postDto);
-        });
     }
 }
