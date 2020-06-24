@@ -228,7 +228,7 @@ exports[`Toast should render with error state 1`] = `
                             <div
                               className="MuiAlert-icon"
                             >
-                              <ForwardRef
+                              <ForwardRef(ErrorOutlineIcon)
                                 fontSize="inherit"
                               >
                                 <WithStyles(ForwardRef(SvgIcon))
@@ -251,7 +251,7 @@ exports[`Toast should render with error state 1`] = `
                                     fontSize="inherit"
                                   >
                                     <svg
-                                      aria-hidden="true"
+                                      aria-hidden={true}
                                       className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
                                       focusable="false"
                                       viewBox="0 0 24 24"
@@ -262,7 +262,7 @@ exports[`Toast should render with error state 1`] = `
                                     </svg>
                                   </ForwardRef(SvgIcon)>
                                 </WithStyles(ForwardRef(SvgIcon))>
-                              </ForwardRef>
+                              </ForwardRef(ErrorOutlineIcon)>
                             </div>
                             <div
                               className="MuiAlert-message"
@@ -347,7 +347,7 @@ exports[`Toast should render with error state 1`] = `
                                         <span
                                           className="MuiIconButton-label"
                                         >
-                                          <ForwardRef
+                                          <ForwardRef(CloseIcon)
                                             fontSize="small"
                                           >
                                             <WithStyles(ForwardRef(SvgIcon))
@@ -370,7 +370,7 @@ exports[`Toast should render with error state 1`] = `
                                                 fontSize="small"
                                               >
                                                 <svg
-                                                  aria-hidden="true"
+                                                  aria-hidden={true}
                                                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
                                                   focusable="false"
                                                   viewBox="0 0 24 24"
@@ -381,7 +381,7 @@ exports[`Toast should render with error state 1`] = `
                                                 </svg>
                                               </ForwardRef(SvgIcon)>
                                             </WithStyles(ForwardRef(SvgIcon))>
-                                          </ForwardRef>
+                                          </ForwardRef(CloseIcon)>
                                         </span>
                                         <WithStyles(memo)
                                           center={true}
@@ -662,7 +662,7 @@ exports[`Toast should render with success state 1`] = `
                             <div
                               className="MuiAlert-icon"
                             >
-                              <ForwardRef
+                              <ForwardRef(SuccessOutlinedIcon)
                                 fontSize="inherit"
                               >
                                 <WithStyles(ForwardRef(SvgIcon))
@@ -685,7 +685,7 @@ exports[`Toast should render with success state 1`] = `
                                     fontSize="inherit"
                                   >
                                     <svg
-                                      aria-hidden="true"
+                                      aria-hidden={true}
                                       className="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit"
                                       focusable="false"
                                       viewBox="0 0 24 24"
@@ -696,7 +696,7 @@ exports[`Toast should render with success state 1`] = `
                                     </svg>
                                   </ForwardRef(SvgIcon)>
                                 </WithStyles(ForwardRef(SvgIcon))>
-                              </ForwardRef>
+                              </ForwardRef(SuccessOutlinedIcon)>
                             </div>
                             <div
                               className="MuiAlert-message"
@@ -781,7 +781,7 @@ exports[`Toast should render with success state 1`] = `
                                         <span
                                           className="MuiIconButton-label"
                                         >
-                                          <ForwardRef
+                                          <ForwardRef(CloseIcon)
                                             fontSize="small"
                                           >
                                             <WithStyles(ForwardRef(SvgIcon))
@@ -804,7 +804,7 @@ exports[`Toast should render with success state 1`] = `
                                                 fontSize="small"
                                               >
                                                 <svg
-                                                  aria-hidden="true"
+                                                  aria-hidden={true}
                                                   className="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall"
                                                   focusable="false"
                                                   viewBox="0 0 24 24"
@@ -815,7 +815,7 @@ exports[`Toast should render with success state 1`] = `
                                                 </svg>
                                               </ForwardRef(SvgIcon)>
                                             </WithStyles(ForwardRef(SvgIcon))>
-                                          </ForwardRef>
+                                          </ForwardRef(CloseIcon)>
                                         </span>
                                         <WithStyles(memo)
                                           center={true}
