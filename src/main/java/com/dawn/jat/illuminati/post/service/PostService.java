@@ -51,10 +51,10 @@ public class PostService {
      * @return PostDto
      */
     public PostDto createPost(PostDto postDto) {
-        PostEntity post = new PostEntity();
-        post = converter.convertPostDtoToEntity(postDto, post);
-        post = postRepository.savePost(post);
-        return modelMapper.map(post, PostDto.class);
+        PostEntity postEntity = new PostEntity();
+        postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
+        postEntity = postRepository.savePost(postEntity);
+        return modelMapper.map(postEntity, PostDto.class);
     }
 
     /**
@@ -64,7 +64,7 @@ public class PostService {
      * @return PostDto
      */
     public PostDto savePost(PostDto postDto) {
-        PostEntity postEntity = null;
+        PostEntity postEntity = new PostEntity();
         if(validateExistPost(postDto)) {
             postEntity = postRepository.findById(postDto.getId()).get();
             postEntity = converter.convertPostDtoToEntity(postDto, postEntity);
@@ -73,7 +73,7 @@ public class PostService {
         if (Objects.isNull(postEntity)) {
             throw new PostCannotBeSavedException("Post can not be saved.");
         }
-        return postDto;
+        return modelMapper.map(postEntity, PostDto.class);
     }
 
     /**

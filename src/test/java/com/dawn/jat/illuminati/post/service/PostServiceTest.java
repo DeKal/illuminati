@@ -2,7 +2,6 @@ package com.dawn.jat.illuminati.post.service;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 
@@ -143,12 +142,11 @@ public class PostServiceTest {
                 "");
         expectedPost.setContent("new content");
         String id = postDto.getId();
-        assertNotNull(id);
 
         Mockito.when(postRepository.existsById(id))
                 .thenReturn(true);
 
-        Mockito.when(postRepository.findById(postDto.getId()))
+        Mockito.when(postRepository.findById(id))
                 .thenReturn(Optional.of(postEntity));
 
         Mockito.when(converter.convertPostDtoToEntity(eq(postDto), any(PostEntity.class)))
@@ -156,22 +154,20 @@ public class PostServiceTest {
 
         Mockito.when(postRepository.savePost(postEntity)).thenReturn(postEntity);
 
-        postService.savePost(postDto);
-        assertNotNull(postDto);
-        Mockito.verify(postRepository, Mockito.times(1)).findById(postDto.getId());
+        Mockito.when(modelMapper.map(any(), any())).thenReturn(postDto);
+        assertThat(postService.savePost(postDto), is(postDto));
     }
 
     @Test
-    void savePost_WithDto_getIdNullThrowPostCanNotBeSavedException_invalidPost() {
-        PostDto postDto = new PostDto();
-        postDto.setId(null);
+    void savePost_WithIdNullDto_ThrowPostCanNotBeSavedException() {
+        PostDto inputPostDto = new PostDto();
         Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
-            postService.savePost(postDto);
+            postService.savePost(inputPostDto);
         });
     }
 
     @Test
-    void savePost_WithDto_nonExistentPostThrowPostCanNotBeSavedException_invalidPost() {
+    void savePost_WithNonExistentDto_ThrowPostCanNotBeSavedException() {
         Mockito.when(postRepository.existsById(postDto.getId())).thenReturn(false);
         Assertions.assertThrows(PostCannotBeSavedException.class, () -> {
             postService.savePost(postDto);
