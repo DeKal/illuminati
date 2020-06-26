@@ -3,7 +3,7 @@
 CI is supported by **Circle.io**.\
 Circle.io will start 2 workflow: (Looking at .circleci/config.yml for details)
 1) Using *Danger JS* to Check Pull Request(PR) Qualification.
-2) Using Gradle with openjdk 8 container to validate the PR.
+2) Using Gradle with openjdk 11 container to validate the PR.
 
 ## Danger JS
 - Ensure that PR has all the description, tag, reviewers and assignees, which helps a lot to build a good habit for team.

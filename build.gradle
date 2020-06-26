@@ -23,7 +23,7 @@ plugins {
 }
 
 group = 'com.dawn.jat'
-sourceCompatibility = '1.8'
+sourceCompatibility = '1.11'
 
 configurations {
 	developmentOnly
