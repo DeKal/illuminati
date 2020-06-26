@@ -12,7 +12,6 @@ import {
   INIT_POST
 } from 'core/state/actionType'
 import { toSuccess, toError, toRequest } from 'core/state/utils'
-import { arrayToAttributes } from 'core/utils/misc'
 
 import format from 'date-fns/format'
 
@@ -29,12 +28,10 @@ const post = (state = {}, action) => {
         ...state,
         loading: false,
         content: {
-          ...action.payload,
-          tag: arrayToAttributes(action.payload.tag)
+          ...action.payload
         },
         editedContent: {
-          ...action.payload,
-          tag: arrayToAttributes(action.payload.tag)
+          ...action.payload
         }
       }
     }
