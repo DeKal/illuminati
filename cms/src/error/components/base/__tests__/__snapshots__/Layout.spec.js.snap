@@ -21,12 +21,10 @@ exports[`Layout should render correctly 1`] = `
     Error: 
     Error at line xxx
   </Styled(p)>
-  <a
+  <Styled(a)
     href="/cms"
   >
-    <Styled(a)>
-       Go To Homepage 
-    </Styled(a)>
-  </a>
+     Go To Homepage 
+  </Styled(a)>
 </Fragment>
 `;

@@ -14,9 +14,8 @@ const Layout = ({ title, description, detail }) => {
       {detail && (
         <Description style={{ color: 'red' }}>Error: {detail}</Description>
       )}
-      <a href="/cms">
-        <Button> Go To Homepage </Button>
-      </a>
+
+      <Button href="/cms"> Go To Homepage </Button>
     </Fragment>
   )
 }
