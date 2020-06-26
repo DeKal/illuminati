@@ -2,7 +2,8 @@ import {
   stringtifyTags,
   calcMaxRowsPerPage,
   isPathMatchUrl,
-  attributesToArray
+  attributesToArray,
+  arrayToAttributes
 } from '../misc'
 
 describe('Misc ', () => {
@@ -46,6 +47,20 @@ describe('Misc ', () => {
         d: true
       }
       expect(attributesToArray(object)).toEqual(['a', 'c', 'd'])
+    })
+  })
+
+  describe('arrayToAttributes ', () => {
+    it('should convert array to object', function() {
+      const array = ['a', 'c', 'd']
+      expect(arrayToAttributes(array)).toEqual({
+        a: true,
+        c: true,
+        d: true
+      })
+
+      const emptyArray = []
+      expect(arrayToAttributes(emptyArray)).toEqual({})
     })
   })
 })

@@ -25,6 +25,7 @@ const renderError = error => {
       return <InternalServer message={message} />
     default:
     case undefined:
+      console.error(error)
       return <General message={error.toString()} />
   }
 }

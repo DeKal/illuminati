@@ -27,12 +27,14 @@ export const calcMaxRowsPerPage = postCount => {
 }
 
 export const arrayToAttributes = array =>
-  array.reduce((object, attribute) => {
-    return {
-      ...object,
-      [attribute]: true
-    }
-  }, {})
+  array
+    ? array.reduce((object, attribute) => {
+        return {
+          ...object,
+          [attribute]: true
+        }
+      }, {})
+    : {}
 
 export const attributesToArray = obj =>
   Object.keys(obj)
