@@ -5,7 +5,6 @@
 version: 2.1
 orbs:
   codecov: codecov/codecov@1.0.5
-  gradle: circleci/gradle@6.4
 jobs:
   build:
     docker:
@@ -34,7 +33,7 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: gradle dependencies
+      - run: ./gradlew dependencies
 
       - save_cache:
           paths:
@@ -42,8 +41,8 @@ jobs:
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
       # run tests!
-      - run: gradle clean check
-      - run: gradle jacocoTestCoverageVerification
+      - run: ./gradlew clean check
+      - run: ./gradlew jacocoTestCoverageVerification
       - codecov/upload:
           file: build/reports/jacoco/test/jacocoTestReport.xml
       - store_artifacts:
