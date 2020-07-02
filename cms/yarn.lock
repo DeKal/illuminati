@@ -1667,10 +1667,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@ckeditor/ckeditor5-build-classic@^19.0.2":
-  version "19.0.2"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-19.0.2.tgz#ecab0e38d3f6fa7560f6937d18f711243b20b978"
-  integrity sha512-yz2M9Q6jMy9zF+JiQiSoaG/m7Eu48H+Yi3FgtVGDFpLDqGUJntNsW26g3qZld5Pa4pgVPRmDcfKHzLTWAo3iRg==
+"@ckeditor/ckeditor5-build-classic@^20.0.0":
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-20.0.0.tgz#cbfb380baa632fd32ef007d92880e6656652f985"
+  integrity sha512-RlKMQUMzaoKQA09q/9ty4LQ+kdXZhzI6rsOzbAudBJzFX+FcY+48z9qr6EwYn9CdnCv9v0SjFi0K20s/Nb+Nkg==
 
 "@ckeditor/ckeditor5-react@^2.1.0":
   version "2.1.0"
