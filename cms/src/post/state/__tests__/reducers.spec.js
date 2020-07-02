@@ -44,7 +44,7 @@ describe('Post Reducer', () => {
           title: 'test',
           brief: 'test',
           time: 'test',
-          tag: ['test', 'test1'],
+          tag: { test: true, test1: true },
           author: 'test',
           content: 'test'
         }
