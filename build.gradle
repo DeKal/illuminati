@@ -54,7 +54,7 @@ dependencies {
 	}
 	testImplementation 'org.springframework.security:spring-security-test'
 	compile "io.springfox:springfox-swagger2:2.9.2"
-	compile 'io.springfox:springfox-swagger-ui:2.10.5'
+	compile 'io.springfox:springfox-swagger-ui:3.0.0'
 	compile 'org.modelmapper:modelmapper:2.3.8'
 }
 
