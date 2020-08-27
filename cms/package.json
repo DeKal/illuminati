@@ -13,7 +13,7 @@
     "@material-ui/pickers": "^3.2.10",
     "axios": "^0.20.0",
     "clsx": "^1.1.1",
-    "date-fns": "2.15.0",
+    "date-fns": "2.16.0",
     "lodash-es": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
