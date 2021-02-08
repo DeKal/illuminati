@@ -19,7 +19,7 @@ plugins {
 	id 'jacoco'
 	id "net.researchgate.release" version "2.8.1"
 	id "se.bjurr.gitchangelog.git-changelog-gradle-plugin" version "1.65"
-	id "com.github.node-gradle.node" version "2.2.4"
+	id "com.github.node-gradle.node" version "3.0.0"
 }
 
 group = 'com.dawn.jat'
