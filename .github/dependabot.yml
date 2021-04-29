@@ -1,0 +1,104 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "22:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - DeKal
+  assignees:
+  - DeKal
+  labels:
+  - enhancement
+  ignore:
+  - dependency-name: org.modelmapper:modelmapper
+    versions:
+    - 2.4.0
+    - 2.4.1
+  - dependency-name: org.springframework.boot
+    versions:
+    - 2.4.4
+  - dependency-name: org.springframework.boot:spring-boot-gradle-plugin
+    versions:
+    - 2.4.4
+  - dependency-name: com.github.node-gradle.node
+    versions:
+    - 3.0.0
+- package-ecosystem: npm
+  directory: "/cms"
+  schedule:
+    interval: daily
+    time: "22:00"
+  open-pull-requests-limit: 10
+  reviewers:
+  - DeKal
+  assignees:
+  - DeKal
+  labels:
+  - enhancement
+  ignore:
+  - dependency-name: babel-jest
+    versions:
+    - "> 24.9.0"
+  - dependency-name: prettier
+    versions:
+    - "> 1.19.1"
+  - dependency-name: date-fns
+    versions:
+    - 2.18.0
+    - 2.19.0
+    - 2.20.0
+    - 2.20.1
+    - 2.20.2
+    - 2.20.3
+    - 2.21.0
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: y18n
+    versions:
+    - 4.0.1
+  - dependency-name: "@ckeditor/ckeditor5-build-classic"
+    versions:
+    - 26.0.0
+    - 27.0.0
+  - dependency-name: stylelint
+    versions:
+    - 13.11.0
+    - 13.12.0
+  - dependency-name: typescript
+    versions:
+    - 4.1.4
+    - 4.1.5
+  - dependency-name: react
+    versions:
+    - 17.0.1
+  - dependency-name: "@ckeditor/ckeditor5-react"
+    versions:
+    - 3.0.0
+    - 3.0.1
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.0
+    - 26.5.1
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
+  - dependency-name: "@material-ui/core"
+    versions:
+    - 4.11.3
+  - dependency-name: "@date-io/date-fns"
+    versions:
+    - 2.10.6
+  - dependency-name: eslint-plugin-react
+    versions:
+    - 7.22.0
